@@ -1,40 +1,14 @@
-import '@aws-amplify/ui-react/styles.css';
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { hydrateRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { App } from './site';
 import './index.css';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import ErrorPage from './error-page';
-import { Amplify } from 'aws-amplify';
-import awsconfig from './aws-exports.js';
-import Root from './router';
-import TopPage from './pages/top';
-import ContactPage from './pages/contact';
-import ContactSentPage from './pages/contact-sent';
-Amplify.configure(awsconfig);
 
-const router = createBrowserRouter([
-  {
-    element: <Root />,
-    // element: <App/>,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: '/',
-        element: <TopPage />,
-      },
-      {
-        path: '/contact',
-        element: <ContactPage />,
-      },
-      {
-        path: '/contact-sent',
-        element: <ContactSentPage />,
-      },
-    ],
-  },
-]);
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+hydrateRoot(
+  document.getElementById('root') as HTMLElement,
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
 );
