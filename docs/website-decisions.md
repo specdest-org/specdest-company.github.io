@@ -310,3 +310,12 @@ They should not think: “This company sells engineers, offshore development, Re
 - Remaining known issue: `www.specdest.com` 404 / broken redirect while Firebase custom-domain verification and SSL provisioning are incomplete.
 - Expected behavior after Firebase/domain setup completes: `http://www.specdest.com/` and `https://www.specdest.com/` should redirect or resolve safely to `https://specdest.com/`.
 - Re-run Ahrefs `New crawl` after DNS/Firebase SSL status becomes verified/connected.
+## 30. Deployment command - source of truth
+- Do not rely on a globally installed `firebase` CLI.
+- Do not run raw `firebase deploy` commands for routine deployment.
+- Use the repository npm scripts instead:
+  - `npm run deploy` = build + Firebase Hosting deployment to project `specdest-lp`.
+  - `npm run deploy:hosting` = deploy the current `dist` without rebuilding.
+- The scripts use `pnpm dlx firebase-tools` and explicitly pass `--project specdest-lp`, so no active Firebase project alias is required.
+- Before production deployment, `firebase.json` must still point to `dist`.
+- Future sessions should read `package.json` and this decision record before attempting deployment.

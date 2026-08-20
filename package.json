@@ -12,7 +12,9 @@
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist-server",
     "build": "tsc --noEmit && npm run build:client && npm run build:server && node scripts/prerender.mjs",
     "preview": "vite preview",
-    "seo:audit": "node scripts/seo-audit.mjs"
+    "seo:audit": "node scripts/seo-audit.mjs",
+    "deploy": "npm run build && pnpm dlx firebase-tools deploy --only hosting --project specdest-lp",
+    "deploy:hosting": "pnpm dlx firebase-tools deploy --only hosting --project specdest-lp"
   },
   "dependencies": {
     "react": "18.2.0",
