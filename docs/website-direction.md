@@ -73,15 +73,15 @@ Hero video should be slow, cinematic, professional, and used as a visual layer o
 The site must not be text-only. Prefer real project screenshots, product UI, diagrams, and carefully selected editorial/corporate imagery. Case studies should be visually strong.
 
 ## Information Architecture
-Preferred top navigation:
-- ソリューション
+Current approved top navigation:
 - 課題から探す
+- ソリューション
+- ご支援の進め方
 - 導入事例
-- インサイト
 - 会社情報
 - お問い合わせ
 
-Use rich corporate mega menus for ソリューション, 課題から探す, and 会社情報. The header should make the site feel like a complete corporate website, not a small landing page.
+Order is intentional: **problem first, technology second**. Use rich corporate mega menus for 課題から探す, ソリューション, 導入事例, and 会社情報. The header should make the site feel like a complete corporate website, not a small landing page. Insights remain unpublished until real articles exist.
 
 ### 課題から探す
 This is an important Specdest concept and is preferred over forcing an industry-based navigation model.
@@ -119,10 +119,9 @@ Preferred flow:
 6. 課題から探す
 7. Selected case studies
 8. Capabilities
-9. Insights
-10. Company
-11. Contact
-12. Large corporate footer
+9. Company
+10. Contact
+11. Large corporate footer
 
 The homepage should read as a narrative, not Hero → Services → Features → Contact.
 
@@ -146,12 +145,60 @@ Use a substantial corporate footer containing:
 - Specdest brand + fixed slogan
 - ソリューション
 - 導入事例
-- リソース / インサイト
 - Specdestについて
 - お問い合わせ
-- site map / terms / privacy / security / cookie links
+- site map and contact links
 
 ## Desired Final Impression
 A visitor should think: **“This is a serious technology company I can trust with a difficult business or technology problem.”**
 
 They should not think: “This company sells engineers, offshore development, React development, or packaged AI implementation.”
+
+## Content publication rule
+- Do not publish invented articles or placeholder pages.
+- Insights stay out of navigation until real articles exist.
+- Legal-policy links stay out of navigation until approved final text exists.
+- Company facts and case-study claims must be limited to information supported by company materials.
+- Do not publish representative personal details until explicitly approved.
+
+## お役立ち記事 / 日本語SEO Content
+The site now includes an お役立ち記事 section for Japanese organic traffic.
+
+Purpose:
+- Capture Japanese buyers searching for practical system-development and AI-adoption guidance.
+- Build trust before inquiry.
+- Explain cost, selection, AI adoption, Excel replacement, and failure prevention.
+
+Initial content topics:
+- システム開発会社の選び方
+- システム開発の費用相場
+- 業務システム開発で失敗する理由
+- Excel管理をシステム化するタイミング
+- 生成AIを業務に導入する方法
+
+Pricing direction:
+- Use ranges only as educational `目安`.
+- Do not make fixed-price packages visible unless approved.
+- Japanese competitors may avoid direct pricing on service pages, but many SEO articles publish cost-range guidance.
+- Specdest should use cost articles to reduce buyer anxiety while keeping actual quotations consultative.
+
+## 日本語SEO language rule
+- SEO-facing content should prioritize Japanese keywords and Japanese buyer language.
+- English labels are allowed only as brand accents, not as primary SEO labels.
+- Use terms such as システム開発会社, 業務システム開発, AI業務自動化, 生成AI導入, 費用相場, 外注, 失敗回避.
+
+## SEO Quality Checks
+Before deployment, run:
+
+```bash
+npm run build
+npm run seo:audit
+```
+
+The audit should report:
+- `pages_with_issues 0`
+- `sitemap_uses_www false`
+- `robots_uses_www false`
+- `canonical_uses_www false`
+
+Japanese SEO remains the priority for all service and article pages.

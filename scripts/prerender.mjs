@@ -7,7 +7,7 @@ const dist = path.join(root, 'dist');
 const serverFile = path.join(root, 'dist-server', 'entry-server.js');
 const { render, siteRoutes } = await import(pathToFileURL(serverFile).href);
 const template = await fs.readFile(path.join(dist, 'index.html'), 'utf8');
-const baseUrl = 'https://www.specdest.com';
+const baseUrl = 'https://specdest.com';
 
 function htmlFor(route) {
   const url = `${baseUrl}${route.path === '/' ? '/' : route.path}`;

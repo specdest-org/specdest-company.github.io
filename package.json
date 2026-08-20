@@ -11,7 +11,8 @@
     "build:client": "vite build",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist-server",
     "build": "tsc --noEmit && npm run build:client && npm run build:server && node scripts/prerender.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "seo:audit": "node scripts/seo-audit.mjs"
   },
   "dependencies": {
     "react": "18.2.0",

@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "site": "specdest-lp",
+    "public": "dist",
+    "ignore": ["firebase.demo.json", "firebase.json", "**/.*", "**/node_modules/**"],
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "rewrites": [
+      { "source": "**", "destination": "/index.html" }
+    ]
+  }
+}

@@ -1,0 +1,272 @@
+[
+  {
+    "file": "images/home/hero-poster.webp",
+    "unsplashPhotoId": "rgKX4o2xSqI",
+    "source": "https://unsplash.com/photos/rgKX4o2xSqI",
+    "description": "Team at whiteboard",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 72774
+  },
+  {
+    "file": "images/home/philosophy-working-session.webp",
+    "unsplashPhotoId": "Mo08jadTWYc",
+    "source": "https://unsplash.com/photos/Mo08jadTWYc",
+    "description": "UX designer working with screens",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 37438
+  },
+  {
+    "file": "images/home/case-workflow-platform.webp",
+    "unsplashPhotoId": "6-0ajRI1cgs",
+    "source": "https://unsplash.com/photos/6-0ajRI1cgs",
+    "description": "Business dashboard on laptop",
+    "width": 1600,
+    "height": 1000,
+    "bytes": 26392
+  },
+  {
+    "file": "images/home/company-environment.webp",
+    "unsplashPhotoId": "5aBGsyszcDE",
+    "source": "https://unsplash.com/photos/5aBGsyszcDE",
+    "description": "Modern Minato architecture",
+    "width": 1400,
+    "height": 1068,
+    "bytes": 84636
+  },
+  {
+    "file": "images/solutions/overview.webp",
+    "unsplashPhotoId": "LTEiQK0psZE",
+    "source": "https://unsplash.com/photos/LTEiQK0psZE",
+    "description": "Laptop and phone ecommerce workspace",
+    "width": 1600,
+    "height": 900,
+    "bytes": 45206
+  },
+  {
+    "file": "images/solutions/ai-technology.webp",
+    "unsplashPhotoId": "lCjRuyFrwGM",
+    "source": "https://unsplash.com/photos/lCjRuyFrwGM",
+    "description": "AI research assistant interface",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 24220
+  },
+  {
+    "file": "images/solutions/automation.webp",
+    "unsplashPhotoId": "iDqNlr1Y1_w",
+    "source": "https://unsplash.com/photos/iDqNlr1Y1_w",
+    "description": "Spreadsheet/data management workflow",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 35958
+  },
+  {
+    "file": "images/solutions/product-development.webp",
+    "unsplashPhotoId": "Pa0I38PfNPs",
+    "source": "https://unsplash.com/photos/Pa0I38PfNPs",
+    "description": "UI UX wireframe on tablet",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 54050
+  },
+  {
+    "file": "images/solutions/business-systems.webp",
+    "unsplashPhotoId": "Es33oEXaRrE",
+    "source": "https://unsplash.com/photos/Es33oEXaRrE",
+    "description": "Enterprise software interface",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 51316
+  },
+  {
+    "file": "images/solutions/poc-rd.webp",
+    "unsplashPhotoId": "GQOylIn892U",
+    "source": "https://unsplash.com/photos/GQOylIn892U",
+    "description": "Code and data charts",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 42188
+  },
+  {
+    "file": "images/solutions/system-improvement.webp",
+    "unsplashPhotoId": "olQgFvCqTpc",
+    "source": "https://unsplash.com/photos/olQgFvCqTpc",
+    "description": "Code and performance graphs",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 57106
+  },
+  {
+    "file": "images/challenges/overview.webp",
+    "unsplashPhotoId": "kjM2AxNsxNo",
+    "source": "https://unsplash.com/photos/kjM2AxNsxNo",
+    "description": "Business planning whiteboard",
+    "width": 1600,
+    "height": 900,
+    "bytes": 58634
+  },
+  {
+    "file": "images/challenges/ai-adoption.webp",
+    "unsplashPhotoId": "MSg17QHWf5Y",
+    "source": "https://unsplash.com/photos/MSg17QHWf5Y",
+    "description": "Person using AI workspace",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 24120
+  },
+  {
+    "file": "images/challenges/reduce-manual-work.webp",
+    "unsplashPhotoId": "9fZuqBYlV1w",
+    "source": "https://unsplash.com/photos/9fZuqBYlV1w",
+    "description": "Inventory spreadsheet/data entry",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 86208
+  },
+  {
+    "file": "images/challenges/launch-service.webp",
+    "unsplashPhotoId": "cVDEEV8Cphk",
+    "source": "https://unsplash.com/photos/cVDEEV8Cphk",
+    "description": "UI UX wireframing",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 54158
+  },
+  {
+    "file": "images/challenges/improve-existing-system.webp",
+    "unsplashPhotoId": "adFE-OdO7RA",
+    "source": "https://unsplash.com/photos/adFE-OdO7RA",
+    "description": "Charts and business analytics",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 29284
+  },
+  {
+    "file": "images/challenges/technology-selection.webp",
+    "unsplashPhotoId": "JXyY3jRV9oI",
+    "source": "https://unsplash.com/photos/JXyY3jRV9oI",
+    "description": "Project planning board",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 24502
+  },
+  {
+    "file": "images/challenges/shape-an-idea.webp",
+    "unsplashPhotoId": "_jn-AvCODl8",
+    "source": "https://unsplash.com/photos/_jn-AvCODl8",
+    "description": "Tablet wireframing and sketching",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 39190
+  },
+  {
+    "file": "images/approach/project-flow.webp",
+    "unsplashPhotoId": "AmhxmYXwbZM",
+    "source": "https://unsplash.com/photos/AmhxmYXwbZM",
+    "description": "Kanban planning board",
+    "width": 1400,
+    "height": 1000,
+    "bytes": 29014
+  },
+  {
+    "file": "images/cases/overview.webp",
+    "unsplashPhotoId": "fDisDvdiqrQ",
+    "source": "https://unsplash.com/photos/fDisDvdiqrQ",
+    "description": "Analytics dashboard",
+    "width": 1600,
+    "height": 900,
+    "bytes": 45670
+  },
+  {
+    "file": "images/cases/workflow-platform.webp",
+    "unsplashPhotoId": "3xMfIDN9WWw",
+    "source": "https://unsplash.com/photos/3xMfIDN9WWw",
+    "description": "Dashboard software on laptop",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 63860
+  },
+  {
+    "file": "images/cases/dog-face-recognition-ai.webp",
+    "unsplashPhotoId": "DwDCTnlp-V4",
+    "source": "https://unsplash.com/photos/DwDCTnlp-V4",
+    "description": "Frontal dog face",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 49298
+  },
+  {
+    "file": "images/cases/content-optimization.webp",
+    "unsplashPhotoId": "adFE-OdO7RA",
+    "source": "https://unsplash.com/photos/adFE-OdO7RA",
+    "description": "Analytics and optimization charts",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 29284
+  },
+  {
+    "file": "images/cases/ai-chatbot.webp",
+    "unsplashPhotoId": "XIZwjEtI2VA",
+    "source": "https://unsplash.com/photos/XIZwjEtI2VA",
+    "description": "Chatbot interface",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 22640
+  },
+  {
+    "file": "images/cases/ecommerce-platform.webp",
+    "unsplashPhotoId": "29KolnrEtDY",
+    "source": "https://unsplash.com/photos/29KolnrEtDY",
+    "description": "Laptop phone checkout setup",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 49584
+  },
+  {
+    "file": "images/company/overview.webp",
+    "unsplashPhotoId": "KmL6FeLXrfs",
+    "source": "https://unsplash.com/photos/KmL6FeLXrfs",
+    "description": "Tokyo modern facade",
+    "width": 1600,
+    "height": 900,
+    "bytes": 101180
+  },
+  {
+    "file": "images/company/about.webp",
+    "unsplashPhotoId": "wODKtuRipCA",
+    "source": "https://unsplash.com/photos/wODKtuRipCA",
+    "description": "Team planning at whiteboard",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 42368
+  },
+  {
+    "file": "images/company/philosophy.webp",
+    "unsplashPhotoId": "nTeV5jMSRd8",
+    "source": "https://unsplash.com/photos/nTeV5jMSRd8",
+    "description": "Technology work environment",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 40054
+  },
+  {
+    "file": "images/company/profile.webp",
+    "unsplashPhotoId": "9YQHRYHMBIE",
+    "source": "https://unsplash.com/photos/9YQHRYHMBIE",
+    "description": "Kitaaoyama modern building",
+    "width": 1400,
+    "height": 900,
+    "bytes": 81686
+  },
+  {
+    "file": "images/contact/contact-office.webp",
+    "unsplashPhotoId": "I-eeZespOBk",
+    "source": "https://unsplash.com/photos/I-eeZespOBk",
+    "description": "Tokyo business district exterior",
+    "width": 1200,
+    "height": 1000,
+    "bytes": 154652
+  }
+]
