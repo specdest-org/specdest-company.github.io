@@ -64,6 +64,7 @@
 .article-layout aside{position:sticky;top:116px;border-top:3px solid var(--navy);padding-top:22px}
 .article-layout aside p{color:var(--muted);font-size:14px;margin:0}
 .article-layout article{max-width:900px}
+.article-lead{font-size:20px!important;line-height:2!important;color:#34495a!important;margin:0 0 54px!important;padding-bottom:36px;border-bottom:1px solid var(--line)}
 .article-layout article>section{padding:0 0 48px;margin-bottom:48px;border-bottom:1px solid var(--line)}
 .article-layout article>section>span{display:block;font-size:12px;color:#197bb1;font-weight:800;margin-bottom:14px}
 .article-layout article h2{font-size:clamp(30px,3vw,46px);line-height:1.18;letter-spacing:-.035em;color:var(--navy);margin:0 0 20px}
