@@ -54,7 +54,7 @@ export const companyItems = [
 
 export const insightItems = [
   { slug: 'how-to-choose-system-development-company', title: 'システム開発会社の選び方', category: '発注準備' },
-  { slug: 'system-development-cost-guide', title: 'システム開発の費用相場', category: '発注準備' },
+  { slug: 'system-development-before-starting', title: 'システム開発を始める前に考えること', category: '発注準備' },
   { slug: 'business-system-failure-reasons', title: '業務システム開発で失敗する理由', category: '業務システム' },
   { slug: 'excel-to-business-system', title: 'Excel管理をシステム化するタイミング', category: '業務システム' },
   { slug: 'generative-ai-business-introduction', title: '生成AIを業務に導入する方法', category: 'AI活用' },
@@ -109,7 +109,7 @@ const baseRoutes = [
   { path: '/solutions', title: 'ソリューション | Specdest', description: 'Specdestのソリューション一覧です。AI活用、業務改善・自動化、業務システム開発、Webシステム開発、MVP開発、PoC・R&D、既存システム改善を、課題整理から実装・継続改善まで支援します。' },
   { path: '/challenges', title: '課題から探す | Specdest', description: 'AIを業務に活用したい、手作業を減らしたい、新規サービスを立ち上げたい、既存システムを改善したいなど、日本企業の課題から必要な技術、開発方法、進め方を整理します。' },
   { path: '/cases', title: '導入事例 | Specdest', description: 'AI開発、業務プラットフォーム、Webシステム、アプリ、EC、R&Dなど、Specdestが支援した開発・技術支援事例を紹介します。課題、取り組み、開発内容を整理しています。' },
-  { path: '/insights', title: 'システム開発・AI活用の実務記事 | Specdest', description: 'システム開発会社の選び方、費用相場、業務システム、Excel管理のシステム化、生成AI導入について、日本企業が発注前に確認したい実務ポイントを整理した記事一覧です。' },
+  { path: '/insights', title: 'システム開発・AI活用の実務記事 | Specdest', description: 'システム開発会社の選び方、開発前の整理、業務システム、Excel管理のシステム化、生成AI導入について、日本企業が発注前に確認したい実務ポイントを整理した記事一覧です。' },
   { path: '/approach', title: 'ご支援の進め方 | Specdest', description: '課題整理、技術選定、PoC・技術検証、設計・開発、運用・継続改善まで、Specdestのプロジェクトの進め方をご紹介します。要件が固まる前の相談から支援できます。' },
   { path: '/company', title: '会社情報 | Specdest', description: 'Specdest株式会社は、事業課題の整理、技術選定、AI活用、業務改善、システム開発、継続改善まで支援する日本のテクノロジーパートナーです。会社概要と考え方をご紹介します。' },
   { path: '/contact', title: '無料相談・お問い合わせ | Specdest', description: '業務システム開発、AI業務自動化、Webシステム開発、MVP開発、PoC・R&D、既存システム改善についてSpecdestへ無料相談できます。要件が固まっていない段階でもご相談ください。' },
@@ -117,8 +117,7 @@ const baseRoutes = [
   { path: '/services/ai-automation-development', title: 'AI業務自動化・生成AI導入支援 | Specdest', description: 'AI業務自動化、生成AI導入、社内業務へのAI活用、PoC、AI機能開発を、課題整理から設計・実装・継続改善まで支援します。既存システムや業務フローへのAI組み込みも相談できます。' },
   { path: '/services/web-system-development', title: 'Webシステム開発会社 | Specdest', description: 'Webシステム開発、業務Webアプリ、管理画面、外部サービス連携、運用改善まで、日本企業の業務と事業課題に合わせて支援します。構想整理から継続改善まで一貫して対応します。' },
   { path: '/services/mvp-development', title: 'MVP開発・新規サービス開発 | Specdest', description: 'MVP開発、新規サービス開発、デジタルプロダクト開発を、構想整理、要件整理、技術選定、本番開発、継続改善まで支援します。小さく検証しながら事業化を進めます。' },
-  { path: '/services/system-development-cost', title: 'システム開発の費用相場 | Specdest', description: 'システム開発、業務システム開発、Webシステム開発、AI導入、PoCの費用目安と、見積もりが変わる理由を日本企業向けに整理します。固定料金ではなく発注前の判断材料として解説します。' },
-];
+  ];
 const solutionSeoDescriptions: Record<string,string> = {
   'ai-technology': 'AI・テクノロジー活用支援について、生成AI、AI機能開発、PoC、Computer Vision、OCR、業務システムへのAI組み込みなど、課題整理から実装・改善まで支援します。',
   automation: '業務改善・自動化について、手作業、Excel管理、確認作業、社内ワークフローを整理し、SaaS連携、API連携、業務システム開発、AI活用を組み合わせて改善します。',
@@ -228,7 +227,7 @@ function Header() {
       body: 'システム開発、AI活用、業務改善について、相談前に読める実務記事です。',
       base: '/insights',
       groups: [
-        { label: '発注準備', links: insightItems.filter((x) => ['how-to-choose-system-development-company','system-development-cost-guide','system-requirements-before-rfp'].includes(x.slug)) },
+        { label: '発注準備', links: insightItems.filter((x) => ['how-to-choose-system-development-company','system-development-before-starting','system-requirements-before-rfp'].includes(x.slug)) },
         { label: '業務システム・改善', links: insightItems.filter((x) => ['business-system-failure-reasons','excel-to-business-system','business-automation-checklist','legacy-system-modernization'].includes(x.slug)) },
         { label: 'AI・MVP', links: insightItems.filter((x) => ['generative-ai-business-introduction','ai-poc-before-development','mvp-development-planning'].includes(x.slug)) },
       ],
@@ -301,7 +300,7 @@ function Footer() {
     <div className="footer-grid shell">
       <div className="footer-brand"><strong>Specdest</strong><p>Better, through technology.<br/>可能性を広げ、より良い未来へ。</p></div>
       <div><strong className="footer-heading">ソリューション</strong><Link to="/solutions/ai-technology">AI・テクノロジー活用</Link><Link to="/solutions/automation">業務改善・自動化</Link><Link to="/solutions/product-development">デジタルプロダクト開発</Link><Link to="/solutions/business-systems">業務システム開発</Link></div>
-      <div><strong className="footer-heading">見る</strong><Link to="/approach">ご支援の進め方</Link><Link to="/cases">導入事例</Link><Link to="/insights">お役立ち記事</Link><Link to="/insights/system-development-cost-guide">費用相場</Link></div>
+      <div><strong className="footer-heading">見る</strong><Link to="/approach">ご支援の進め方</Link><Link to="/cases">導入事例</Link><Link to="/insights">お役立ち記事</Link><Link to="/insights/system-development-before-starting">開発前の整理</Link></div>
       <div><strong className="footer-heading">開発サービス</strong><Link to="/services/business-system-development">業務システム開発</Link><Link to="/services/ai-automation-development">AI業務自動化</Link><Link to="/services/web-system-development">Webシステム開発</Link><Link to="/services/mvp-development">MVP開発</Link></div>
       <div><strong className="footer-heading">会社情報</strong><Link to="/company">Specdestについて</Link><Link to="/company/philosophy">Philosophy / Vision</Link><Link to="/company/profile">会社概要</Link></div>
     </div>
@@ -505,15 +504,15 @@ const insightDetails: Record<string, InsightDetail> = {
     ],
     cta: '開発会社選びの相談をする',
   },
-  'system-development-cost-guide': {
-    summary: 'システム開発費は要件、連携、権限、データ移行、運用条件で大きく変わります。固定価格ではなく、判断材料としての費用レンジを把握することが重要です。',
-    target: 'システム開発の予算感を知りたい企業担当者',
+  'system-development-before-starting': {
+    summary: 'システム開発を始める前に、目的、対象業務、利用者、運用体制、既存システムとの関係を整理しておくと、作るべきものと作らない方がよいものを判断しやすくなります。',
+    target: 'システム開発を検討し始めた企業担当者',
     sections: [
-      { heading: '費用レンジは「見積もり」ではなく判断材料', body: '日本のB2B開発では固定料金を大きく出さない会社も多いです。一方で、発注側は予算判断が必要です。そのため、Specdestでは固定パッケージ価格ではなく、一般的な目安として費用レンジを説明します。' },
-      { heading: '目安レンジ', body: '実際の金額は要件確認後に変わります。以下は発注前に検討するための一般的な目安です。', points: ['小規模な業務ツール・自動化: 数十万円〜200万円程度', '単一業務のWebシステム: 200万円〜800万円程度', '複数業務を扱う業務システム: 800万円〜3,000万円以上', 'AI / PoC: 50万円〜500万円程度から検討されることが多い'] },
-      { heading: '見積もりが変わる理由', body: '画面数だけでなく、権限設計、外部サービス連携、既存データ移行、セキュリティ、テスト、保守運用の範囲によって費用は大きく変わります。' },
+      { heading: 'まず「何を作るか」ではなく「何を変えるか」を決める', body: 'システム開発では、最初に機能一覧を作るよりも、現状のどの業務を変えたいのか、何がボトルネックなのか、利用者にどのような変化を起こしたいのかを整理することが重要です。', points: ['解決したい業務課題', '利用者と利用シーン', '現在の運用で困っている点', 'システム化後に変えたい状態'] },
+      { heading: '作る・つなぐ・既存サービスを使うを比較する', body: 'すべてを独自開発する必要はありません。既存SaaSで足りる部分、API連携で解決できる部分、独自開発すべき部分を分けることで、過剰な開発を避けられます。' },
+      { heading: '運用後に誰が使い、誰が改善するかを考える', body: 'リリース後の運用体制、権限管理、データ更新、問い合わせ対応、改善の優先順位づけまで考えておくと、使われ続けるシステムになりやすくなります。', points: ['管理者と利用者の役割', 'データ登録・更新の責任', '権限・承認フロー', '改善要望の扱い方'] },
     ],
-    cta: '概算見積もりを相談する',
+    cta: '開発前の整理を相談する',
   },
   'business-system-failure-reasons': {
     summary: '業務システム開発の失敗は、技術力不足だけでなく、現場業務の理解不足、要件の固定化、運用設計不足から起きます。',
@@ -646,7 +645,7 @@ function SeoServicePage({ slug }: { slug:string }) {
 function InsightsPage() {
   const categories = Array.from(new Set(insightItems.map((item) => item.category)));
   return <main className="subpage insights-page">
-    <section className="subhero menu-hero"><div className="shell"><div className="eyebrow">お役立ち記事</div><h1>発注前に、<br/>判断材料を整理する。</h1><p>システム開発、AI活用、業務改善について、費用・進め方・失敗回避の観点から整理します。</p></div></section>
+    <section className="subhero menu-hero"><div className="shell"><div className="eyebrow">お役立ち記事</div><h1>発注前に、<br/>判断材料を整理する。</h1><p>システム開発、AI活用、業務改善について、発注前の整理・進め方・失敗回避の観点から整理します。</p></div></section>
     <section className="insight-index section"><div className="shell"><div className="section-head"><div><div className="eyebrow">お役立ち記事</div><h2>実務記事</h2></div><p>検索流入と相談前の理解を増やすための、Specdest公式記事です。</p></div><div className="insight-category-nav">{categories.map((category)=><a key={category} href={`#${category}`}>{category}</a>)}</div>{categories.map((category)=><div className="insight-category-block" id={category} key={category}><h3>{category}</h3><div className="insight-list">{insightItems.filter((item)=>item.category===category).map((item,index)=><Link className="insight-row" key={item.slug} to={`/insights/${item.slug}`}><span>{String(index+1).padStart(2,'0')}</span><div><small>{item.category}</small><h3>{item.title}</h3><p>{insightDetails[item.slug].summary}</p></div><b>↗</b></Link>)}</div></div>)}</div></section>
     <SubContact />
   </main>;
@@ -756,7 +755,6 @@ export function App() {
     <Route path="/services/ai-automation-development" element={<SeoServicePage slug="ai-automation-development" />} />
     <Route path="/services/web-system-development" element={<SeoServicePage slug="web-system-development" />} />
     <Route path="/services/mvp-development" element={<SeoServicePage slug="mvp-development" />} />
-    <Route path="/services/system-development-cost" element={<InsightDetailPage item={insightItems.find((x)=>x.slug==='system-development-cost-guide')!} />} />
     <Route path="/contact" element={<ContactPage />} />
   </Routes><Footer /></>;
 }

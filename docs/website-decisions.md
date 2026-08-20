@@ -386,3 +386,13 @@ They should not think: “This company sells engineers, offshore development, Re
 - New article pages added: AI PoC, business automation checklist, MVP planning, legacy modernization, and pre-RFP requirements.
 - Prerender now injects JSON-LD for Organization, WebSite, BreadcrumbList, Article, and Service where relevant.
 - Local build and `npm run seo:audit` passed with 49 prerendered routes and `pages_with_issues 0`.
+
+## 32. Remove public development price-range article
+
+- Removed the public-facing system development cost guide framing.
+- Replaced it with a non-price article focused on what companies should consider before starting system development.
+- New canonical article URL: `/insights/system-development-before-starting`.
+- Old price-related URLs redirect to the new article:
+  - `/insights/system-development-cost-guide`
+  - `/services/system-development-cost`
+- Reason: avoid creating fixed price expectations before understanding business context, requirements, scope, integrations, and operating model.

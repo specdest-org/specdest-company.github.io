@@ -18,7 +18,9 @@
     "redirects": [
       { "source": "/about", "destination": "/company/about", "type": 301 },
       { "source": "/professional-service", "destination": "/solutions/product-development", "type": 301 },
-      { "source": "/automation", "destination": "/solutions/automation", "type": 301 }
+      { "source": "/automation", "destination": "/solutions/automation", "type": 301 },
+      { "source": "/insights/system-development-cost-guide", "destination": "/insights/system-development-before-starting", "type": 301 },
+      { "source": "/services/system-development-cost", "destination": "/insights/system-development-before-starting", "type": 301 }
     ],
     "rewrites": [
       { "source": "**", "destination": "/index.html" }
