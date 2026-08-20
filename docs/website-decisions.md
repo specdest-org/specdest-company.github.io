@@ -319,3 +319,60 @@ They should not think: “This company sells engineers, offshore development, Re
 - The scripts use `pnpm dlx firebase-tools` and explicitly pass `--project specdest-lp`, so no active Firebase project alias is required.
 - Before production deployment, `firebase.json` must still point to `dist`.
 - Future sessions should read `package.json` and this decision record before attempting deployment.
+
+## 31. Company page architecture - 2026-08-20
+- `/company/` is the canonical **Specdestについて** page and the main company overview.
+- `/company/about` must not exist as a separate content page; it redirects to `/company/`.
+- Company navigation contains only:
+  - `/company/` — Specdestについて
+  - `/company/philosophy` — Philosophy / Vision
+  - `/company/profile` — 会社概要
+- `/company/` should explain what Specdest is, what it does, its accountability, and links into philosophy/profile. It must not duplicate the philosophy page.
+- `/company/philosophy` is a dedicated editorial page for principles and decision philosophy. Do not render it through the generic company-detail layout.
+- `/company/profile` remains a factual corporate-information page.
+
+## 32. Secondary-page visual quality rules - 2026-08-20
+- Do not reuse one generic two/three-column visual composition across unrelated secondary pages.
+- Large headings must be checked at real desktop widths for awkward line breaks, clipping, and excessive vertical stacking.
+- Sticky-header navigation must always land new routes at the top; route changes must explicitly disable/restabilize browser scroll restoration when necessary.
+- Images must match the message of the section. Avoid recognizable third-party product UI/logos unless the page is specifically about that product.
+- Prefer non-human imagery where a person adds no meaning: product UI, infrastructure, devices, architecture, equipment, processes, or operational environments.
+- Internet reference images remain local assets under `public/images/`; remove superseded files when replacing them and maintain `public/images/reference-sources.json`.
+- After visual/page-structure changes, run `npm run build` and `npm run seo:audit`; production release is acceptable only with `pages_with_issues 0`.
+
+## 31. Subpage hero and footer density
+- Secondary-page heroes must not consume most of the first viewport.
+- Desktop subpage hero padding is intentionally compact; page identity should be clear without pushing the first content section far below the fold.
+- Subpage H1 typography remains strong, but should generally stay below homepage-hero scale.
+- Detail-page and top-level menu-page hero variants inherit the compact treatment rather than adding large extra bottom padding.
+- Desktop footer should fit its main navigation groups in one horizontal row at wide viewport sizes.
+- Do not let footer groups wrap into an accidental second row on normal desktop widths because the grid defines too few columns.
+- At narrower desktop/tablet widths the footer may reflow intentionally; mobile remains stacked.
+
+## 33. Footer navigation curation
+- The footer is curated navigation, not a mirror of the full sitemap.
+- Keep deep links only where they help conversion, buyer decision-making, or important SEO discovery.
+- `導入事例` is a parent-only footer link; do not list individual cases such as Dog Face Recognition AI in the footer.
+- `ご支援の進め方` is also parent-only; do not repeat every phase as separate footer links.
+- `ソリューション` may expose a small set of core capability links.
+- `お役立ち記事` may expose only the strongest buyer-intent articles, not every article.
+- SEO landing pages should use a user-facing label such as `開発サービス`, never `日本語SEOページ`.
+- Company links may expose Specdestについて, Philosophy / Vision, and 会社概要.
+- Keep the desktop footer visually compact and single-row where viewport width allows.
+
+## Footer grouping refinement - 2026-08-20
+- Footer columns should reflect information weight, not one column per top-level menu.
+- Parent-only destinations may share a column when they do not need child links.
+- `ご支援の進め方` and `導入事例` intentionally share one stacked footer column.
+- Link-heavy groups such as Solutions, Insights, Development Services, and Company keep dedicated columns.
+- Parent-only footer links should be visually stronger than normal child links so hierarchy is immediately clear.
+
+## 34. Footer hierarchy - final
+- Footer is curated navigation, not a sitemap and not a copy of the header mega-menu.
+- Desktop footer uses 5 columns: Brand / ソリューション / 見る / 開発サービス / 会社情報.
+- `見る` groups parent-level destinations: ご支援の進め方, 導入事例, お役立ち記事.
+- Do not give lightweight parent-only destinations their own columns.
+- Do not use special white/bold CTA styling for ordinary footer links; all footer navigation links share one restrained visual treatment.
+- Keep individual case-study links out of the footer.
+- Keep only a small number of high-value solution and SEO service links visible.
+- Footer should feel compact, balanced, and secondary to the page content.

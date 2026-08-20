@@ -1,59 +1,5 @@
 [
   {
-    "file": "images/home/hero-poster.webp",
-    "unsplashPhotoId": "rgKX4o2xSqI",
-    "source": "https://unsplash.com/photos/rgKX4o2xSqI",
-    "description": "Team at whiteboard",
-    "width": 1920,
-    "height": 1080,
-    "bytes": 72774
-  },
-  {
-    "file": "images/home/philosophy-working-session.webp",
-    "unsplashPhotoId": "Mo08jadTWYc",
-    "source": "https://unsplash.com/photos/Mo08jadTWYc",
-    "description": "UX designer working with screens",
-    "width": 1200,
-    "height": 1000,
-    "bytes": 37438
-  },
-  {
-    "file": "images/home/case-workflow-platform.webp",
-    "unsplashPhotoId": "6-0ajRI1cgs",
-    "source": "https://unsplash.com/photos/6-0ajRI1cgs",
-    "description": "Business dashboard on laptop",
-    "width": 1600,
-    "height": 1000,
-    "bytes": 26392
-  },
-  {
-    "file": "images/home/company-environment.webp",
-    "unsplashPhotoId": "5aBGsyszcDE",
-    "source": "https://unsplash.com/photos/5aBGsyszcDE",
-    "description": "Modern Minato architecture",
-    "width": 1400,
-    "height": 1068,
-    "bytes": 84636
-  },
-  {
-    "file": "images/solutions/overview.webp",
-    "unsplashPhotoId": "LTEiQK0psZE",
-    "source": "https://unsplash.com/photos/LTEiQK0psZE",
-    "description": "Laptop and phone ecommerce workspace",
-    "width": 1600,
-    "height": 900,
-    "bytes": 45206
-  },
-  {
-    "file": "images/solutions/ai-technology.webp",
-    "unsplashPhotoId": "lCjRuyFrwGM",
-    "source": "https://unsplash.com/photos/lCjRuyFrwGM",
-    "description": "AI research assistant interface",
-    "width": 1200,
-    "height": 1000,
-    "bytes": 24220
-  },
-  {
     "file": "images/solutions/automation.webp",
     "unsplashPhotoId": "iDqNlr1Y1_w",
     "source": "https://unsplash.com/photos/iDqNlr1Y1_w",
@@ -225,24 +171,6 @@
     "bytes": 49584
   },
   {
-    "file": "images/company/overview.webp",
-    "unsplashPhotoId": "KmL6FeLXrfs",
-    "source": "https://unsplash.com/photos/KmL6FeLXrfs",
-    "description": "Tokyo modern facade",
-    "width": 1600,
-    "height": 900,
-    "bytes": 101180
-  },
-  {
-    "file": "images/company/about.webp",
-    "unsplashPhotoId": "wODKtuRipCA",
-    "source": "https://unsplash.com/photos/wODKtuRipCA",
-    "description": "Team planning at whiteboard",
-    "width": 1200,
-    "height": 1000,
-    "bytes": 42368
-  },
-  {
     "file": "images/company/philosophy.webp",
     "unsplashPhotoId": "nTeV5jMSRd8",
     "source": "https://unsplash.com/photos/nTeV5jMSRd8",
@@ -268,5 +196,88 @@
     "width": 1200,
     "height": 1000,
     "bytes": 154652
+  },
+  {
+    "file": "images/home/philosophy-working-session.jpg",
+    "source": "https://unsplash.com/photos/turned-on-monitoring-screen-qwtCeJ5cLYs",
+    "description": "Analytics dashboard on monitor; no people"
+  },
+  {
+    "file": "images/home/company-environment.jpg",
+    "source": "https://unsplash.com/photos/modern-building-facade-with-horizontal-metallic-panels-and-windows-A1nZOX8JNgY",
+    "description": "Modern office facade; no people"
+  },
+  {
+    "file": "images/company/about.jpg",
+    "source": "https://unsplash.com/photos/abstract-view-of-a-modern-buildings-facade-o89QwyLfEaU",
+    "description": "Abstract modern architecture; no people"
+  },
+  {
+    "file": "images/cases/ios-search-ads-optimization.jpg",
+    "source": "https://unsplash.com/photos/laptop-with-charts-on-a-desk-by-a-sunny-window-8OYcY9CRP_0",
+    "description": "Analytics dashboard on laptop; no person"
+  },
+  {
+    "file": "images/cases/advanced-rd-poc.jpg",
+    "source": "https://unsplash.com/photos/macro-photography-of-black-circuit-board-FO7JIlwjOtU",
+    "description": "Circuit board macro; no people"
+  },
+  {
+    "file": "images/cases/shift-scheduling-system.jpg",
+    "source": "https://unsplash.com/photos/a-desk-calendar-sitting-on-top-of-a-wooden-table-1RAcSEKpVRw",
+    "description": "Minimal desk calendar; no people"
+  },
+  {
+    "file": "images/cases/line-chat-automation.jpg",
+    "source": "https://unsplash.com/photos/a-cell-phone-sitting-on-top-of-a-desk-next-to-a-keyboard-hsfpM_Hqh2w",
+    "description": "Phone and keyboard; no people"
+  },
+  {
+    "file": "images/cases/video-cv-platform.jpg",
+    "source": "https://unsplash.com/photos/camera-microphone-and-monitor-on-a-desk-HENZpJ-KWg0",
+    "description": "Camera, microphone and monitor; no people"
+  },
+  {
+    "file": "images/cases/stroller-sharing.jpg",
+    "source": "https://unsplash.com/photos/red-parcel-lockers-with-a-digital-screen-and-keypad-iaqq_y8M4gw",
+    "description": "Smart parcel lockers; no people"
+  },
+  {
+    "file": "images/cases/medical-shift-management.jpg",
+    "source": "https://unsplash.com/photos/a-hospital-room-with-a-monitor-and-medical-equipment-S50MwpIaKoQ",
+    "description": "Hospital equipment and monitor; no people"
+  },
+  {
+    "file": "images/home/hero-poster.jpg",
+    "source": "https://unsplash.com/photos/QLAlBlus3SI",
+    "description": "Modern glass architecture; no people",
+    "width": 1920,
+    "height": 1080,
+    "bytes": 312409
+  },
+  {
+    "file": "images/home/case-workflow-platform.jpg",
+    "source": "https://unsplash.com/photos/bMWHu8wU1Vk",
+    "description": "Analytics dashboard interface; no people",
+    "width": 1600,
+    "height": 1000,
+    "bytes": 83536
+  },
+  {
+    "file": "images/solutions/overview.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Front_of_server_racks_at_NERSC.jpg",
+    "description": "Front of server racks at NERSC; digital infrastructure; no people",
+    "license": "CC0"
+  },
+  {
+    "file": "images/solutions/ai-technology.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Chip_on_board.jpg",
+    "description": "Close-up chip on circuit board; AI/ML technology metaphor; no people",
+    "license": "CC BY-SA"
+  },
+  {
+    "file": "images/company/company-overview.jpg",
+    "source": "https://unsplash.com/photos/LdLxQxpU6k8",
+    "description": "Modern glass office building; no people. Used for company overview."
   }
 ]

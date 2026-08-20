@@ -202,3 +202,15 @@ The audit should report:
 - `canonical_uses_www false`
 
 Japanese SEO remains the priority for all service and article pages.
+
+## Company page separation
+- `/company/` is the primary company overview / `Specdestについて` destination.
+- `/company/philosophy` is specifically for philosophy and principles; it should feel editorial and distinct from the overview page.
+- `/company/profile` is factual corporate information.
+- Do not create a separate `/company/about` content page. It redirects to `/company/`.
+
+## Secondary-page design quality
+- Page families may share brand tokens, but not one generic composition.
+- Check actual desktop/mobile rendering for headline wrapping, sticky-header clipping, image-message mismatch, and excessive whitespace.
+- Use internet/reference photography only when semantically appropriate; avoid irrelevant people and recognizable third-party product UI.
+- Replace/remove superseded local image assets instead of accumulating unused variants.

@@ -1,4 +1,4 @@
-import { Link, Route, Routes, useLocation } from 'react-router-dom';
+import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 
 export const solutionItems = [
@@ -31,8 +31,23 @@ export const caseItems = [
   { slug: 'stroller-sharing', title: 'ベビーカーシェアリング' },
   { slug: 'medical-shift-management', title: '医療法人シフト管理' },
 ];
+
+const caseCategories: Record<string,string> = {
+  'workflow-platform':'Platform / SaaS',
+  'dog-face-recognition-ai':'AI / Computer Vision',
+  'content-optimization':'Optimization / Web & App',
+  'ai-chatbot':'Generative AI / Product',
+  'ecommerce-platform':'E-Commerce / Platform',
+  'ios-search-ads-optimization':'Optimization / Recommendation',
+  'advanced-rd-poc':'AI / OCR / IoT / R&D',
+  'shift-scheduling-system':'Scheduling / Business System',
+  'line-chat-automation':'Automation / Messaging',
+  'video-cv-platform':'Recruitment / Video Platform',
+  'stroller-sharing':'IoT / Mobile / Sharing',
+  'medical-shift-management':'Healthcare / Business System',
+};
 export const companyItems = [
-  { slug: 'about', title: 'Specdestについて' },
+  { slug: '', title: 'Specdestについて' },
   { slug: 'philosophy', title: 'Philosophy / Vision' },
   { slug: 'profile', title: '会社概要' },
 ];
@@ -46,12 +61,12 @@ export const insightItems = [
 ];
 
 const siteImages: Record<string,string> = {
-  solutions:'/images/solutions/overview.webp',
+  solutions:'/images/solutions/overview.jpg',
   challenges:'/images/challenges/overview.webp',
   cases:'/images/cases/overview.webp',
-  company:'/images/company/overview.webp',
+  company:'/images/company/company-overview.jpg',
   contact:'/images/contact/contact-office.webp',
-  'ai-technology':'/images/solutions/ai-technology.webp',
+  'ai-technology':'/images/solutions/ai-technology.jpg',
   automation:'/images/solutions/automation.webp',
   'product-development':'/images/solutions/product-development.webp',
   'business-systems':'/images/solutions/business-systems.webp',
@@ -68,14 +83,14 @@ const siteImages: Record<string,string> = {
   'content-optimization':'/images/cases/content-optimization.webp',
   'ai-chatbot':'/images/cases/ai-chatbot.webp',
   'ecommerce-platform':'/images/cases/ecommerce-platform.webp',
-  'ios-search-ads-optimization':'/images/cases/content-optimization.webp',
-  'advanced-rd-poc':'/images/cases/dog-face-recognition-ai.webp',
-  'shift-scheduling-system':'/images/cases/workflow-platform.webp',
-  'line-chat-automation':'/images/cases/ai-chatbot.webp',
-  'video-cv-platform':'/images/cases/workflow-platform.webp',
-  'stroller-sharing':'/images/cases/ecommerce-platform.webp',
-  'medical-shift-management':'/images/cases/workflow-platform.webp',
-  'company-about':'/images/company/about.webp',
+  'ios-search-ads-optimization':'/images/cases/ios-search-ads-optimization.jpg',
+  'advanced-rd-poc':'/images/cases/advanced-rd-poc.jpg',
+  'shift-scheduling-system':'/images/cases/shift-scheduling-system.jpg',
+  'line-chat-automation':'/images/cases/line-chat-automation.jpg',
+  'video-cv-platform':'/images/cases/video-cv-platform.jpg',
+  'stroller-sharing':'/images/cases/stroller-sharing.jpg',
+  'medical-shift-management':'/images/cases/medical-shift-management.jpg',
+  'company-about':'/images/company/about.jpg',
   'company-philosophy':'/images/company/philosophy.webp',
   'company-profile':'/images/company/profile.webp',
   approach:'/images/approach/project-flow.webp',
@@ -143,7 +158,7 @@ const detailRoutes = [
   ...challengeItems.map((item) => ({ path: `/challenges/${item.slug}`, title: `${item.title} | Specdest`, description: challengeSeoDescriptions[item.slug] })),
   ...caseItems.map((item) => ({ path: `/cases/${item.slug}`, title: `${item.title} | 導入事例 | Specdest`, description: caseSeoDescriptions[item.slug] })),
   ...insightItems.map((item) => ({ path: `/insights/${item.slug}`, title: `${item.title} | システム開発・AI活用記事 | Specdest`, description: `${item.title}。システム開発・AI活用・業務改善の発注前に確認すべき実務ポイントを日本企業向けに整理します。` })),
-  ...companyItems.map((item) => ({ path: `/company/${item.slug}`, title: `${item.title} | Specdest`, description: companySeoDescriptions[item.slug] })),
+  ...companyItems.filter((item)=>item.slug).map((item) => ({ path: `/company/${item.slug}`, title: `${item.title} | Specdest`, description: companySeoDescriptions[item.slug] })),
 ];
 export const siteRoutes = [...baseRoutes, ...detailRoutes];
 
@@ -154,6 +169,8 @@ function useSeo() {
     document.title = meta.title;
     document.querySelector('meta[name="description"]')?.setAttribute('content', meta.description);
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    const frame = window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
+    return () => window.cancelAnimationFrame(frame);
   }, [pathname]);
 }
 
@@ -195,9 +212,10 @@ function Header() {
       body: 'AI・R&DからSaaS、業務システム、ECまで、公開可能な事例をご紹介します。',
       base: '/cases',
       groups: [
-        { label: 'AI / R&D', links: caseItems.filter((x) => ['dog-face-recognition-ai','ai-chatbot'].includes(x.slug)) },
-        { label: 'Platform / Product', links: caseItems.filter((x) => ['workflow-platform','ecommerce-platform'].includes(x.slug)) },
-        { label: 'Long-term Partnership', links: caseItems.filter((x) => x.slug === 'content-optimization') },
+        { label: 'AI / R&D', links: caseItems.filter((x) => ['dog-face-recognition-ai','ai-chatbot','advanced-rd-poc'].includes(x.slug)) },
+        { label: 'Optimization / Automation', links: caseItems.filter((x) => ['content-optimization','ios-search-ads-optimization','shift-scheduling-system','line-chat-automation'].includes(x.slug)) },
+        { label: 'Product / Platform', links: caseItems.filter((x) => ['workflow-platform','ecommerce-platform','video-cv-platform'].includes(x.slug)) },
+        { label: 'IoT / Business Systems', links: caseItems.filter((x) => ['stroller-sharing','medical-shift-management'].includes(x.slug)) },
       ],
     },
     company: {
@@ -230,7 +248,7 @@ function Header() {
         ['company','会社情報',companyItems],
       ] as const).slice(0,2).map(([key,label,items]) => <div className={`mobile-nav-group ${mobileSection === key ? 'is-open' : ''}`} key={key}>
         <button type="button" className="mobile-nav-parent" aria-expanded={mobileSection === key} onClick={() => toggleMobileSection(key)}>{label}<span>⌄</span></button>
-        {mobileSection === key && <div className="mobile-subnav"><Link className="mobile-all-link" to={`/${key}`} onClick={closeMenu}>{label}一覧<span>↗</span></Link>{items.map((item) => <Link key={item.slug} to={`/${key}/${item.slug}`} onClick={closeMenu}>{item.title}<span>↗</span></Link>)}</div>}
+        {mobileSection === key && <div className="mobile-subnav"><Link className="mobile-all-link" to={`/${key}`} onClick={closeMenu}>{label}一覧<span>↗</span></Link>{items.map((item) => <Link key={item.slug||'root'} to={key==='company'&&!item.slug?'/company':`/${key}/${item.slug}`} onClick={closeMenu}>{item.title}<span>↗</span></Link>)}</div>}
       </div>)}
       <Link className="mobile-direct-link" to="/approach" onClick={closeMenu}>ご支援の進め方<span>↗</span></Link>
       <Link className="mobile-direct-link" to="/insights" onClick={closeMenu}>お役立ち記事<span>↗</span></Link>
@@ -239,14 +257,14 @@ function Header() {
         ['company','会社情報',companyItems],
       ] as const).map(([key,label,items]) => <div className={`mobile-nav-group ${mobileSection === key ? 'is-open' : ''}`} key={key}>
         <button type="button" className="mobile-nav-parent" aria-expanded={mobileSection === key} onClick={() => toggleMobileSection(key)}>{label}<span>⌄</span></button>
-        {mobileSection === key && <div className="mobile-subnav"><Link className="mobile-all-link" to={`/${key}`} onClick={closeMenu}>{label}一覧<span>↗</span></Link>{items.map((item) => <Link key={item.slug} to={`/${key}/${item.slug}`} onClick={closeMenu}>{item.title}<span>↗</span></Link>)}</div>}
+        {mobileSection === key && <div className="mobile-subnav"><Link className="mobile-all-link" to={`/${key}`} onClick={closeMenu}>{label}一覧<span>↗</span></Link>{items.map((item) => <Link key={item.slug||'root'} to={key==='company'&&!item.slug?'/company':`/${key}/${item.slug}`} onClick={closeMenu}>{item.title}<span>↗</span></Link>)}</div>}
       </div>)}
       <Link className="mobile-contact" to="/contact" onClick={closeMenu}>無料相談<span>↗</span></Link>
     </nav>}
     {current && <div className="mega-menu">
       <div className="mega-inner">
         <div className="mega-message"><strong>{current.title}</strong><p>{current.body}</p><Link className="mega-parent-link" to={current.base} onClick={closeMenu}>一覧を見る ↗</Link></div>
-        <div className={`mega-groups mega-groups-${current.groups.length}`}>{current.groups.map((group) => <div className="mega-group" key={group.label}><h4>{group.label}</h4>{group.links.map((item) => <Link key={item.slug} to={`${current.base}/${item.slug}`} onClick={closeMenu}>{item.title}<span>↗</span></Link>)}</div>)}</div>
+        <div className={`mega-groups mega-groups-${current.groups.length}`}>{current.groups.map((group) => <div className="mega-group" key={group.label}><h4>{group.label}</h4>{group.links.map((item: {slug:string;title:string}) => <Link key={item.slug||'root'} to={current.base==='/company'&&!item.slug?'/company':`${current.base}/${item.slug}`} onClick={closeMenu}>{item.title}<span>↗</span></Link>)}</div>)}</div>
       </div>
     </div>}
   </header>;
@@ -267,12 +285,10 @@ function Footer() {
   return <footer className="footer">
     <div className="footer-grid shell">
       <div className="footer-brand"><strong>Specdest</strong><p>Better, through technology.<br/>可能性を広げ、より良い未来へ。</p></div>
-      <div><strong className="footer-heading">ソリューション</strong>{solutionItems.slice(0,5).map((x)=><Link key={x.slug} to={`/solutions/${x.slug}`}>{x.title}</Link>)}</div>
-      <div><strong className="footer-heading">ご支援の進め方</strong><Link to="/approach">課題整理・構想</Link><Link to="/approach">技術選定</Link><Link to="/approach">PoC・技術検証</Link><Link to="/approach">設計・開発</Link><Link to="/approach">運用・継続改善</Link></div>
-      <div><strong className="footer-heading">導入事例</strong>{caseItems.slice(0,4).map((x)=><Link key={x.slug} to={`/cases/${x.slug}`}>{x.title}</Link>)}</div>
-      <div><strong className="footer-heading">お役立ち記事</strong>{insightItems.slice(0,4).map((x)=><Link key={x.slug} to={`/insights/${x.slug}`}>{x.title}</Link>)}</div>
-      <div><strong className="footer-heading">日本語SEOページ</strong><Link to="/services/business-system-development">業務システム開発会社</Link><Link to="/services/ai-automation-development">AI業務自動化</Link><Link to="/services/web-system-development">Webシステム開発会社</Link><Link to="/services/mvp-development">MVP開発</Link><Link to="/services/system-development-cost">システム開発の費用相場</Link></div>
-      <div><strong className="footer-heading">Specdestについて</strong>{companyItems.map((x)=><Link key={x.slug} to={`/company/${x.slug}`}>{x.title}</Link>)}</div>
+      <div><strong className="footer-heading">ソリューション</strong><Link to="/solutions/ai-technology">AI・テクノロジー活用</Link><Link to="/solutions/automation">業務改善・自動化</Link><Link to="/solutions/product-development">デジタルプロダクト開発</Link><Link to="/solutions/business-systems">業務システム開発</Link></div>
+      <div><strong className="footer-heading">見る</strong><Link to="/approach">ご支援の進め方</Link><Link to="/cases">導入事例</Link><Link to="/insights">お役立ち記事</Link></div>
+      <div><strong className="footer-heading">開発サービス</strong><Link to="/services/business-system-development">業務システム開発</Link><Link to="/services/ai-automation-development">AI業務自動化</Link><Link to="/services/web-system-development">Webシステム開発</Link></div>
+      <div><strong className="footer-heading">会社情報</strong><Link to="/company">Specdestについて</Link><Link to="/company/philosophy">Philosophy / Vision</Link><Link to="/company/profile">会社概要</Link></div>
     </div>
     <div className="footer-bottom shell"><span>© Specdest Inc.</span><div><a href="/sitemap.xml">サイトマップ</a><Link to="/contact">お問い合わせ</Link></div></div>
   </footer>;
@@ -280,7 +296,7 @@ function Footer() {
 
 function Hero() {
   return <section className="hero">
-    <video aria-hidden="true" tabIndex={-1} autoPlay muted loop playsInline poster="/images/home/hero-poster.webp">
+    <video aria-hidden="true" tabIndex={-1} autoPlay muted loop playsInline poster="/images/home/hero-poster.jpg">
       <source src="https://cdn.coverr.co/videos/coverr-a-server-room-with-blue-lights-1575/1080p.mp4" type="video/mp4" />
     </video>
     <div className="hero-overlay" />
@@ -318,7 +334,7 @@ function Outcomes() {
 }
 
 function Philosophy() {
-  return <section className="section philosophy"><div className="shell split"><Reveal className="visual"><img loading="lazy" decoding="async" src="/images/home/philosophy-working-session.webp" alt="チームとテクノロジーのイメージ" /></Reveal><Reveal><div className="eyebrow">Technology Philosophy</div><h2>Technology is a means,<br/>not the objective.</h2><p className="lead">解決策は、必ずしも新しいシステムではありません。既存SaaS、業務フローの変更、AI、自動化、連携、PoC。必要なものだけを選びます。</p><div className="principles"><p><strong>01 課題から考える</strong><span>技術ありきで提案しない。</span></p><p><strong>02 選択肢を比較する</strong><span>作る・つなぐ・変えるを判断する。</span></p><p><strong>03 必要なら実装まで担う</strong><span>提案だけで終わらせない。</span></p></div></Reveal></div></section>;
+  return <section className="section philosophy"><div className="shell split"><Reveal className="visual"><img loading="lazy" decoding="async" src="/images/home/philosophy-working-session.jpg" alt="データ分析とテクノロジー活用のイメージ" /></Reveal><Reveal><div className="eyebrow">Technology Philosophy</div><h2>Technology is a means,<br/>not the objective.</h2><p className="lead">解決策は、必ずしも新しいシステムではありません。既存SaaS、業務フローの変更、AI、自動化、連携、PoC。必要なものだけを選びます。</p><div className="principles"><p><strong>01 課題から考える</strong><span>技術ありきで提案しない。</span></p><p><strong>02 選択肢を比較する</strong><span>作る・つなぐ・変えるを判断する。</span></p><p><strong>03 必要なら実装まで担う</strong><span>提案だけで終わらせない。</span></p></div></Reveal></div></section>;
 }
 
 function ChallengesSection() {
@@ -326,7 +342,7 @@ function ChallengesSection() {
 }
 
 function CasesSection() {
-  return <section className="section cases"><div className="shell"><div className="section-head"><div><div className="eyebrow">Selected Work</div><h2>技術だけではなく、<br/>事業の前進に関わる。</h2></div><Link className="text-link" to="/cases">すべての導入事例 ↗</Link></div><Reveal><Link to="/cases/workflow-platform" className="case-feature"><div className="case-image"><img loading="lazy" decoding="async" src="/images/home/case-workflow-platform.webp" alt="業務プラットフォームのイメージ" /></div><div className="case-copy"><span>Workflow / Platform</span><h3>事業成長を支える<br/>Workflow Management Platform</h3><p>継続的なプロダクト開発を支援し、事業の変化に合わせて改善を重ねています。</p><small>Funded startup / Cooperation since 2023</small></div></Link></Reveal><div className="case-grid"><Link to="/cases/dog-face-recognition-ai"><span>AI / Computer Vision</span><h3>Dog Face Recognition AI</h3><p>研究から実装まで、AI技術開発をR&Dとして支援。</p></Link><Link to="/cases/content-optimization"><span>Optimization / Web & App</span><h3>Content Optimization Tool</h3><p>上場企業との長期協業。2018年から継続して開発を支援。</p></Link></div></div></section>;
+  return <section className="section cases"><div className="shell"><div className="section-head"><div><div className="eyebrow">Selected Work</div><h2>技術だけではなく、<br/>事業の前進に関わる。</h2></div><Link className="text-link" to="/cases">すべての導入事例 ↗</Link></div><Reveal><Link to="/cases/workflow-platform" className="case-feature"><div className="case-image"><img loading="lazy" decoding="async" src="/images/home/case-workflow-platform.jpg" alt="業務プラットフォームの分析画面イメージ" /></div><div className="case-copy"><span>Workflow / Platform</span><h3>事業成長を支える<br/>Workflow Management Platform</h3><p>継続的なプロダクト開発を支援し、事業の変化に合わせて改善を重ねています。</p><small>Funded startup / Cooperation since 2023</small></div></Link></Reveal><div className="case-grid"><Link to="/cases/dog-face-recognition-ai"><span>AI / Computer Vision</span><h3>Dog Face Recognition AI</h3><p>研究から実装まで、AI技術開発をR&Dとして支援。</p></Link><Link to="/cases/content-optimization"><span>Optimization / Web & App</span><h3>Content Optimization Tool</h3><p>上場企業との長期協業。2018年から継続して開発を支援。</p></Link></div></div></section>;
 }
 
 function CapabilitiesSection() {
@@ -334,7 +350,7 @@ function CapabilitiesSection() {
 }
 
 function CompanySection() {
-  return <section className="company"><div className="company-grid"><Reveal className="company-copy"><div className="eyebrow dark">About Specdest</div><h2>難しい課題を、<br/>任せられる会社へ。</h2><p>クライアントのビジネスを理解し、技術的な判断と実装を一貫して担うことで、事業の前進を支えるテクノロジーパートナーです。</p><Link to="/company" className="text-link">Specdestについて ↗</Link></Reveal><Reveal className="company-image"><img loading="lazy" decoding="async" src="/images/home/company-environment.webp" alt="企業空間のイメージ" /></Reveal></div></section>;
+  return <section className="company"><div className="company-grid"><Reveal className="company-copy"><div className="eyebrow dark">About Specdest</div><h2>難しい課題を、<br/>任せられる会社へ。</h2><p>クライアントのビジネスを理解し、技術的な判断と実装を一貫して担うことで、事業の前進を支えるテクノロジーパートナーです。</p><Link to="/company" className="text-link">Specdestについて ↗</Link></Reveal><Reveal className="company-image"><img loading="lazy" decoding="async" src="/images/home/company-environment.jpg" alt="現代的な企業環境のイメージ" /></Reveal></div></section>;
 }
 
 function ContactBand() {
@@ -376,17 +392,17 @@ function CasesPage() {
   const featured=caseItems[0]; const rest=caseItems.slice(1);
   return <main className="subpage cases-page">
     <section className="subhero menu-hero cases-hero"><div className="shell"><div className="eyebrow">Selected Work</div><h1>違う課題に、<br/>違う技術で応える。</h1><p>AI、プラットフォーム、Web/App、EC。技術カテゴリではなく、実際の事業課題に合わせて支援してきた事例です。</p></div></section>
-    <section className="case-index section"><div className="shell"><Link className="case-index-feature" to={`/cases/${featured.slug}`}><div className="case-index-image"><img loading="lazy" decoding="async" src={siteImages[featured.slug]} alt="Workflow Management Platform"/></div><div className="case-index-copy"><span>Featured / Platform</span><h2>{featured.title}</h2><p>{collectionDescriptions[featured.slug]}</p><strong>Case Study ↗</strong></div></Link><div className="case-index-grid">{rest.map((item,index)=><Link key={item.slug} to={`/cases/${item.slug}`}><div className="case-thumb"><img loading="lazy" decoding="async" src={siteImages[item.slug]} alt={`${item.title}の導入事例イメージ`} /></div><span>{['AI / R&D','Optimization / Web & App','AI / Product','E-Commerce / Platform'][index]}</span><h3>{item.title}</h3><p>{collectionDescriptions[item.slug]}</p></Link>)}</div></div></section>
+    <section className="case-index section"><div className="shell"><Link className="case-index-feature" to={`/cases/${featured.slug}`}><div className="case-index-image"><img loading="lazy" decoding="async" src={siteImages[featured.slug]} alt="Workflow Management Platform"/></div><div className="case-index-copy"><span>Featured / Platform</span><h2>{featured.title}</h2><p>{collectionDescriptions[featured.slug]}</p><strong>Case Study ↗</strong></div></Link><div className="case-index-grid">{rest.map((item,index)=><Link key={item.slug} to={`/cases/${item.slug}`}><div className="case-thumb"><img loading="lazy" decoding="async" src={siteImages[item.slug]} alt={`${item.title}の導入事例イメージ`} /></div><span>{caseCategories[item.slug]}</span><h3>{item.title}</h3><p>{collectionDescriptions[item.slug]}</p></Link>)}</div></div></section>
     <section className="proof-band"><div className="shell"><div><strong>2018 →</strong><span>長期継続支援の実績</span></div><div><strong>AI / R&D</strong><span>不確実性の高い技術検証</span></div><div><strong>Product</strong><span>構想から継続改善まで</span></div></div></section><SubContact />
   </main>;
 }
 
 function CompanyPage() {
   return <main className="subpage company-page">
-    <section className="subhero menu-hero company-hero"><div className="shell"><div className="eyebrow">About Specdest</div><h1>難しい課題を、<br/>任せられる会社へ。</h1><p>技術判断と実装を分断せず、事業や業務の前進に必要なところまで責任を持つテクノロジーカンパニーです。</p></div></section>
-    <section className="company-manifesto section"><div className="shell"><div className="company-manifesto-image"><img loading="lazy" decoding="async" src={siteImages.company} alt="Specdestのイメージ"/></div><div className="company-manifesto-copy"><div className="eyebrow">What We Believe</div><h2>Technology is a means,<br/>not the objective.</h2><p className="lead">新しい技術を使うことではなく、何を良くするのか。そのために必要な方法を選び、必要なら最後まで形にすることを大切にしています。</p><Link className="text-link" to="/company/philosophy">Philosophy / Vision ↗</Link></div></div></section>
-    <section className="company-principles section"><div className="shell"><div className="section-head"><div><div className="eyebrow">How We Work</div><h2>判断と実行を、<br/>一つの責任として。</h2></div></div><div className="company-principle-grid"><article><span>01</span><h3>Business first</h3><p>技術からではなく、事業・業務の目的から考えます。</p></article><article><span>02</span><h3>Choose, then build</h3><p>作る前に選択肢を比較し、合理的な方法を選びます。</p></article><article><span>03</span><h3>Stay accountable</h3><p>提案だけで終わらず、必要な実装と改善まで担います。</p></article></div></div></section>
-    <section className="company-paths section"><div className="shell"><Link to="/company/about"><span>01 / About</span><h2>Specdestについて</h2><p>どのような会社として、どのようにプロジェクトに向き合うか。</p></Link><Link to="/company/profile"><span>02 / Corporate Profile</span><h2>会社概要</h2><p>会社情報、所在地、お問い合わせ先。</p></Link></div></section><SubContact />
+    <section className="subhero menu-hero company-hero"><div className="shell"><div className="eyebrow">About Specdest</div><h1>構想から実装まで、<br/>事業を前に進める技術会社。</h1><p>AI、Web・モバイル、業務システム、プラットフォーム、R&D。課題整理から技術選定、設計、開発、改善まで一貫して支援します。</p></div></section>
+    <section className="company-manifesto section"><div className="shell"><div className="company-manifesto-image"><img loading="lazy" decoding="async" src={siteImages.company} alt="現代的なテクノロジー企業を象徴する建築"/></div><div className="company-manifesto-copy"><div className="eyebrow">What We Do</div><h2>相談だけでも、<br/>実装だけでも終わらせない。</h2><p className="lead">要件が固まる前の整理から入り、必要な技術を選び、実際に動くシステムやプロダクトとして形にします。</p><p>新規開発だけでなく、既存システム改善、AI導入、業務自動化、PoC・技術検証まで対応します。</p><Link className="text-link" to="/solutions">Solutions ↗</Link></div></div></section>
+    <section className="company-principles section"><div className="shell"><div className="section-head"><div><div className="eyebrow">Capabilities</div><h2>幅広く作れることを、<br/>一つの強みにする。</h2></div></div><div className="company-principle-grid"><article><span>01</span><h3>AI & R&D</h3><p>生成AI、Computer Vision、OCR、PoCなど、不確実性の高い技術も検証から実装まで。</p></article><article><span>02</span><h3>Products & Platforms</h3><p>Web、モバイル、EC、SaaS、プラットフォームを構想から継続改善まで。</p></article><article><span>03</span><h3>Business Systems</h3><p>現場業務に合わせた管理、予約、シフト、ワークフロー、自動化・連携。</p></article></div></div></section>
+    <section className="company-paths section"><div className="shell"><Link to="/company/philosophy"><span>01 / Philosophy</span><h2>私たちの考え方</h2><p>なぜ技術を目的にせず、事業や業務の変化から考えるのか。</p></Link><Link to="/company/profile"><span>02 / Corporate Profile</span><h2>会社概要</h2><p>会社情報、所在地、お問い合わせ先。</p></Link></div></section><SubContact />
   </main>;
 }
 
@@ -420,14 +436,14 @@ const collectionDescriptions: Record<string,string> = {
   'profile':'Specdest株式会社の基本情報をご案内します。',
 };
 
-type ServiceDetail = {intro:string; context:string; points:string[]; deliverables:string[]; related:string[]};
+type ServiceDetail = {intro:string; context:string; points:string[]; deliverables:string[]; related:string[]; perspectiveTitle?:string};
 const solutionDetails: Record<string,ServiceDetail> = {
-  'ai-technology':{intro:'AI導入の目的と業務上の価値を整理し、必要であればPoCやAI機能開発まで実行します。',context:'生成AIや画像認識などの選択肢が増える一方で、「どこに使うか」「既存サービスで足りるか」「独自開発すべきか」の判断が重要です。Specdestは技術ありきではなく、業務と目的から導入方法を設計します。',points:['導入候補業務と期待効果の整理','既存サービス・API・独自開発の比較','PoC・AI機能開発・業務への組み込み'],deliverables:['AI活用テーマの整理・優先順位付け','PoC / 技術検証','AI機能を含むWeb・業務システム開発'],related:['dog-face-recognition-ai','ai-chatbot']},
-  'automation':{intro:'業務を可視化し、手作業・重複入力・システム間の分断を減らします。',context:'自動化は、単に作業を機械化すればよいわけではありません。人が判断すべき工程と、ルール化・連携できる工程を分け、運用全体が無理なく回る形を設計します。',points:['業務フローとボトルネックの整理','自動化・連携・運用変更の設計','必要なシステムやツールの実装'],deliverables:['業務フロー整理','システム連携・自動処理','管理画面・ワークフロー機能'],related:['workflow-platform','content-optimization']},
-  'product-development':{intro:'新規サービスやデジタルプロダクトを、構想から運用まで一貫して開発します。',context:'まだ仕様が固まっていない段階でも、誰にどの価値を提供するのか、最初に何を検証するのかを整理し、過不足のないMVPから本番サービスへつなげます。',points:['要件整理とMVP設計','Web・モバイル・バックエンド開発','リリース後の継続改善'],deliverables:['要件・画面・データ設計','MVP / 本番プロダクト','運用後の機能改善'],related:['workflow-platform','ecommerce-platform']},
-  'business-systems':{intro:'現場の業務に合わせたシステムを設計し、日々の運用を支える仕組みを構築します。',context:'汎用SaaSでは合わない業務や、複数の情報が分散している現場では、実際の運用を理解したうえでシステムを設計することが重要です。',points:['業務要件の整理','管理・予約・在庫・CRM等の設計','既存システムとの連携・運用改善'],deliverables:['管理・CRM・予約・在庫等の業務機能','権限・ワークフロー設計','外部サービスとの連携'],related:['workflow-platform','ecommerce-platform']},
-  'poc-rd':{intro:'技術的な不確実性が高いテーマを、小さな検証から始めて判断材料を作ります。',context:'実現可能性が読めない技術テーマを、いきなり本番開発する必要はありません。検証条件を定め、必要な部分だけを試作し、次に進むべきかを判断できる状態を作ります。',points:['技術仮説と検証条件の整理','AI・画像認識・OCR・IoT等の試作','検証結果を踏まえた次フェーズ設計'],deliverables:['技術検証プロトタイプ','検証結果・制約の整理','本開発へ向けた技術方針'],related:['dog-face-recognition-ai','content-optimization']},
-  'system-improvement':{intro:'既存システムを前提に、使いづらさや運用負荷を減らすための改善を行います。',context:'全面刷新だけが選択肢ではありません。既存資産を活かしながら、優先度の高い課題から段階的に改善することで、事業への影響を抑えながらシステムを良くしていきます。',points:['現状課題と優先順位の整理','機能改善・連携・再設計','段階的な移行と継続改善'],deliverables:['現状分析・改善計画','既存機能の改修・再設計','段階的な移行・運用改善'],related:['content-optimization','workflow-platform']},
+  'ai-technology':{perspectiveTitle:'AIは、使える場所より\n価値が出る場所を見極める。',intro:'AI導入の目的と業務上の価値を整理し、必要であればPoCやAI機能開発まで実行します。',context:'生成AIや画像認識などの選択肢が増える一方で、「どこに使うか」「既存サービスで足りるか」「独自開発すべきか」の判断が重要です。Specdestは技術ありきではなく、業務と目的から導入方法を設計します。',points:['導入候補業務と期待効果の整理','既存サービス・API・独自開発の比較','PoC・AI機能開発・業務への組み込み'],deliverables:['AI活用テーマの整理・優先順位付け','PoC / 技術検証','AI機能を含むWeb・業務システム開発'],related:['dog-face-recognition-ai','ai-chatbot']},
+  'automation':{perspectiveTitle:'人が判断する仕事と、\n仕組みに任せる仕事を分ける。',intro:'業務を可視化し、手作業・重複入力・システム間の分断を減らします。',context:'自動化は、単に作業を機械化すればよいわけではありません。人が判断すべき工程と、ルール化・連携できる工程を分け、運用全体が無理なく回る形を設計します。',points:['業務フローとボトルネックの整理','自動化・連携・運用変更の設計','必要なシステムやツールの実装'],deliverables:['業務フロー整理','システム連携・自動処理','管理画面・ワークフロー機能'],related:['workflow-platform','content-optimization']},
+  'product-development':{perspectiveTitle:'全部を作る前に、\n価値が届く最小形をつくる。',intro:'新規サービスやデジタルプロダクトを、構想から運用まで一貫して開発します。',context:'まだ仕様が固まっていない段階でも、誰にどの価値を提供するのか、最初に何を検証するのかを整理し、過不足のないMVPから本番サービスへつなげます。',points:['要件整理とMVP設計','Web・モバイル・バックエンド開発','リリース後の継続改善'],deliverables:['要件・画面・データ設計','MVP / 本番プロダクト','運用後の機能改善'],related:['workflow-platform','ecommerce-platform']},
+  'business-systems':{perspectiveTitle:'現場にシステムを合わせ、\n業務そのものを強くする。',intro:'現場の業務に合わせたシステムを設計し、日々の運用を支える仕組みを構築します。',context:'汎用SaaSでは合わない業務や、複数の情報が分散している現場では、実際の運用を理解したうえでシステムを設計することが重要です。',points:['業務要件の整理','管理・予約・在庫・CRM等の設計','既存システムとの連携・運用改善'],deliverables:['管理・CRM・予約・在庫等の業務機能','権限・ワークフロー設計','外部サービスとの連携'],related:['workflow-platform','ecommerce-platform']},
+  'poc-rd':{perspectiveTitle:'不確実な技術は、\n小さく試してから大きく進める。',intro:'技術的な不確実性が高いテーマを、小さな検証から始めて判断材料を作ります。',context:'実現可能性が読めない技術テーマを、いきなり本番開発する必要はありません。検証条件を定め、必要な部分だけを試作し、次に進むべきかを判断できる状態を作ります。',points:['技術仮説と検証条件の整理','AI・画像認識・OCR・IoT等の試作','検証結果を踏まえた次フェーズ設計'],deliverables:['技術検証プロトタイプ','検証結果・制約の整理','本開発へ向けた技術方針'],related:['dog-face-recognition-ai','content-optimization']},
+  'system-improvement':{perspectiveTitle:'作り直す前に、\n残すものと変えるものを見極める。',intro:'既存システムを前提に、使いづらさや運用負荷を減らすための改善を行います。',context:'全面刷新だけが選択肢ではありません。既存資産を活かしながら、優先度の高い課題から段階的に改善することで、事業への影響を抑えながらシステムを良くしていきます。',points:['現状課題と優先順位の整理','機能改善・連携・再設計','段階的な移行と継続改善'],deliverables:['現状分析・改善計画','既存機能の改修・再設計','段階的な移行・運用改善'],related:['content-optimization','workflow-platform']},
 };
 
 const challengeDetails: Record<string,ServiceDetail> = {
@@ -594,7 +610,7 @@ function SubContact() {
 function StructuredDetailPage({ eyebrow, title, parentPath, parentLabel, detail, imageKey }: { eyebrow:string; title:string; parentPath:string; parentLabel:string; detail:ServiceDetail; imageKey:string }) {
   return <main className="subpage">
     <section className="subhero detail-hero"><div className="shell"><div className="breadcrumb"><Link to={parentPath}>{parentLabel}</Link><span>/</span><span>{title}</span></div><div className="eyebrow">{eyebrow}</div><h1>{title}</h1><p>{detail.intro}</p></div></section>
-    <section className="detail-overview section"><div className="shell detail-visual-grid"><div className="detail-visual-copy"><div className="eyebrow">Why It Matters</div><h2>技術の前に、<br/>目的と使い方を決める。</h2><p className="lead">{detail.context}</p></div><div className="detail-visual-image"><img loading="lazy" decoding="async" src={siteImages[imageKey] ?? siteImages.challenges} alt={`${title}のサンプルイメージ`} /></div></div></section>
+    <section className="detail-overview section"><div className="shell detail-visual-grid"><div className="detail-visual-copy"><div className="eyebrow">Why It Matters</div><h2>{(detail.perspectiveTitle ?? '技術の前に、\n目的と使い方を決める。').split('\n').map((line,i)=><span key={line}>{i>0&&<br/>}{line}</span>)}</h2><p className="lead">{detail.context}</p></div><div className="detail-visual-image"><img loading="lazy" decoding="async" src={siteImages[imageKey] ?? siteImages.challenges} alt={`${title}のサンプルイメージ`} /></div></div></section>
     <section className="detail-approach section"><div className="shell"><div className="section-head"><div><div className="eyebrow">What We Do</div><h2>支援内容</h2></div><p>必要な部分だけを切り出すことも、設計から実装まで一貫して進めることも可能です。</p></div><div className="detail-point-grid">{detail.points.map((point,index)=><article key={point}><span>{String(index+1).padStart(2,'0')}</span><h3>{point}</h3></article>)}</div></div></section>
     <section className="deliverables section"><div className="shell"><div className="sub-intro-grid"><div><div className="eyebrow">Deliverables</div><h2>プロジェクトに応じて、<br/>必要な形まで。</h2></div><div className="deliverable-list">{detail.deliverables.map(item=><p key={item}><span>→</span>{item}</p>)}</div></div></div></section>
     <ProcessSection />
@@ -615,10 +631,20 @@ function CaseDetailPage({ item }: { item:{slug:string;title:string} }) {
   </main>;
 }
 
+function PhilosophyPage() {
+  return <main className="subpage philosophy-page">
+    <section className="subhero philosophy-hero"><div className="shell"><div className="eyebrow">Our Philosophy</div><h1>Technology is a means,<br/>not the objective.</h1><p>テクノロジーを目的にせず、実現したい変化から必要な方法を選ぶ。それがSpecdestの基本姿勢です。</p></div></section>
+    <section className="philosophy-manifesto section"><div className="shell"><div className="philosophy-manifesto-copy"><div className="eyebrow">How We Think</div><h2>先に決めるのは、<br/>技術ではなく変えたいこと。</h2><p className="lead">AI、SaaS、自動化、システム連携、独自開発。選択肢が多いほど、最初に必要なのは「何を使うか」ではなく「何を良くしたいか」を明確にすることです。</p><p>目的、現場、制約を理解したうえで選択肢を比較し、必要なものだけを使います。実装が必要なら、その判断を実際に動く仕組みまでつなげます。</p></div><div className="philosophy-manifesto-image"><img loading="lazy" decoding="async" src={siteImages['company-philosophy']} alt="技術を選択し実装につなげるイメージ" /></div></div></section>
+    <section className="philosophy-values section"><div className="shell"><div className="section-head"><div><div className="eyebrow">Three Principles</div><h2>Specdestが大切にする<br/>3つの判断基準。</h2></div></div><div className="philosophy-value-grid"><article><span>01</span><h3>Purpose before technology</h3><p>新しさではなく、事業や業務に生まれる変化を基準に技術を選びます。</p></article><article><span>02</span><h3>Compare before building</h3><p>SaaS、API、AI、既存資産、独自開発を比較し、作らない選択肢も含めて判断します。</p></article><article><span>03</span><h3>Decision through delivery</h3><p>判断を提案だけで終わらせず、必要なら設計・実装・改善まで一つの責任として担います。</p></article></div></div></section>
+    <section className="philosophy-next section"><div className="shell"><div><div className="eyebrow">From Thinking to Delivery</div><h2>考え方を、<br/>プロジェクトの進め方へ。</h2></div><div><p>課題整理、技術選定、PoC、設計・開発、継続改善。プロジェクトの現在地に合わせて必要なフェーズから支援します。</p><Link className="text-link" to="/approach">ご支援の進め方 ↗</Link></div></div></section>
+    <SubContact />
+  </main>;
+}
+
 function CompanyDetailPage({ item }: { item:{slug:string;title:string} }) {
   if(item.slug==='profile') return <main className="subpage"><section className="subhero"><div className="shell"><div className="eyebrow">Company</div><h1>会社概要</h1><p>Specdest株式会社の基本情報です。</p></div></section><section className="section company-profile"><div className="shell"><div className="company-profile-image"><img loading="lazy" decoding="async" src={siteImages['company-profile']} alt="オフィスのサンプルイメージ" /></div><div className="profile-table"><div><span>会社名</span><p>Specdest株式会社</p></div><div><span>設立</span><p>2022年</p></div><div><span>所在地</span><p>東京都港区南青山3-1-36 青山丸竹ビル6F</p></div><div><span>電話</span><p>050-5896-5929</p></div><div><span>メール</span><p>info@specdest.com</p></div><div><span>Web</span><p>www.specdest.com</p></div></div></div></section><SubContact /></main>;
   const philosophy=item.slug==='philosophy';
-  return <main className="subpage"><section className="subhero"><div className="shell"><div className="eyebrow">Company</div><h1>{item.title}</h1><p>{collectionDescriptions[item.slug]}</p></div></section><section className="detail-overview section"><div className="shell company-visual"><div className="company-visual-image"><img loading="lazy" decoding="async" src={siteImages[philosophy ? 'company-philosophy' : 'company-about']} alt="会社紹介のサンプルイメージ" /></div><div className="sub-intro-grid"><div><div className="eyebrow">{philosophy?'Our Philosophy':'About Specdest'}</div><h2>{philosophy?'Technology is a means,\nnot the objective.':'難しい課題を、\n任せられる会社へ。'}</h2></div><div><p className="lead">{philosophy?'私たちは、最新技術を使うことそのものを価値とは考えていません。事業や業務をより良くするために、何が必要かを考え、技術を一つの手段として選びます。':'Specdestは、要件が固まった後だけではなく、その前の「何を変えるべきか」から関わります。技術判断と実装を分断せず、一つの責任としてプロジェクトを前に進めます。'}</p><p>{philosophy?'AI、SaaS、業務自動化、システム連携、独自開発。選択肢を比較し、必要なものだけを使う。そのうえで実装が必要なら、最後まで形にします。':'AI、Web・モバイル、業務システム、プラットフォーム、R&Dまで、幅広い技術領域でプロジェクトを支援しています。'}</p></div></div></div></section><ProcessSection/><SubContact/></main>;
+  return <Navigate to="/company" replace />;
 }
 
 function ApproachPage() {
@@ -656,7 +682,9 @@ export function App() {
     <Route path="/insights" element={<InsightsPage />} />
     {insightItems.map((item)=><Route key={item.slug} path={`/insights/${item.slug}`} element={<InsightDetailPage item={item} />} />)}
     <Route path="/company" element={<CompanyPage />} />
-    {companyItems.map((item)=><Route key={item.slug} path={`/company/${item.slug}`} element={<CompanyDetailPage item={item} />} />)}
+    <Route path="/company/about" element={<Navigate to="/company" replace />} />
+    <Route path="/company/philosophy" element={<PhilosophyPage />} />
+    {companyItems.filter((item)=>item.slug==='profile').map((item)=><Route key={item.slug} path={`/company/${item.slug}`} element={<CompanyDetailPage item={item} />} />)}
     <Route path="/services/business-system-development" element={<SeoServicePage slug="business-system-development" />} />
     <Route path="/services/ai-automation-development" element={<SeoServicePage slug="ai-automation-development" />} />
     <Route path="/services/web-system-development" element={<SeoServicePage slug="web-system-development" />} />
