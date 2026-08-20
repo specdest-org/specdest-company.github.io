@@ -53,11 +53,16 @@ export const companyItems = [
 ];
 
 export const insightItems = [
-  { slug: 'how-to-choose-system-development-company', title: 'システム開発会社の選び方' },
-  { slug: 'system-development-cost-guide', title: 'システム開発の費用相場' },
-  { slug: 'business-system-failure-reasons', title: '業務システム開発で失敗する理由' },
-  { slug: 'excel-to-business-system', title: 'Excel管理をシステム化するタイミング' },
-  { slug: 'generative-ai-business-introduction', title: '生成AIを業務に導入する方法' },
+  { slug: 'how-to-choose-system-development-company', title: 'システム開発会社の選び方', category: '発注準備' },
+  { slug: 'system-development-cost-guide', title: 'システム開発の費用相場', category: '発注準備' },
+  { slug: 'business-system-failure-reasons', title: '業務システム開発で失敗する理由', category: '業務システム' },
+  { slug: 'excel-to-business-system', title: 'Excel管理をシステム化するタイミング', category: '業務システム' },
+  { slug: 'generative-ai-business-introduction', title: '生成AIを業務に導入する方法', category: 'AI活用' },
+  { slug: 'ai-poc-before-development', title: 'AI PoCを本開発につなげる進め方', category: 'AI活用' },
+  { slug: 'business-automation-checklist', title: '業務自動化の前に確認するチェックリスト', category: '業務改善' },
+  { slug: 'mvp-development-planning', title: 'MVP開発で最初に決めること', category: '新規事業' },
+  { slug: 'legacy-system-modernization', title: '既存システム改善とリニューアルの判断基準', category: '既存改善' },
+  { slug: 'system-requirements-before-rfp', title: 'RFP・要件定義前に整理すべきこと', category: '発注準備' },
 ];
 
 const siteImages: Record<string,string> = {
@@ -218,6 +223,16 @@ function Header() {
         { label: 'IoT / Business Systems', links: caseItems.filter((x) => ['stroller-sharing','medical-shift-management'].includes(x.slug)) },
       ],
     },
+    insights: {
+      title: '発注前に、判断材料を整理する。',
+      body: 'システム開発、AI活用、業務改善について、相談前に読める実務記事です。',
+      base: '/insights',
+      groups: [
+        { label: '発注準備', links: insightItems.filter((x) => ['how-to-choose-system-development-company','system-development-cost-guide','system-requirements-before-rfp'].includes(x.slug)) },
+        { label: '業務システム・改善', links: insightItems.filter((x) => ['business-system-failure-reasons','excel-to-business-system','business-automation-checklist','legacy-system-modernization'].includes(x.slug)) },
+        { label: 'AI・MVP', links: insightItems.filter((x) => ['generative-ai-business-introduction','ai-poc-before-development','mvp-development-planning'].includes(x.slug)) },
+      ],
+    },
     company: {
       title: 'Better, through technology.',
       body: '可能性を広げ、より良い未来へ。Specdestの考え方と会社情報をご紹介します。',
@@ -234,7 +249,7 @@ function Header() {
         <Link onMouseEnter={() => setMenu('solutions')} onClick={closeMenu} to="/solutions">ソリューション</Link>
         <Link onMouseEnter={() => setMenu(null)} onClick={closeMenu} to="/approach">ご支援の進め方</Link>
         <Link onMouseEnter={() => setMenu('cases')} onClick={closeMenu} to="/cases">導入事例</Link>
-        <Link onMouseEnter={() => setMenu(null)} onClick={closeMenu} to="/insights">お役立ち記事</Link>
+        <Link onMouseEnter={() => setMenu('insights')} onClick={closeMenu} to="/insights">お役立ち記事</Link>
         <Link onMouseEnter={() => setMenu('company')} onClick={closeMenu} to="/company">会社情報</Link>
       </nav>
       <Link className="contact-button" to="/contact" onClick={closeMenu}>無料相談</Link>
@@ -251,9 +266,9 @@ function Header() {
         {mobileSection === key && <div className="mobile-subnav"><Link className="mobile-all-link" to={`/${key}`} onClick={closeMenu}>{label}一覧<span>↗</span></Link>{items.map((item) => <Link key={item.slug||'root'} to={key==='company'&&!item.slug?'/company':`/${key}/${item.slug}`} onClick={closeMenu}>{item.title}<span>↗</span></Link>)}</div>}
       </div>)}
       <Link className="mobile-direct-link" to="/approach" onClick={closeMenu}>ご支援の進め方<span>↗</span></Link>
-      <Link className="mobile-direct-link" to="/insights" onClick={closeMenu}>お役立ち記事<span>↗</span></Link>
       {([
         ['cases','導入事例',caseItems],
+        ['insights','お役立ち記事',insightItems],
         ['company','会社情報',companyItems],
       ] as const).map(([key,label,items]) => <div className={`mobile-nav-group ${mobileSection === key ? 'is-open' : ''}`} key={key}>
         <button type="button" className="mobile-nav-parent" aria-expanded={mobileSection === key} onClick={() => toggleMobileSection(key)}>{label}<span>⌄</span></button>
@@ -264,7 +279,7 @@ function Header() {
     {current && <div className="mega-menu">
       <div className="mega-inner">
         <div className="mega-message"><strong>{current.title}</strong><p>{current.body}</p><Link className="mega-parent-link" to={current.base} onClick={closeMenu}>一覧を見る ↗</Link></div>
-        <div className={`mega-groups mega-groups-${current.groups.length}`}>{current.groups.map((group) => <div className="mega-group" key={group.label}><h4>{group.label}</h4>{group.links.map((item: {slug:string;title:string}) => <Link key={item.slug||'root'} to={current.base==='/company'&&!item.slug?'/company':`${current.base}/${item.slug}`} onClick={closeMenu}>{item.title}<span>↗</span></Link>)}</div>)}</div>
+        <div className={`mega-groups mega-groups-${current.groups.length}`}>{current.groups.map((group) => <div className="mega-group" key={group.label}><h4>{group.label}</h4>{group.links.map((item: {slug:string;title:string;category?:string}) => <Link key={item.slug||'root'} to={current.base==='/company'&&!item.slug?'/company':`${current.base}/${item.slug}`} onClick={closeMenu}>{item.title}<span>↗</span></Link>)}</div>)}</div>
       </div>
     </div>}
   </header>;
@@ -286,8 +301,8 @@ function Footer() {
     <div className="footer-grid shell">
       <div className="footer-brand"><strong>Specdest</strong><p>Better, through technology.<br/>可能性を広げ、より良い未来へ。</p></div>
       <div><strong className="footer-heading">ソリューション</strong><Link to="/solutions/ai-technology">AI・テクノロジー活用</Link><Link to="/solutions/automation">業務改善・自動化</Link><Link to="/solutions/product-development">デジタルプロダクト開発</Link><Link to="/solutions/business-systems">業務システム開発</Link></div>
-      <div><strong className="footer-heading">見る</strong><Link to="/approach">ご支援の進め方</Link><Link to="/cases">導入事例</Link><Link to="/insights">お役立ち記事</Link></div>
-      <div><strong className="footer-heading">開発サービス</strong><Link to="/services/business-system-development">業務システム開発</Link><Link to="/services/ai-automation-development">AI業務自動化</Link><Link to="/services/web-system-development">Webシステム開発</Link></div>
+      <div><strong className="footer-heading">見る</strong><Link to="/approach">ご支援の進め方</Link><Link to="/cases">導入事例</Link><Link to="/insights">お役立ち記事</Link><Link to="/insights/system-development-cost-guide">費用相場</Link></div>
+      <div><strong className="footer-heading">開発サービス</strong><Link to="/services/business-system-development">業務システム開発</Link><Link to="/services/ai-automation-development">AI業務自動化</Link><Link to="/services/web-system-development">Webシステム開発</Link><Link to="/services/mvp-development">MVP開発</Link></div>
       <div><strong className="footer-heading">会社情報</strong><Link to="/company">Specdestについて</Link><Link to="/company/philosophy">Philosophy / Vision</Link><Link to="/company/profile">会社概要</Link></div>
     </div>
     <div className="footer-bottom shell"><span>© Specdest Inc.</span><div><a href="/sitemap.xml">サイトマップ</a><Link to="/contact">お問い合わせ</Link></div></div>
@@ -530,6 +545,57 @@ const insightDetails: Record<string, InsightDetail> = {
     ],
     cta: 'AI活用を相談する',
   },
+
+  'ai-poc-before-development': {
+    summary: 'AI PoCは、精度確認だけで終わらせると本開発につながりません。対象業務、評価指標、運用条件、既存システムとの接続を最初に決めることが重要です。',
+    target: 'AI PoCを検討している企業担当者',
+    sections: [
+      { heading: 'PoCで終わる原因', body: 'AI PoCが止まる理由は、モデル精度だけではありません。誰が使うのか、どのデータを扱うのか、既存業務のどこに組み込むのかが曖昧なまま検証すると、本番化の判断ができなくなります。', points: ['評価指標が曖昧', '本番業務との接続がない', '運用担当者とデータ管理が決まっていない'] },
+      { heading: '最初に決めること', body: 'PoC開始前に、対象業務、成功条件、利用データ、セキュリティ、既存システム連携の必要性を整理します。検証後に何を判断するのかを決めておくことが重要です。' },
+      { heading: '本開発につなげる進め方', body: '小さく試しながら、画面、ワークフロー、運用権限、データ更新方法まで検討します。AI単体ではなく、業務やプロダクトに入る形を設計します。' },
+    ],
+    cta: 'AI PoCを相談する',
+  },
+  'business-automation-checklist': {
+    summary: '業務自動化は、作業をそのまま機械化する前に、なくす工程、標準化する工程、人が判断する工程を分けて考える必要があります。',
+    target: '手作業や転記作業を減らしたい企業担当者',
+    sections: [
+      { heading: '自動化前の確認項目', body: '最初に確認すべきなのはツールではなく業務フローです。入力元、確認者、例外処理、承認、通知、集計の流れを整理し、どこを変えると効果が出るかを見ます。', points: ['同じ入力を複数回していないか', '例外処理が多すぎないか', '承認・確認の責任者が明確か', 'データが複数システムに分散していないか'] },
+      { heading: '全部を自動化しない', body: '判断が必要な工程まで無理に自動化すると、現場で使われにくくなります。ルール化できる処理と、人が確認すべき処理を分けます。' },
+      { heading: 'システム化との関係', body: '自動化だけで足りる場合もあれば、管理画面や業務システムが必要な場合もあります。既存SaaS、API連携、独自開発を比較します。' },
+    ],
+    cta: '業務自動化を相談する',
+  },
+  'mvp-development-planning': {
+    summary: 'MVP開発では、最初に作る機能よりも、誰のどの仮説を検証するのかを決めることが重要です。全部を作る前に最小範囲を定義します。',
+    target: '新規サービス・新規プロダクトを検討している企業担当者',
+    sections: [
+      { heading: 'MVPで決めること', body: 'MVPは小さい完成品ではなく、事業仮説を検証するための最小プロダクトです。対象ユーザー、利用シーン、検証したい価値、最初に不要な機能を決めます。', points: ['誰に使ってもらうか', '何を検証するか', '最初に作らない機能は何か', '成功・継続・中止の判断基準は何か'] },
+      { heading: '作りすぎを防ぐ', body: 'ログイン、決済、管理画面、通知などをすべて最初から作る必要があるとは限りません。検証に必要な範囲だけを整理します。' },
+      { heading: '本番化を見据える', body: 'MVPでも、後で捨てる前提なのか、本番に育てる前提なのかで設計が変わります。将来の拡張と初期速度のバランスを取ります。' },
+    ],
+    cta: 'MVP開発を相談する',
+  },
+  'legacy-system-modernization': {
+    summary: '既存システムは、全面リニューアルだけが答えではありません。残す部分、直す部分、作り替える部分を分けて判断します。',
+    target: '既存システムの改善・リニューアルを検討している企業担当者',
+    sections: [
+      { heading: '改善かリニューアルか', body: '画面が古い、運用が重い、データが分散している、外部連携ができないなど、問題の種類によって対応は変わります。まず原因を分けます。', points: ['UIだけの問題か', 'データ構造の問題か', '保守性・拡張性の問題か', '運用フローの問題か'] },
+      { heading: '段階的に直す選択肢', body: '事業に影響があるシステムでは、全面停止して作り替えるより、優先度の高い機能から段階的に改善する方が安全な場合があります。' },
+      { heading: '判断材料を作る', body: '現状調査、課題整理、移行範囲、連携方針、運用への影響を整理し、投資判断できる状態を作ります。' },
+    ],
+    cta: '既存システム改善を相談する',
+  },
+  'system-requirements-before-rfp': {
+    summary: 'RFPや要件定義の前に、現状業務、利用者、データ、制約、優先順位を整理しておくと、見積もり精度と開発成功率が上がります。',
+    target: 'RFP・要件定義前の企業担当者',
+    sections: [
+      { heading: '要件定義前に整理するもの', body: '最初から完璧な仕様書を作る必要はありません。ただし、現状業務、利用者、課題、データ、外部連携、予算感、リリース時期は整理しておくべきです。', points: ['現状の業務フロー', '利用者と権限', '扱うデータ', '外部連携', '優先順位と制約'] },
+      { heading: '曖昧なまま発注するリスク', body: '目的や優先順位が曖昧なまま見積もりを取ると、会社ごとに前提が変わり、金額比較が意味を持たなくなります。' },
+      { heading: '相談段階でできること', body: '要件書がなくても、業務整理、機能範囲、技術選択肢、PoCの必要性を一緒に整理できます。' },
+    ],
+    cta: '要件整理を相談する',
+  },
 };
 
 
@@ -578,9 +644,10 @@ function SeoServicePage({ slug }: { slug:string }) {
 }
 
 function InsightsPage() {
+  const categories = Array.from(new Set(insightItems.map((item) => item.category)));
   return <main className="subpage insights-page">
     <section className="subhero menu-hero"><div className="shell"><div className="eyebrow">お役立ち記事</div><h1>発注前に、<br/>判断材料を整理する。</h1><p>システム開発、AI活用、業務改善について、費用・進め方・失敗回避の観点から整理します。</p></div></section>
-    <section className="insight-index section"><div className="shell"><div className="section-head"><div><div className="eyebrow">お役立ち記事</div><h2>実務記事</h2></div><p>検索流入と相談前の理解を増やすための、Specdest公式記事です。</p></div><div className="insight-list">{insightItems.map((item,index)=><Link className="insight-row" key={item.slug} to={`/insights/${item.slug}`}><span>{String(index+1).padStart(2,'0')}</span><div><h3>{item.title}</h3><p>{insightDetails[item.slug].summary}</p></div><b>↗</b></Link>)}</div></div></section>
+    <section className="insight-index section"><div className="shell"><div className="section-head"><div><div className="eyebrow">お役立ち記事</div><h2>実務記事</h2></div><p>検索流入と相談前の理解を増やすための、Specdest公式記事です。</p></div><div className="insight-category-nav">{categories.map((category)=><a key={category} href={`#${category}`}>{category}</a>)}</div>{categories.map((category)=><div className="insight-category-block" id={category} key={category}><h3>{category}</h3><div className="insight-list">{insightItems.filter((item)=>item.category===category).map((item,index)=><Link className="insight-row" key={item.slug} to={`/insights/${item.slug}`}><span>{String(index+1).padStart(2,'0')}</span><div><small>{item.category}</small><h3>{item.title}</h3><p>{insightDetails[item.slug].summary}</p></div><b>↗</b></Link>)}</div></div>)}</div></section>
     <SubContact />
   </main>;
 }

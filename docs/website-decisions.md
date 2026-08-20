@@ -376,3 +376,13 @@ They should not think: “This company sells engineers, offshore development, Re
 - Keep individual case-study links out of the footer.
 - Keep only a small number of high-value solution and SEO service links visible.
 - Footer should feel compact, balanced, and secondary to the page content.
+
+## 31. Insights expansion and navigation integration - 2026-08-20
+- The blog/article area is implemented as `/insights`, not as a separate `/blog` brand.
+- Header desktop navigation now treats `お役立ち記事` as a mega-menu section with grouped links.
+- Mobile navigation now includes foldable `お役立ち記事` links instead of only a single direct link.
+- Footer links include `/insights`, `/insights/system-development-cost-guide`, and core service pages including MVP development.
+- The first content cluster covers 発注準備, 業務システム, 業務改善, AI活用, 新規事業, and 既存改善.
+- New article pages added: AI PoC, business automation checklist, MVP planning, legacy modernization, and pre-RFP requirements.
+- Prerender now injects JSON-LD for Organization, WebSite, BreadcrumbList, Article, and Service where relevant.
+- Local build and `npm run seo:audit` passed with 49 prerendered routes and `pages_with_issues 0`.
