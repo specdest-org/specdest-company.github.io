@@ -1,4 +1,4 @@
-const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim();
+const measurementId = 'G-CH9NXJH2NW';
 
 type AnalyticsParams = Record<string, string | number | boolean | undefined>;
 
