@@ -1,5 +1,6 @@
 import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
+import { trackEvent, trackPageView } from './analytics';
 
 export const solutionItems = [
   { slug: 'ai-technology', title: 'AI・テクノロジー活用支援' },
@@ -182,6 +183,7 @@ function useSeo() {
     const meta = siteRoutes.find((route) => route.path === pathname) ?? siteRoutes[0];
     document.title = meta.title;
     document.querySelector('meta[name="description"]')?.setAttribute('content', meta.description);
+    trackPageView(pathname, meta.title);
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     const frame = window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
     return () => window.cancelAnimationFrame(frame);
@@ -786,6 +788,7 @@ function ContactPage() {
   const update = (key:string, value:string) => setForm(current => ({ ...current, [key]: value }));
   const submit = (event: React.FormEvent) => {
     event.preventDefault();
+    trackEvent('contact_submit', { method: 'mailto' });
     const subject = `Web相談: ${form.company || form.name}`;
     const body = [`会社名: ${form.company}`, `お名前: ${form.name}`, `メール: ${form.email}`, `検討状況: ${form.topic}`, '', form.message].join('\n');
     window.location.href = `mailto:info@specdest.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
