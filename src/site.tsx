@@ -244,12 +244,12 @@ function Header() {
     <div className="header-inner">
       <Link className="logo" to="/" onClick={closeMenu}>Specdest</Link>
       <nav className="nav" aria-label="Primary">
-        <Link onMouseEnter={() => setMenu('challenges')} onClick={closeMenu} to="/challenges">課題から探す</Link>
-        <Link onMouseEnter={() => setMenu('solutions')} onClick={closeMenu} to="/solutions">ソリューション</Link>
+        <Link onMouseEnter={() => setMenu('challenges')} onFocus={() => setMenu('challenges')} onClick={closeMenu} to="/challenges">課題から探す</Link>
+        <Link onMouseEnter={() => setMenu('solutions')} onFocus={() => setMenu('solutions')} onClick={closeMenu} to="/solutions">ソリューション</Link>
         <Link onMouseEnter={() => setMenu(null)} onClick={closeMenu} to="/approach">ご支援の進め方</Link>
-        <Link onMouseEnter={() => setMenu('cases')} onClick={closeMenu} to="/cases">導入事例</Link>
-        <Link onMouseEnter={() => setMenu('insights')} onClick={closeMenu} to="/insights">お役立ち記事</Link>
-        <Link onMouseEnter={() => setMenu('company')} onClick={closeMenu} to="/company">会社情報</Link>
+        <Link onMouseEnter={() => setMenu('cases')} onFocus={() => setMenu('cases')} onClick={closeMenu} to="/cases">導入事例</Link>
+        <Link onMouseEnter={() => setMenu('insights')} onFocus={() => setMenu('insights')} onClick={closeMenu} to="/insights">お役立ち記事</Link>
+        <Link onMouseEnter={() => setMenu('company')} onFocus={() => setMenu('company')} onClick={closeMenu} to="/company">会社情報</Link>
       </nav>
       <Link className="contact-button" to="/contact" onClick={closeMenu}>無料相談</Link>
       <button className={`mobile-menu-toggle ${mobileOpen ? 'is-open' : ''}`} type="button" aria-label={mobileOpen ? 'メニューを閉じる' : 'メニューを開く'} aria-expanded={mobileOpen} onClick={() => setMobileOpen((open) => !open)}><span/><span/><span/></button>
@@ -328,6 +328,7 @@ function HomePage() {
     <Hero />
     <section className="intro section"><div className="shell intro-grid"><Reveal><div className="eyebrow">Our Role</div><h2>技術をつくる前に、<br/>何を変えるべきかを考える。</h2></Reveal><Reveal><p className="lead">Specdestは、事業や業務の課題を起点に、何を変えるべきかを整理します。必要な技術を見極め、設計・実装・改善まで一貫して担います。</p><p className="statement">AI、SaaS、業務自動化、システム連携、プロダクト開発。手段を限定せず、課題に対して合理的な方法を選ぶ。</p></Reveal></div></section>
     <TrustStrip />
+    <HomeProof />
     <Outcomes />
     <Philosophy />
     <ChallengesSection />
@@ -336,6 +337,14 @@ function HomePage() {
     <CompanySection />
     <ContactBand />
   </>;
+}
+
+function HomeProof() {
+  return <section className="home-proof"><div className="shell home-proof-grid">
+    <div><strong>2018 →</strong><span>長期継続支援の実績</span></div>
+    <div><strong>Listed Company</strong><span>東証プライム上場企業との開発実績</span></div>
+    <div><strong>AI / Product / Business</strong><span>R&Dから業務システムまで対応</span></div>
+  </div></section>;
 }
 
 function Outcomes() {
@@ -469,17 +478,17 @@ const challengeDetails: Record<string,ServiceDetail> = {
   'shape-an-idea':{intro:'まだ言葉になり切っていない構想を、検証できる形まで具体化します。',context:'「こんなことができたら」という段階では、仕様書を作るより先に、利用者、価値、必要なデータ、技術的な不確実性を整理することが重要です。図、画面、プロトタイプを使いながら、次の判断ができる状態にします。',points:['構想の背景と狙いを言語化する','利用体験と必要機能を可視化する','試作・技術検証の範囲を決める'],deliverables:['コンセプト・要件整理','画面・フロー・プロトタイプ','検証計画と次フェーズ案'],related:['workflow-platform','ecommerce-platform']},
 };
 
-type CaseDetail = {intro:string; background:string; approach:string; built:string[]; facts:string[]};
+type CaseDetail = {intro:string; background:string; approach:string; built:string[]; facts:string[]; engagement?:string; team?:string};
 const caseDetails: Record<string,CaseDetail> = {
-  'workflow-platform':{intro:'資金調達済みスタートアップのWorkflow Management Platform開発を支援しています。',background:'事業の成長や業務変化に合わせて進化する、ワークフロー管理のプロダクト基盤を継続的に開発しています。',approach:'一度作って終わるのではなく、事業側の変化を取り込みながら機能を追加・改善できるプロダクトとして支援しています。',built:['Workflow Management Platform','継続的な機能追加・改善','業務・サービス基盤のプロダクト開発'],facts:['2023年から継続支援','資金調達済みスタートアップ','Platform / SaaS']},
-  'dog-face-recognition-ai':{intro:'犬の顔認識技術に関するAI開発をR&Dから支援しています。',background:'一般的な業務システムとは異なり、認識精度や実現方法そのものに技術的な不確実性があるテーマです。',approach:'R&Dとして技術検証から取り組み、実現可能性を確認しながらAI機能の開発を進めています。',built:['AI / Computer Vision','顔認識に関する技術検証','プロダクト化に向けた継続開発'],facts:['2021年から継続支援','特許準備に関わる技術開発','AI / R&D']},
-  'content-optimization':{intro:'Web/Appのコンテンツ最適化ツールを長期にわたり開発支援しています。',background:'Webとアプリの運用・最適化を支えるツールとして、長期間にわたり継続的な開発を支援しています。',approach:'運用中のプロダクトとして、必要な改善や追加開発を継続しながら支援しています。',built:['Web/App Content Optimization Tool','運用を支える継続的な機能改善','Web / App向け機能開発'],facts:['東証プライム上場企業向け','2018年から継続支援','長期協業']},
-  'ai-chatbot':{intro:'スタートアップ向けAIチャットボット開発を支援しています。',background:'生成AIをユーザー向けプロダクトの機能として組み込む開発テーマです。',approach:'AIそのものだけでなく、利用体験やプロダクトの一機能として成立する形で開発を支援しています。',built:['AI Chatbot','AI機能のプロダクト組み込み','Webプロダクト開発'],facts:['2025年から支援','スタートアップ','AI / Product']},
-  'ecommerce-platform':{intro:'資金調達済みスタートアップ向けE-Commerce Platformを開発支援しています。',background:'EC事業を支えるプラットフォームとして、サービス運営に必要な機能を継続的に開発しています。',approach:'事業要件に合わせて、プロダクトとして必要な機能を段階的に設計・実装しています。',built:['E-Commerce Platform','サービス運営に必要な業務機能','継続的なプロダクト開発'],facts:['2023年から支援','資金調達済みスタートアップ','E-Commerce / Platform']},
+  'workflow-platform':{intro:'資金調達済みスタートアップのWorkflow Management Platform開発を支援しています。',background:'事業の成長や業務変化に合わせて進化する、ワークフロー管理のプロダクト基盤を継続的に開発しています。',approach:'一度作って終わるのではなく、事業側の変化を取り込みながら機能を追加・改善できるプロダクトとして支援しています。',built:['Workflow Management Platform','継続的な機能追加・改善','業務・サービス基盤のプロダクト開発'],facts:['2023年から継続支援','資金調達済みスタートアップ','Platform / SaaS'],engagement:'2023年3月から継続',team:'Product Manager 1名 / Client Engineer 1名 / Development Engineers 3名'},
+  'dog-face-recognition-ai':{intro:'犬の顔認識技術に関するAI開発をR&Dから支援しています。',background:'一般的な業務システムとは異なり、認識精度や実現方法そのものに技術的な不確実性があるテーマです。',approach:'R&Dとして技術検証から取り組み、実現可能性を確認しながらAI機能の開発を進めています。',built:['AI / Computer Vision','顔認識に関する技術検証','プロダクト化に向けた継続開発'],facts:['2021年から継続支援','特許準備に関わる技術開発','AI / R&D'],engagement:'2021年10月から継続',team:'R&D Team / Development Engineers 3名'},
+  'content-optimization':{intro:'Web/Appのコンテンツ最適化ツールを長期にわたり開発支援しています。',background:'Webとアプリの運用・最適化を支えるツールとして、長期間にわたり継続的な開発を支援しています。',approach:'運用中のプロダクトとして、必要な改善や追加開発を継続しながら支援しています。',built:['Web/App Content Optimization Tool','運用を支える継続的な機能改善','Web / App向け機能開発'],facts:['東証プライム上場企業向け','2018年から継続支援','長期協業'],engagement:'2018年9月から継続',team:'Client Engineers 7名 / Development Engineers 5名'},
+  'ai-chatbot':{intro:'スタートアップ向けAIチャットボット開発を支援しています。',background:'生成AIをユーザー向けプロダクトの機能として組み込む開発テーマです。',approach:'AIそのものだけでなく、利用体験やプロダクトの一機能として成立する形で開発を支援しています。',built:['AI Chatbot','AI機能のプロダクト組み込み','Webプロダクト開発'],facts:['2025年から支援','スタートアップ','AI / Product'],engagement:'2025年5月から支援',team:'Client Engineers 3名 / Development Manager 1名 / Development Engineers 3名'},
+  'ecommerce-platform':{intro:'資金調達済みスタートアップ向けE-Commerce Platformを開発支援しています。',background:'EC事業を支えるプラットフォームとして、サービス運営に必要な機能を継続的に開発しています。',approach:'事業要件に合わせて、プロダクトとして必要な機能を段階的に設計・実装しています。',built:['E-Commerce Platform','サービス運営に必要な業務機能','継続的なプロダクト開発'],facts:['2023年から支援','資金調達済みスタートアップ','E-Commerce / Platform'],engagement:'2023年7月から支援',team:'Master Data Team / Development Manager 1名 / Development Engineers 3名'},
   'ios-search-ads-optimization':{intro:'iOS Search Adsの運用最適化を支えるシステム開発に取り組みました。',background:'広告運用データを活用し、運用判断をより効率的に行うための最適化・推薦領域の開発テーマです。',approach:'運用データを扱う仕組みと最適化ロジックを組み合わせ、実務で利用できる形へ落とし込みました。',built:['Search Ads運用支援','データを用いた最適化・推薦','運用システム開発'],facts:['Optimization','Recommendation','iOS Search Ads']},
   'advanced-rd-poc':{intro:'AI、OpenCV、OCR、IoTなどを用いた先端技術のR&D・実証実験を支援しました。',background:'実現可能性や精度を事前に確認する必要がある、不確実性の高い技術テーマを扱いました。',approach:'技術検証と小規模なプロトタイプを通じて、実用化に向けた判断材料を作りました。',built:['AI / OpenCV / OCR','IoT連携','PoC・プロトタイプ'],facts:['R&D','PoC','Emerging Technology']},
   'shift-scheduling-system':{intro:'シフト作成・管理業務を支えるシステムを開発しました。',background:'勤務条件や人員配置を扱うシフト業務を、継続的に運用できるシステムとして整理する開発テーマです。',approach:'実際のシフト管理フローをシステム化し、日常運用に必要な管理機能を実装しました。',built:['シフト作成・管理','勤務条件の管理','業務管理機能'],facts:['Business System','Scheduling','Operations']},
-  'line-chat-automation':{intro:'LINEを利用したChat System Automationを開発しました。',background:'チャット上のやり取りと後続の業務処理をつなぎ、手作業を減らす自動化テーマです。',approach:'LINEをユーザー接点として業務フローと連携し、チャットから処理につながる仕組みを構築しました。',built:['LINE連携','Chat System','業務自動化'],facts:['Automation','LINE','Integration']},
+  'line-chat-automation':{intro:'LINEを利用したChat System Automationを開発しました。',background:'チャット上のやり取りと後続の業務処理をつなぎ、手作業を減らす自動化テーマです。',approach:'LINEをユーザー接点として業務フローと連携し、チャットから処理につながる仕組みを構築しました。',built:['LINE連携','Chat System','業務自動化'],facts:['Automation','LINE','Integration'],engagement:'2018年9月から継続',team:'Client Engineer 1名 / Development Manager 1名 / Development Engineers 5名'},
   'video-cv-platform':{intro:'動画を活用したCV・プロフィール領域のプラットフォームを開発しました。',background:'テキストだけでは伝わりにくい情報を動画で扱うためのデジタルプロダクト開発です。',approach:'動画を中心としたユーザー体験とサービス運営に必要な機能を、プラットフォームとして設計・実装しました。',built:['動画CV機能','Webプラットフォーム','管理・運用機能'],facts:['Video','Platform','Product Development']},
   'stroller-sharing':{intro:'ベビーカーシェアリングサービスのシステム開発を支援しました。',background:'モバイル操作、決済、IoT・物理デバイスを一つのサービス体験として連携させる開発テーマです。',approach:'アプリケーションと外部・物理デバイスの連携を含め、サービス運営に必要な仕組みを構築しました。',built:['モバイル機能','決済連携','IoT・物理デバイス連携'],facts:['IoT','Mobile','Sharing Service']},
   'medical-shift-management':{intro:'医療法人向けのシフト管理システムを開発しました。',background:'医療現場の勤務・シフト管理を、組織の運用に合わせて扱う業務システム開発です。',approach:'現場の管理業務を整理し、シフト情報を継続的に管理できる仕組みとして実装しました。',built:['勤務・シフト管理','管理画面','業務システム'],facts:['Medical Organization','Business System','Shift Management']},
@@ -686,8 +695,8 @@ function InsightsPage() {
 function InsightDetailPage({ item }: { item:{slug:string;title:string} }) {
   const detail = insightDetails[item.slug];
   return <main className="subpage insight-detail-page">
-    <section className="subhero detail-hero"><div className="shell"><div className="breadcrumb"><Link to="/insights">お役立ち記事</Link><span>/</span><span>{item.title}</span></div><div className="eyebrow">実務ガイド</div><h1>{item.title}</h1><p>{detail.summary}</p><div className="case-facts"><span>{detail.target}</span><span>日本企業向け記事</span></div></div></section>
-    <section className="article-body section"><div className="shell article-layout"><aside><div className="eyebrow">Article</div><p>この記事は一般的な判断材料です。実際の進め方は、要件・業務内容・運用条件によって変わります。</p></aside><article>{detail.lead&&<p className="article-lead">{detail.lead}</p>}{detail.sections.map((section,index)=><section key={section.heading}><span>{String(index+1).padStart(2,'0')}</span><h2>{section.heading}</h2><p>{section.body}</p>{section.points && <ul>{section.points.map(point=><li key={point}>{point}</li>)}</ul>}</section>)}<div className="article-cta"><h2>要件が固まっていなくても相談できます。</h2><p>現状の業務・課題を伺い、システム化すべき部分、SaaSで足りる部分、AIや自動化が使える部分を整理します。</p><Link to="/contact">{detail.cta} ↗</Link></div></article></div></section>
+    <section className="subhero detail-hero"><div className="shell"><div className="breadcrumb"><Link to="/insights">お役立ち記事</Link><span>/</span><span>{item.title}</span></div><div className="eyebrow">実務ガイド</div><h1>{item.title}</h1><p>{detail.summary}</p><div className="case-facts"><span>{detail.target}</span><span>更新日 2026.08.21</span></div></div></section>
+    <section className="article-body section"><div className="shell article-layout"><aside><div className="eyebrow">Contents</div><nav className="article-toc" aria-label="この記事の目次">{detail.sections.map((section,index)=><a key={section.heading} href={`#section-${index+1}`}><span>{String(index+1).padStart(2,'0')}</span>{section.heading}</a>)}</nav><p>この記事は一般的な判断材料です。実際の進め方は、要件・業務内容・運用条件によって変わります。</p></aside><article>{detail.lead&&<p className="article-lead">{detail.lead}</p>}{detail.sections.map((section,index)=><section id={`section-${index+1}`} key={section.heading}><span>{String(index+1).padStart(2,'0')}</span><h2>{section.heading}</h2><p>{section.body}</p>{section.points && <ul>{section.points.map(point=><li key={point}>{point}</li>)}</ul>}</section>)}<div className="article-related"><strong>関連するページ</strong><div><Link to="/approach">ご支援の進め方 ↗</Link><Link to="/cases">導入事例 ↗</Link><Link to="/solutions">ソリューション ↗</Link></div></div><div className="article-cta"><h2>要件が固まっていなくても相談できます。</h2><p>現状の業務・課題を伺い、システム化すべき部分、SaaSで足りる部分、AIや自動化が使える部分を整理します。</p><Link to="/contact">{detail.cta} ↗</Link></div></article></div></section>
   </main>;
 }
 
@@ -724,6 +733,7 @@ function CaseDetailPage({ item }: { item:{slug:string;title:string} }) {
     <section className="case-story section"><div className="shell case-visual"><div className="case-visual-image"><img loading="lazy" decoding="async" src={siteImages[item.slug] ?? siteImages.cases} alt={`${item.title}のサンプルイメージ`} /></div><div className="story-grid"><div className="story-label">01 / Background</div><div><h2>背景</h2><p className="lead">{detail.background}</p></div></div></div></section>
     <section className="case-story section alt"><div className="shell story-grid"><div className="story-label">02 / Approach</div><div><h2>取り組み</h2><p className="lead">{detail.approach}</p></div></div></section>
     <section className="case-story section"><div className="shell story-grid"><div className="story-label">03 / Development</div><div><h2>開発内容</h2><div className="deliverable-list">{detail.built.map(x=><p key={x}><span>→</span>{x}</p>)}</div></div></div></section>
+    {(detail.engagement || detail.team) && <section className="case-evidence"><div className="shell case-evidence-grid"><div><span>Engagement</span><strong>{detail.engagement}</strong></div><div><span>Project Structure</span><strong>{detail.team}</strong></div></div></section>}
     <section className="related-cases section"><div className="shell"><div className="section-head"><div><div className="eyebrow">More Work</div><h2>その他の導入事例</h2></div><Link className="text-link" to="/cases">すべて見る ↗</Link></div><div className="related-grid">{caseItems.filter(x=>x.slug!==item.slug).slice(0,2).map(x=><Link key={x.slug} to={`/cases/${x.slug}`}><span>Case Study</span><h3>{x.title}</h3><p>{collectionDescriptions[x.slug]}</p><b>↗</b></Link>)}</div></div></section>
     <SubContact />
   </main>;
@@ -763,7 +773,15 @@ function ApproachPage() {
 }
 
 function ContactPage() {
-  return <main className="subpage"><section className="subhero"><div className="shell"><div className="eyebrow">Contact</div><h1>お問い合わせ</h1><p>事業課題、AI活用、業務改善、新規プロダクト、システム開発などについてお問い合わせください。</p></div></section><section className="section contact-content"><div className="shell contact-layout"><div className="contact-image"><img loading="lazy" decoding="async" src={siteImages.contact} alt="お問い合わせのサンプルイメージ" /></div><div className="simple-list"><article><span>01</span><h2>メール</h2><p><a className="email-link" href="mailto:info@specdest.com">info@specdest.com ↗</a></p></article><article><span>02</span><h2>電話</h2><p><a className="email-link" href="tel:+815058965929">050-5896-5929</a></p></article><article><span>03</span><h2>所在地</h2><p>東京都港区南青山3-1-36 青山丸竹ビル6F</p></article></div></div></section></main>;
+  const [form, setForm] = useState({ company:'', name:'', email:'', topic:'構想段階', message:'' });
+  const update = (key:string, value:string) => setForm(current => ({ ...current, [key]: value }));
+  const submit = (event: React.FormEvent) => {
+    event.preventDefault();
+    const subject = `Web相談: ${form.company || form.name}`;
+    const body = [`会社名: ${form.company}`, `お名前: ${form.name}`, `メール: ${form.email}`, `検討状況: ${form.topic}`, '', form.message].join('\n');
+    window.location.href = `mailto:info@specdest.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+  return <main className="subpage"><section className="subhero"><div className="shell"><div className="eyebrow">Contact</div><h1>無料相談</h1><p>要件が固まっていない段階でも構いません。現在の課題、検討状況、実現したいことをお聞かせください。</p></div></section><section className="section contact-content"><div className="shell contact-form-layout"><div><div className="eyebrow">Project Inquiry</div><h2>相談内容を整理して、<br/>そのままメールへ。</h2><p className="lead">入力内容からメールを作成します。Webサイト上には入力内容を保存しません。</p><div className="contact-direct"><a href="mailto:info@specdest.com">info@specdest.com ↗</a><a href="tel:+815058965929">050-5896-5929</a></div></div><form className="inquiry-form" onSubmit={submit}><label>会社名<input value={form.company} onChange={e=>update('company',e.target.value)} autoComplete="organization" /></label><label>お名前 <span>必須</span><input required value={form.name} onChange={e=>update('name',e.target.value)} autoComplete="name" /></label><label>メールアドレス <span>必須</span><input required type="email" value={form.email} onChange={e=>update('email',e.target.value)} autoComplete="email" /></label><label>現在の検討状況<select value={form.topic} onChange={e=>update('topic',e.target.value)}><option>構想段階</option><option>要件を整理している</option><option>開発会社を探している</option><option>既存システムを改善したい</option><option>AI・自動化を検討している</option><option>その他</option></select></label><label>相談内容 <span>必須</span><textarea required rows={7} value={form.message} onChange={e=>update('message',e.target.value)} placeholder="現在の課題、実現したいこと、希望時期など"></textarea></label><button type="submit">メールで相談内容を送る ↗</button><small>送信ボタンを押すと、端末のメールアプリが開きます。</small></form></div></section></main>;
 }
 
 export function App() {

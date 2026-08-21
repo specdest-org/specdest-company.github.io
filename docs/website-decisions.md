@@ -396,3 +396,10 @@ They should not think: “This company sells engineers, offshore development, Re
   - `/insights/system-development-cost-guide`
   - `/services/system-development-cost`
 - Reason: avoid creating fixed price expectations before understanding business context, requirements, scope, integrations, and operating model.
+
+## 35. Proof, conversion, and article usability - 2026-08-21
+- Homepage credibility is reinforced with factual proof already supported by company materials: long-term support since 2018, listed-company development experience, and coverage from AI/R&D through product/business systems.
+- Case-study detail pages may show engagement period and project structure when those facts are supported by source material. Do not invent outcome metrics.
+- Contact page now provides a structured inquiry form. Because no approved submission backend exists, the form creates a prefilled email in the visitor's mail client and explicitly states that input is not stored on the website.
+- Insight detail pages include a table of contents, section anchors, related internal pages, and an update date to improve reading/navigation and internal discovery.
+- Desktop mega-menu parent links must be usable by keyboard focus as well as mouse hover.
