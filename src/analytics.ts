@@ -16,8 +16,8 @@ function enabled() {
 function ensureGtag() {
   if (!enabled() || typeof window === 'undefined') return false;
   window.dataLayer = window.dataLayer ?? [];
-  window.gtag = window.gtag ?? function gtag(...args: unknown[]) {
-    window.dataLayer?.push(args);
+  window.gtag = window.gtag ?? function gtag() {
+    window.dataLayer?.push(arguments);
   };
   return true;
 }

@@ -8,6 +8,7 @@ Configuration:
 - The Measurement ID is a public frontend identifier and is kept directly in `src/analytics.ts`.
 - No environment variable is required for analytics.
 - The Google tag is loaded only in the browser; prerender/SSR output is unchanged.
+- The local `gtag()` shim must match Google's official queue behavior and push the function `arguments` object into `dataLayer`.
 
 Tracked events:
 - `page_view`
