@@ -32,6 +32,16 @@ export const caseItems = [
   { slug: 'medical-shift-management', title: '医療法人シフト管理' },
 ];
 
+const caseMenuItems = [
+  { slug: 'dog-face-recognition-ai', title: '犬の顔認識AI' },
+  { slug: 'advanced-rd-poc', title: '先端技術・R&D実証実験' },
+  { slug: 'medical-shift-management', title: '医療法人シフト管理' },
+  { slug: 'line-chat-automation', title: 'LINE業務自動化' },
+  { slug: 'workflow-platform', title: 'ワークフロー管理プラットフォーム' },
+  { slug: 'ecommerce-platform', title: 'ECプラットフォーム' },
+  { slug: 'stroller-sharing', title: 'ベビーカーシェアリング' },
+];
+
 const caseCategories: Record<string,string> = {
   'workflow-platform':'Platform / SaaS',
   'dog-face-recognition-ai':'AI / Computer Vision',
@@ -216,10 +226,9 @@ function Header() {
       body: 'AI・R&DからSaaS、業務システム、ECまで、公開可能な事例をご紹介します。',
       base: '/cases',
       groups: [
-        { label: 'AI / R&D', links: caseItems.filter((x) => ['dog-face-recognition-ai','ai-chatbot','advanced-rd-poc'].includes(x.slug)) },
-        { label: 'Optimization / Automation', links: caseItems.filter((x) => ['content-optimization','ios-search-ads-optimization','shift-scheduling-system','line-chat-automation'].includes(x.slug)) },
-        { label: 'Product / Platform', links: caseItems.filter((x) => ['workflow-platform','ecommerce-platform','video-cv-platform'].includes(x.slug)) },
-        { label: 'IoT / Business Systems', links: caseItems.filter((x) => ['stroller-sharing','medical-shift-management'].includes(x.slug)) },
+        { label: 'AI・R&D', links: caseMenuItems.filter((x) => ['dog-face-recognition-ai','advanced-rd-poc'].includes(x.slug)) },
+        { label: '業務システム・自動化', links: caseMenuItems.filter((x) => ['medical-shift-management','line-chat-automation'].includes(x.slug)) },
+        { label: 'プロダクト開発', links: caseMenuItems.filter((x) => ['workflow-platform','ecommerce-platform','stroller-sharing'].includes(x.slug)) },
       ],
     },
     insights: {
@@ -266,7 +275,7 @@ function Header() {
       </div>)}
       <Link className="mobile-direct-link" to="/approach" onClick={closeMenu}>ご支援の進め方<span>↗</span></Link>
       {([
-        ['cases','導入事例',caseItems],
+        ['cases','導入事例',caseMenuItems],
         ['insights','お役立ち記事',insightItems],
         ['company','会社情報',companyItems],
       ] as const).map(([key,label,items]) => <div className={`mobile-nav-group ${mobileSection === key ? 'is-open' : ''}`} key={key}>
