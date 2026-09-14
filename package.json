@@ -10,11 +10,12 @@
     "dev": "vite",
     "build:client": "vite build",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist-server",
-    "build": "tsc --noEmit && npm run build:client && npm run build:server && node scripts/prerender.mjs",
+    "build": "npm run devkit:check && tsc --noEmit && npm run build:client && npm run build:server && node scripts/prerender.mjs",
     "preview": "vite preview",
     "seo:audit": "node scripts/seo-audit.mjs",
     "deploy": "npm run build && pnpm dlx firebase-tools deploy --only hosting --project specdest-lp",
-    "deploy:hosting": "pnpm dlx firebase-tools deploy --only hosting --project specdest-lp"
+    "deploy:hosting": "pnpm dlx firebase-tools deploy --only hosting --project specdest-lp",
+    "devkit:check": "npx --yes @specdest/devkit check"
   },
   "dependencies": {
     "react": "18.2.0",

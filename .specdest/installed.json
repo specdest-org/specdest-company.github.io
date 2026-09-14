@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 2,
+  "requested": [],
+  "installed": {
+    "architecture-tests": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "d482464436e0d2eebd937e411cf094b421b435c751b1aac847206657622cd88f"
+    },
+    "bugfix-regression": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "fbff0b8f57c3eef8a9707b09336157e9361dac0e7655974fd45a65e3e0ea05c0"
+    },
+    "canonical-check": {
+      "kind": "rule",
+      "version": "1.0.2",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "48a4e2fb756ee4ebd1d97c939c744dcef7c9e10f2296d0ad9dd050552e413713"
+    },
+    "checker-determinism": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "aba89ff1ef945c484fced2527425770dcc74f0688eb465b353039b41a9ad896a",
+      "check": {
+        "command": ["specdest-cache", "checker-determinism"]
+      }
+    },
+    "ci-full-gate": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "c89d902bbb5abdd50115bad0325ce8b9a3683c3336ebdd11f752f65855fdf705"
+    },
+    "current-state-docs": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "07b0af4a948a0d0856407be2c0dd4bba706e883e0596d2e8c68f11673050c02b"
+    },
+    "dead-code-gate": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "7078e5399c27fdf4ed18ab63ca9617e76bb6d800be5f7e03d3046aea0f3df323"
+    },
+    "dependency-policy": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "c416539e4ab2b77c5457c94d225bfd9248202ce12bf5316d4684e223f1c37e00"
+    },
+    "design-system-boundary": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "d473b0018a1aa2a89a07719556b17c4c5fd68c001c12a885c5e805d08cab44f2"
+    },
+    "docs-enforcement": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "19f4905b5de68936bb639ef642694747f8c071eec4b400551b98a2114537d81d"
+    },
+    "docs-structure": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "2355e6ea59d571279ea77d1580f1689081c414f989f239fb8a175540af2bb9b2"
+    },
+    "enforcer-tests": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "2919f7d0003848b3f138861ac2a9e0070e0f683d9873c4cae506cf231d45bb6b"
+    },
+    "env-contract": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "2410d109dc88723a65feb5c0985a516e305d7fec46c4a5b8f34f601e23d07e92"
+    },
+    "environment-separation": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "fa71731ed9a42bf780be4843b23d32de8bc51e23714623129eda8985eb9937b6"
+    },
+    "exact-optional": {
+      "kind": "rule",
+      "version": "1.0.4",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "404fda120b309fc8fde34bfa72073a10c3e7086a9d7b2059db7eb656045de211",
+      "check": {
+        "command": ["specdest-cache", "exact-optional"]
+      }
+    },
+    "no-any": {
+      "kind": "rule",
+      "version": "1.0.4",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "6b3c52ec3b7def1b97fb8952b018da9ed8d44dbc48466cfcbad7682fce0c51e7",
+      "check": {
+        "command": ["specdest-cache", "no-any"]
+      }
+    },
+    "no-console-error": {
+      "kind": "rule",
+      "version": "1.0.5",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "ad95eeba464db819f187cddd16c63ac0d27ca0099cbb10bb050ece037d1c52a2",
+      "check": {
+        "command": ["specdest-cache", "no-console-error"]
+      }
+    },
+    "no-non-null": {
+      "kind": "rule",
+      "version": "1.0.4",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "6625630c8e3464ffc877a675265991b2b890035e23f543ee400268b8c3e13dcc",
+      "check": {
+        "command": ["specdest-cache", "no-non-null"]
+      }
+    },
+    "no-rule-weakening": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "f64a780d5ad117e7513be55b4175ef5f3923307c37a5fd279cea4867bad8d38a"
+    },
+    "no-runtime-npx-download": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "59e9fd793047b2da2de69e0c644491d1df295e26ba6e295eb87190b24cd68dae"
+    },
+    "no-secret-logs": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "cca55cf22b30360741e02ba92e216b09d34f14d33a847e8cb49f4910095676d7"
+    },
+    "no-test-skip": {
+      "kind": "rule",
+      "version": "1.0.12",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "1d6c6aef9ad220825a8608eda61e912fbf4f90d0480ee9ec7115e1cf117bd6e7",
+      "check": {
+        "command": ["specdest-cache", "no-test-skip"]
+      }
+    },
+    "no-unsafe-casts": {
+      "kind": "rule",
+      "version": "1.0.4",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "8bae7e584ac4e509cca948b2a7256a9f0637477ae78f5dfec3c61852cd859bf0",
+      "check": {
+        "command": ["specdest-cache", "no-unsafe-casts"]
+      }
+    },
+    "nullish-semantics": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "4e6b442ae0aafb0f04b3571ba7a4efa38eab1cc888a1028a548178ca15cf4202"
+    },
+    "object-arg-api": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "9ab5ac144ce0cb9b3f0ddf18abf3e15c3da49ee6cd195a4874a798d25f38f189"
+    },
+    "performance-baseline": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "9e23452572d5033cff3f49ebe5e9dfa4ee81c50ed92b790645a0e56c8e74d0be"
+    },
+    "precommit-fast-gate": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "ec85dc1ccbbd1ab49418cd6bd849de57d6b43aeab6325b3e2d05f0c017dc072f"
+    },
+    "production-command-safety": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "7de1114c4d8a69b55eacf6f5502c7f63200bc2147cf2b34fe6da029f03d9a055"
+    },
+    "reproduce-before-fix": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "0b4c756dc2e14a803124ea61c70c93cd2d55482e1aee01f84af8549b24568345"
+    },
+    "rule-change-enforcement": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "4f4df74a3e17ed5f4fba80a2ac144dcc47f961fc74ac4011b18cbd7adeb0074e"
+    },
+    "shared-components-pure": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "318d8508f94e85bb6a9efb08fc7a54bfed96f1292ad6f9dc8d30bccb26c88c13"
+    },
+    "single-primary-export": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "3ce40b3f4a6e37bb3ac3ad2f073780cd9d1ac9bff5a6e588c3912f846304e907"
+    },
+    "strict-typescript": {
+      "kind": "rule",
+      "version": "1.1.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "c8b471f5f3b3ea94fe2ceae248412a4a8f6fd7c1feb1f92365d26272e846a00c",
+      "check": {
+        "command": ["specdest-cache", "strict-typescript"]
+      }
+    },
+    "structural-search": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "af4943ae528c04aedd155ed0038abb0a12f499c14668d33500dfaf0690a665d9"
+    },
+    "test-localhost-safety": {
+      "kind": "rule",
+      "version": "1.0.0",
+      "revision": "a8aedc074849b4e204c33511f7b85458d6c33f12",
+      "contentHash": "d23c68331565a60f773310263c0e3528c056238755380c4ec4719d1718cc47ad"
+    }
+  }
+}
