@@ -124,6 +124,8 @@ const baseRoutes = [
   { path: '/approach', title: 'ご支援の進め方 | Specdest', description: '課題整理、技術選定、PoC・技術検証、設計・開発、運用・継続改善まで、Specdestのプロジェクトの進め方をご紹介します。要件が固まる前の相談から支援できます。' },
   { path: '/company', title: '会社情報 | Specdest', description: 'Specdest株式会社は、事業課題の整理、技術選定、AI活用、業務改善、システム開発、継続改善まで支援する日本のテクノロジーパートナーです。会社概要と考え方をご紹介します。' },
   { path: '/contact', title: '無料相談・お問い合わせ | Specdest', description: '業務システム開発、AI業務自動化、Webシステム開発、MVP開発、PoC・R&D、既存システム改善についてSpecdestへ無料相談できます。要件が固まっていない段階でもご相談ください。' },
+  { path: '/privacy', title: 'プライバシーポリシー | Specdest', description: 'Specdest株式会社のプライバシーポリシーです。個人情報の取得、利用目的、安全管理、Google Analytics等についてご案内します。' },
+  { path: '/terms', title: 'サイト利用規約 | Specdest', description: 'Specdest株式会社が運営するWebサイトの利用条件、知的財産権、免責事項等について定めたサイト利用規約です。' },
   { path: '/services/business-system-development', title: '業務システム開発会社 | Specdest', description: '業務システム開発、管理システム、予約・在庫・CRM・ワークフローなど、現場業務に合わせたシステム開発を支援します。業務整理、要件定義、設計、開発、運用改善まで対応します。' },
   { path: '/services/ai-automation-development', title: 'AI業務自動化・生成AI導入支援 | Specdest', description: 'AI業務自動化、生成AI導入、社内業務へのAI活用、PoC、AI機能開発を、課題整理から設計・実装・継続改善まで支援します。既存システムや業務フローへのAI組み込みも相談できます。' },
   { path: '/services/web-system-development', title: 'Webシステム開発会社 | Specdest', description: 'Webシステム開発、業務Webアプリ、管理画面、外部サービス連携、運用改善まで、日本企業の業務と事業課題に合わせて支援します。構想整理から継続改善まで一貫して対応します。' },
@@ -315,7 +317,7 @@ function Footer() {
       <div><strong className="footer-heading">開発サービス</strong><Link to="/services/business-system-development">業務システム開発</Link><Link to="/services/ai-automation-development">AI業務自動化</Link><Link to="/services/web-system-development">Webシステム開発</Link><Link to="/services/mvp-development">MVP開発</Link></div>
       <div><strong className="footer-heading">会社情報</strong><Link to="/company">Specdestについて</Link><Link to="/company/philosophy">Philosophy / Vision</Link><Link to="/company/profile">会社概要</Link></div>
     </div>
-    <div className="footer-bottom shell"><span>© Specdest Inc.</span><div><a href="/sitemap.xml">サイトマップ</a><Link to="/contact">お問い合わせ</Link></div></div>
+    <div className="footer-bottom shell"><span>© Specdest Inc.</span><div><a href="/sitemap.xml">サイトマップ</a><Link to="/privacy">プライバシーポリシー</Link><Link to="/terms">サイト利用規約</Link><Link to="/contact">お問い合わせ</Link></div></div>
   </footer>;
 }
 
@@ -783,6 +785,44 @@ function ApproachPage() {
   </main>;
 }
 
+
+function PrivacyPage() {
+  return <main className="subpage legal-page">
+    <section className="subhero legal-hero"><div className="shell"><div className="eyebrow">Privacy Policy</div><h1>プライバシーポリシー</h1><p>Specdest株式会社における個人情報その他の利用者情報の取扱いについて定めます。</p></div></section>
+    <section className="section legal-content"><div className="shell legal-layout"><aside><span>制定日</span><strong>2026年9月21日</strong><p>Specdest株式会社</p></aside><article>
+      <p className="legal-lead">Specdest株式会社（以下「当社」といいます。）は、当社が運営するWebサイト（以下「当サイト」といいます。）において取得する個人情報その他の利用者情報を、以下の方針に基づき取り扱います。</p>
+      <section><span>01</span><h2>取得する情報</h2><p>当社は、お問い合わせやメールでのご連絡等に際して、氏名、会社名、メールアドレス、電話番号、お問い合わせ内容その他利用者が提供する情報を取得する場合があります。</p><p>また、当サイトではアクセス解析のため、Cookie、端末・ブラウザに関する情報、閲覧ページ、アクセス日時、おおよその地域情報等が取得される場合があります。</p></section>
+      <section><span>02</span><h2>利用目的</h2><ul><li>お問い合わせへの回答および連絡のため</li><li>提案、見積り、契約、サービス提供およびプロジェクト遂行のため</li><li>当社サービスおよび当サイトの改善、利用状況の分析のため</li><li>不正利用の防止、セキュリティ確保のため</li><li>法令上必要な対応を行うため</li></ul></section>
+      <section><span>03</span><h2>お問い合わせフォームについて</h2><p>当サイトの問い合わせフォームに入力した内容は、当サイトのサーバーには保存されません。送信操作を行うと利用者の端末のメールアプリが起動し、利用者がメールを送信した時点で、そのメールに含まれる情報を当社が受領します。</p></section>
+      <section><span>04</span><h2>Google Analytics・Cookie等</h2><p>当サイトでは、利用状況の把握と改善のためGoogle LLCが提供するGoogle Analyticsを利用しています。Google AnalyticsはCookie等を使用し、ユーザー数、セッション情報、おおよその位置情報、ブラウザ・端末情報等を収集する場合があります。</p><p>Googleによるデータの取扱いについては、<a href="https://policies.google.com/privacy?hl=ja" target="_blank" rel="noreferrer">Google プライバシーポリシー ↗</a>および<a href="https://support.google.com/analytics/answer/11593727?hl=ja" target="_blank" rel="noreferrer">Google Analytics のデータ収集に関する説明 ↗</a>をご確認ください。</p></section>
+      <section><span>05</span><h2>第三者提供</h2><p>当社は、本人の同意がある場合または法令に基づく場合等を除き、個人データを第三者に提供しません。業務上必要な範囲で取扱いを委託する場合は、適切な委託先の選定および必要な監督を行います。</p></section>
+      <section><span>06</span><h2>安全管理</h2><p>当社は、取り扱う個人情報への不正アクセス、漏えい、滅失または毀損等を防止するため、必要かつ適切な安全管理措置を講じます。</p></section>
+      <section><span>07</span><h2>開示・訂正・利用停止等</h2><p>当社が保有する個人データについて、法令に基づく開示、訂正、追加、削除、利用停止等の請求があった場合は、本人確認のうえ、法令に従い対応します。</p></section>
+      <section><span>08</span><h2>本ポリシーの変更</h2><p>当社は、法令の改正、サービス内容の変更その他必要に応じて本ポリシーを変更することがあります。変更後の内容は当サイトへの掲載その他適切な方法によりお知らせします。</p></section>
+      <section><span>09</span><h2>お問い合わせ窓口</h2><p>個人情報の取扱いに関するお問い合わせは、<a href="mailto:info@specdest.com">info@specdest.com</a>までご連絡ください。</p></section>
+    </article></div></section>
+  </main>;
+}
+
+function TermsPage() {
+  return <main className="subpage legal-page">
+    <section className="subhero legal-hero"><div className="shell"><div className="eyebrow">Website Terms</div><h1>サイト利用規約</h1><p>Specdest株式会社が運営するWebサイトをご利用いただく際の条件を定めます。</p></div></section>
+    <section className="section legal-content"><div className="shell legal-layout"><aside><span>制定日</span><strong>2026年9月21日</strong><p>Specdest株式会社</p></aside><article>
+      <p className="legal-lead">本利用規約（以下「本規約」といいます。）は、Specdest株式会社（以下「当社」といいます。）が運営するWebサイト（以下「当サイト」といいます。）の利用条件を定めるものです。当サイトを利用する方は、本規約の内容をご確認のうえご利用ください。</p>
+      <section><span>01</span><h2>適用範囲</h2><p>本規約は、当サイトの閲覧その他当サイトの利用に適用されます。当社が当サイト上で個別の条件を定めた場合、当該条件も本規約の一部を構成します。</p></section>
+      <section><span>02</span><h2>知的財産権</h2><p>当サイトに掲載される文章、画像、デザイン、ロゴ、プログラムその他のコンテンツに関する著作権、商標権その他の知的財産権は、当社または正当な権利を有する第三者に帰属します。法令で認められる場合を除き、権利者の許可なく複製、転載、改変、配布等を行うことはできません。</p></section>
+      <section><span>03</span><h2>禁止事項</h2><ul><li>法令または公序良俗に反する行為</li><li>当社または第三者の権利・利益を侵害する行為</li><li>当サイトの運営を妨害し、または過度な負荷を与える行為</li><li>不正アクセス、脆弱性の悪用、その他セキュリティを害する行為</li><li>当社または第三者になりすます行為</li><li>その他、当社が不適切と合理的に判断する行為</li></ul></section>
+      <section><span>04</span><h2>掲載情報</h2><p>当社は、当サイトに掲載する情報の正確性や最新性の確保に努めますが、すべての情報について完全性、正確性、適時性、特定目的への適合性を保証するものではありません。掲載内容は予告なく変更または削除される場合があります。</p></section>
+      <section><span>05</span><h2>外部サイト</h2><p>当サイトからリンクされた外部サイトは、それぞれの運営者の責任により管理されています。当社は、外部サイトの内容、サービスまたは安全性を保証するものではありません。</p></section>
+      <section><span>06</span><h2>当サイトの変更・停止</h2><p>当社は、保守、障害、セキュリティ対応その他必要な場合に、事前の通知なく当サイトの全部または一部を変更、中断または終了することがあります。</p></section>
+      <section><span>07</span><h2>免責</h2><p>当サイトの利用または利用不能により生じた損害について、当社に故意または重過失がある場合その他法令上責任を免れることができない場合を除き、当社は法令上許容される範囲で責任を負いません。</p></section>
+      <section><span>08</span><h2>個人情報</h2><p>当サイトにおける個人情報その他の利用者情報の取扱いについては、当社の<Link to="/privacy">プライバシーポリシー</Link>をご確認ください。</p></section>
+      <section><span>09</span><h2>本規約の変更</h2><p>当社は、必要に応じて本規約を変更することがあります。変更後の内容は当サイトへの掲載その他適切な方法によりお知らせします。</p></section>
+      <section><span>10</span><h2>準拠法・管轄</h2><p>本規約は日本法に準拠します。当サイトの利用に関して当社と利用者との間で紛争が生じた場合は、法令に別段の定めがある場合を除き、東京地方裁判所を第一審の専属的合意管轄裁判所とします。</p></section>
+    </article></div></section>
+  </main>;
+}
+
 function ContactPage() {
   const [form, setForm] = useState({ company:'', name:'', email:'', topic:'構想段階', message:'' });
   const update = (key:string, value:string) => setForm(current => ({ ...current, [key]: value }));
@@ -793,7 +833,7 @@ function ContactPage() {
     const body = [`会社名: ${form.company}`, `お名前: ${form.name}`, `メール: ${form.email}`, `検討状況: ${form.topic}`, '', form.message].join('\n');
     window.location.href = `mailto:info@specdest.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
-  return <main className="subpage"><section className="subhero"><div className="shell"><div className="eyebrow">Contact</div><h1>無料相談</h1><p>要件が固まっていない段階でも構いません。現在の課題、検討状況、実現したいことをお聞かせください。</p></div></section><section className="section contact-content"><div className="shell contact-form-layout"><div><div className="eyebrow">Project Inquiry</div><h2>相談内容を整理して、<br/>そのままメールへ。</h2><p className="lead">入力内容からメールを作成します。Webサイト上には入力内容を保存しません。</p><div className="contact-direct"><a href="mailto:info@specdest.com">info@specdest.com ↗</a><a href="tel:+815058965929">050-5896-5929</a></div></div><form className="inquiry-form" onSubmit={submit}><label>会社名<input value={form.company} onChange={e=>update('company',e.target.value)} autoComplete="organization" /></label><label>お名前 <span>必須</span><input required value={form.name} onChange={e=>update('name',e.target.value)} autoComplete="name" /></label><label>メールアドレス <span>必須</span><input required type="email" value={form.email} onChange={e=>update('email',e.target.value)} autoComplete="email" /></label><label>現在の検討状況<select value={form.topic} onChange={e=>update('topic',e.target.value)}><option>構想段階</option><option>要件を整理している</option><option>開発会社を探している</option><option>既存システムを改善したい</option><option>AI・自動化を検討している</option><option>その他</option></select></label><label>相談内容 <span>必須</span><textarea required rows={7} value={form.message} onChange={e=>update('message',e.target.value)} placeholder="現在の課題、実現したいこと、希望時期など"></textarea></label><button type="submit">メールで相談内容を送る ↗</button><small>送信ボタンを押すと、端末のメールアプリが開きます。</small></form></div></section></main>;
+  return <main className="subpage"><section className="subhero"><div className="shell"><div className="eyebrow">Contact</div><h1>無料相談</h1><p>要件が固まっていない段階でも構いません。現在の課題、検討状況、実現したいことをお聞かせください。</p></div></section><section className="section contact-content"><div className="shell contact-form-layout"><div><div className="eyebrow">Project Inquiry</div><h2>相談内容を整理して、<br/>そのままメールへ。</h2><p className="lead">入力内容からメールを作成します。Webサイト上には入力内容を保存しません。</p><div className="contact-direct"><a href="mailto:info@specdest.com">info@specdest.com ↗</a><a href="tel:+815058965929">050-5896-5929</a></div></div><form className="inquiry-form" onSubmit={submit}><label>会社名<input value={form.company} onChange={e=>update('company',e.target.value)} autoComplete="organization" /></label><label>お名前 <span>必須</span><input required value={form.name} onChange={e=>update('name',e.target.value)} autoComplete="name" /></label><label>メールアドレス <span>必須</span><input required type="email" value={form.email} onChange={e=>update('email',e.target.value)} autoComplete="email" /></label><label>現在の検討状況<select value={form.topic} onChange={e=>update('topic',e.target.value)}><option>構想段階</option><option>要件を整理している</option><option>開発会社を探している</option><option>既存システムを改善したい</option><option>AI・自動化を検討している</option><option>その他</option></select></label><label>相談内容 <span>必須</span><textarea required rows={7} value={form.message} onChange={e=>update('message',e.target.value)} placeholder="現在の課題、実現したいこと、希望時期など"></textarea></label><button type="submit">メールで相談内容を送る ↗</button><small>送信ボタンを押すと、端末のメールアプリが開きます。送信前に<Link to="/privacy">プライバシーポリシー</Link>をご確認ください。</small></form></div></section></main>;
 }
 
 export function App() {
@@ -818,5 +858,7 @@ export function App() {
     <Route path="/services/web-system-development" element={<SeoServicePage slug="web-system-development" />} />
     <Route path="/services/mvp-development" element={<SeoServicePage slug="mvp-development" />} />
     <Route path="/contact" element={<ContactPage />} />
+    <Route path="/privacy" element={<PrivacyPage />} />
+    <Route path="/terms" element={<TermsPage />} />
   </Routes><Footer /></>;
 }
