@@ -42,9 +42,9 @@ Do not include the old address or a personal name in the initial email. Do not f
 | Platform | Official starting point | Assessment | Next step / limitation |
 | --- | --- | --- | --- |
 | **比較ビズ** | https://www.biz.ne.jp/company/specdest/ | Existing public listing, currently undesirable personal/legacy data exposure | **P0 correction**, not a new registration; use account holder/support to remove or suppress sensitive fields |
-| **J-GoodTech / ジェグテック** | https://jgoodtech.smrj.go.jp/pub/ja/deal/ | Government-linked platform; free with eligibility screening, not a quick backlink farm | **P1** after confirming eligibility and that application/public form does not demand private identity data; consult program rules |
-| **イプロス / iPROS** | https://ipros.tayori.com/q/ipros-entry/detail/1059560/ | Free basic exhibition; business/industrial rather than broad software-agency audience | **P2** for enterprise/industrial solution services; registration may require company location, so privacy review first |
-| **WEBシステム開発会社データベース** | https://grip-space.co.jp/websys-db/ | Claims free listing and direct traffic to official website | **P2 trial** after confirming genuine editorial/operating credibility and whether address/representative are public |
+| **J-GoodTech / ジェグテック** | https://jgoodtech.smrj.go.jp/pub/ja/deal/ | Government-linked platform, free subject to screening; official application guidelines require representative name, corporate address and a named contact | **HOLD — user restriction:** do not transmit identity details; the reviewed application does not satisfy the permitted company-only fields |
+| **イプロス / iPROS** | https://ipros.tayori.com/q/ipros-entry/detail/1335986/ | Free basic exhibition; publicly displays required address/postal code, telephone and a map | **HOLD — user restriction:** do not register while public-address exposure is disallowed |
+| **WEBシステム開発会社データベース** | https://grip-space.co.jp/websys-db/ | Offers free listings and directs visitors to company websites | **P1 first candidate**: request a company-only registration with no personal identity/address or mandatory public pricing; require reply about fields and publication review before supplying data |
 | **発注ナビ** | https://hnavi.co.jp/ | Qualified Japanese IT procurement channel | **Evaluate vendor pricing and applicant requirements**; its “free” proposition is to clients requesting quotes, not evidence of free vendor inclusion |
 | **システム幹事** | https://system-kanji.com/ | Japanese system-development buyer audience | **Evaluate vendor pricing and personal-information requirements**; free buyer consultations do not establish free vendor listing |
 
@@ -81,4 +81,48 @@ Other sites such as 比較ビズ and PRONI may charge providers: never treat an 
 
 As of this review, **zero new external profiles submitted, claimed, or verified live**. The company-safe copy above is ready for eligible providers. Some platform onboarding requires authenticated login and mandatory personal/address/price information; do not bypass these gates. A third-party removal or correction request is *not completed* until the platform confirms the change and the public profile is rechecked.
 
-Prioritize removing personal/legacy disclosures from the existing directory before any new listing campaign. No new personally identifying data should enter an external provider through this workflow.
+Comparison-site correction is separately owned by the user; do not contact 比較ビズ again in this campaign. Do not submit identity information to other providers or create unverifiable listings.
+
+
+## 7. November 7 platform requirement check and actionable outreach packet
+
+The following are facts checked against providers' own current materials, not assumed from their homepages:
+
+- J-GoodTech application: [official registration](https://jgoodtech.smrj.go.jp/system/corporations/register), [official eligibility FAQ](https://jgoodtech.smrj.go.jp/pub/ja/faq/). The official application guidelines enumerate corporate identity, representative name, address and named primary contact. Some fields may remain review-only, but **submission itself would disclose identity data**. Do not apply under the present privacy restrictions.
+- iPROS: [July 2026 registration FAQ](https://ipros.tayori.com/q/ipros-entry/detail/1335986/) requires physical address and postcode in **published** company information (including map link), not merely internal verification. Do not apply unless the user explicitly approves a business address being published.
+- WEBシステム開発会社データベース: [official directory](https://grip-space.co.jp/websys-db/) offers free listings and a website click-through. Application contact/form field restrictions and operator quality have **not** been verified. Ask first whether a company-only listing is accepted and whether address/individual names are displayed; do not submit company data without those answers.
+- [AIコモンズ](https://aicommons.jp/): Japanese AI/system-development matching site advertises free provider registration, but charges providers **¥30,000 plus tax per agreed commercial meeting**. Not a free lead-generation program; hold pending explicit paid lead-budget approval.
+
+### Preflight inquiry — Japanese system-development directory
+
+**Channel:** the operator's published free-listing contact form for https://grip-space.co.jp/websys-db/ (no automated submission or personal data sent).
+
+**Subject:** 企業掲載の必須項目・公開範囲の確認（Specdest株式会社）
+
+**Message:**
+
+> WEBシステム開発会社データベース運営ご担当者様
+>
+> Specdest株式会社（https://specdest.com）の企業掲載を検討しています。弊社では業務システム開発、AI導入支援、Webシステム開発などを行っています。
+>
+> 企業名、公式サイト、会社共通メールアドレス、サービス紹介のみでの登録は可能でしょうか。代表者氏名・担当者個人名・住所・個人電話番号・料金等の入力は必須でしょうか。特にどの項目が公開され、掲載前に内容の確認・非公開設定・取り下げができるかをご教示ください。
+>
+> 条件を確認後、掲載文面をお送りします。
+>
+> Specdest株式会社 / info@specdest.com
+
+**Status:** drafted; **not sent**. Provider application may require authenticated browser access or an outbound email integration, neither established for this account. No claimed submission, backlink or publication.
+
+### Ready-to-paste provider fields (company-only)
+
+| Field | Value |
+| --- | --- |
+| 企業名 | Specdest株式会社 |
+| URL | https://specdest.com |
+| 連絡先 | info@specdest.com |
+| キャッチコピー | 技術を目的にせず、事業と業務の課題を解決する。 |
+| 得意分野 | 業務システム開発 / AI導入支援・PoC / 業務自動化 / Webシステム開発 |
+| 会社紹介 | Specdest株式会社は、企業の業務課題や技術的な不確実性に向き合い、要件整理・技術選定・PoCからシステムの設計・開発・継続改善までを支援する日本の技術会社です。業務システム、生成AI導入、業務自動化、Webプラットフォームを主な領域としています。 |
+| 事例URL | https://specdest.com/cases/medical-shift-management ; https://specdest.com/cases/ai-chatbot |
+
+**Do not fill** any other fields with inferred representative name, street address, number of staff, revenue, contract minimum, hourly rate or private client data. A provider requesting any of those details is **on hold**, not submitted.

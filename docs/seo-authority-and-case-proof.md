@@ -10,13 +10,13 @@ Updated: 2026-11-07. Commercial rankings and the baseline Search Console numbers
 
 ## Prioritized evidence to acquire — approval required before publishing
 
-| Priority | Existing case | Evidence to request | Public version after approval |
-| --- | --- | --- | --- |
-| P0 | `ai-chatbot` | Client permission to describe deployment/use, approved product screenshot, scope of AI integration; optionally a qualitative buyer quote | Named or anonymous story with approved factual business context and technical approach |
-| P0 | `workflow-platform` | Approved screenshot/diagram, scope of delivered workflows, confirmed relationship details and (if permitted) outcome measures | Stronger ongoing platform case linked to business system development |
-| P0 | `medical-shift-management` | Approved anonymized workflow image, specific shipped modules and operational verification | Concrete enterprise workflow example without confidential patient/client data |
-| P1 | `content-optimization` | Permission to mention client identity, cite public product, or report approved non-sensitive results | Long-term enterprise collaboration reference |
-| P1 | `dog-face-recognition-ai` | Approved R&D milestones and whether any measurable recognition results can be published | Research and AI delivery proof without invented accuracy figures |
+| Priority | Existing case              | Evidence to request                                                                                                                      | Public version after approval                                                          |
+| -------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| P0       | `ai-chatbot`               | Client permission to describe deployment/use, approved product screenshot, scope of AI integration; optionally a qualitative buyer quote | Named or anonymous story with approved factual business context and technical approach |
+| P0       | `workflow-platform`        | Approved screenshot/diagram, scope of delivered workflows, confirmed relationship details and (if permitted) outcome measures            | Stronger ongoing platform case linked to business system development                   |
+| P0       | `medical-shift-management` | Approved anonymized workflow image, specific shipped modules and operational verification                                                | Concrete enterprise workflow example without confidential patient/client data          |
+| P1       | `content-optimization`     | Permission to mention client identity, cite public product, or report approved non-sensitive results                                     | Long-term enterprise collaboration reference                                           |
+| P1       | `dog-face-recognition-ai`  | Approved R&D milestones and whether any measurable recognition results can be published                                                  | Research and AI delivery proof without invented accuracy figures                       |
 
 Keep client names, logos, screenshots, testimonials, costs, KPIs, patents, dates, and project outcomes private until the appropriate holder approves public use. Aggregate or anonymize where needed; do not infer metrics from internal descriptions.
 
@@ -38,3 +38,8 @@ Keep client names, logos, screenshots, testimonials, costs, KPIs, patents, dates
 - No external profiles were created or submitted: business-owner login, verification and factual profile approval are required.
 - No client requests or public testimonials were sent/published: explicit permission and supporting evidence are required.
 - No new metrics or third-party endorsements were added to the website.
+
+
+## 2026-11-07 listing workflow update
+
+The current Japanese-first, no-personal-details submission eligibility, hard blockers and the company-only profile copy live in [`seo-anonymous-cases-and-listings.md`](seo-anonymous-cases-and-listings.md). Do not interpret the directory shortlist above as approved registrations. The user is handling the existing 比較ビズ listing independently.
