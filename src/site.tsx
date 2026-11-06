@@ -126,8 +126,8 @@ const baseRoutes = [
   { path: '/contact', title: '無料相談・お問い合わせ | Specdest', description: '業務システム開発、AI業務自動化、Webシステム開発、MVP開発、PoC・R&D、既存システム改善についてSpecdestへ無料相談できます。要件が固まっていない段階でもご相談ください。' },
   { path: '/privacy', title: 'プライバシーポリシー | Specdest', description: 'Specdest株式会社のプライバシーポリシーです。個人情報の取得、利用目的、安全管理、Google Analytics等についてご案内します。' },
   { path: '/terms', title: 'サイト利用規約 | Specdest', description: 'Specdest株式会社が運営するWebサイトの利用条件、知的財産権、免責事項等について定めたサイト利用規約です。' },
-  { path: '/services/business-system-development', title: '業務システム開発会社 | Specdest', description: '業務システム開発、管理システム、予約・在庫・CRM・ワークフローなど、現場業務に合わせたシステム開発を支援します。業務整理、要件定義、設計、開発、運用改善まで対応します。' },
-  { path: '/services/ai-automation-development', title: 'AIコンサルティング・生成AI導入支援 | Specdest', description: 'AIコンサルティング、生成AI導入支援、AI業務自動化、PoC・効果検証、AI機能開発を、業務課題の整理から設計・実装・継続改善まで支援します。' },
+  { path: '/services/business-system-development', title: 'システム開発・業務システム受託開発 | Specdest株式会社', description: 'システム開発会社をお探しの企業へ。Specdestは業務システムの受託開発を、業務分析・要件定義・設計・開発・既存システム連携・運用改善まで支援します。管理、予約、在庫、ワークフローなどの開発事例をご紹介します。' },
+  { path: '/services/ai-automation-development', title: 'AIコンサルティング・AI導入支援 | Specdest株式会社', description: '企業向けAIコンサルティング・生成AI導入支援。Specdestは業務の適用領域の整理、既存ツールと独自開発の比較、PoC・効果検証からAI機能開発・業務自動化・運用改善まで一貫して支援します。' },
   { path: '/services/web-system-development', title: 'Webシステム開発会社 | Specdest', description: 'Webシステム開発、業務Webアプリ、管理画面、外部サービス連携、運用改善まで、日本企業の業務と事業課題に合わせて支援します。構想整理から継続改善まで一貫して対応します。' },
   { path: '/services/mvp-development', title: 'MVP開発・新規サービス開発 | Specdest', description: 'MVP開発、新規サービス開発、デジタルプロダクト開発を、構想整理、要件整理、技術選定、本番開発、継続改善まで支援します。小さく検証しながら事業化を進めます。' },
   ];
@@ -652,20 +652,27 @@ const insightDetails: Record<string, InsightDetail> = {
 
 const seoServicePages: Record<string, { title: string; eyebrow: string; detail: ServiceDetail; imageKey: string }> = {
   'business-system-development': {
-    title: '業務システム開発',
+    title: 'システム開発・業務システム受託開発',
     eyebrow: 'Service',
     imageKey: 'business-systems',
-    detail: solutionDetails['business-systems'],
+    detail: {
+      ...solutionDetails['business-systems'],
+      intro: '企業向けの業務システム開発を、要件整理から設計・受託開発・既存システム連携・運用改善まで一貫して支援します。',
+      context: 'システム開発では、機能だけでなく現場の業務フロー、利用者の権限、既存データや外部サービスとの連携、導入後の運用まで考えることが重要です。Specdestは新規構築だけでなく、既存システムの改修や段階的な改善も含め、課題に合う実装方法を選びます。',
+      points: ['業務分析・要件定義と開発範囲の整理', '管理・予約・在庫・ワークフロー等の設計・開発', '既存システム・API連携と保守・継続改善'],
+      deliverables: ['業務フロー・要件・画面・データ設計', '業務Webシステム・管理画面・権限管理', '外部連携・導入後の改善計画'],
+      related: ['medical-shift-management','workflow-platform'],
+    },
   },
   'ai-automation-development': {
     title: 'AIコンサルティング・生成AI導入支援',
     eyebrow: 'Service',
     imageKey: 'ai-technology',
     detail: {
-      intro: 'AIコンサルティングから生成AI導入、業務自動化まで、課題整理・技術選定・PoC・実装・改善を一貫して支援します。',
-      context: 'AIを入れること自体を目的にせず、どの業務で効果が出るか、既存サービスで足りるか、独自機能が必要かを整理します。',
-      points: ['AI活用候補の整理', 'PoC・効果検証', '業務システムへのAI機能組み込み'],
-      deliverables: ['AI活用テーマ整理', '生成AI / AI機能のPoC', '業務自動化・システム連携'],
+      intro: '企業のAI活用方針から生成AI導入、業務自動化まで。業務分析・導入判断・PoC・AIシステム開発・運用改善を支援します。',
+      context: 'AIコンサルティングでは、モデルを選ぶ前に対象業務、期待する効果、扱うデータ、精度・セキュリティ条件を整理します。既存の生成AIサービスで十分か、業務システム連携や独自開発が必要かを比較し、PoCで検証してから実装方針を決めます。',
+      points: ['業務分析・AI活用テーマの優先順位と導入方針', '生成AI・既存サービス・独自開発の比較とPoC評価', 'AI機能の組み込み・業務自動化・運用改善'],
+      deliverables: ['AI導入計画・対象業務と評価条件の整理', '生成AI・AI機能のPoCと検証結果', 'AI連携システム・運用ルール・改善計画'],
       related: ['ai-chatbot','dog-face-recognition-ai'],
     },
   },
@@ -691,7 +698,19 @@ const seoServicePages: Record<string, { title: string; eyebrow: string; detail: 
 
 function SeoServicePage({ slug }: { slug:string }) {
   const page = seoServicePages[slug];
-  return <StructuredDetailPage eyebrow={page.eyebrow} title={page.title} parentPath="/solutions" parentLabel="ソリューション" detail={page.detail} imageKey={page.imageKey} />;
+  const relatedGuides: Record<string,{to:string;label:string}[]> = {
+    'business-system-development': [
+      { to: '/insights/how-to-choose-system-development-company', label: 'システム開発会社の選び方' },
+      { to: '/insights/system-development-before-starting', label: 'システム開発を始める前に考えること' },
+      { to: '/services/ai-automation-development', label: 'AIコンサルティング・導入支援' },
+    ],
+    'ai-automation-development': [
+      { to: '/insights/generative-ai-business-introduction', label: '生成AIを業務に導入する方法' },
+      { to: '/insights/ai-poc-before-development', label: 'AI PoCを本開発につなげる進め方' },
+      { to: '/services/business-system-development', label: 'システム開発・業務システム受託開発' },
+    ],
+  };
+  return <StructuredDetailPage eyebrow={page.eyebrow} title={page.title} parentPath="/solutions" parentLabel="ソリューション" detail={page.detail} imageKey={page.imageKey} relatedGuides={relatedGuides[slug]} />;
 }
 
 function InsightsPage() {
@@ -725,7 +744,7 @@ function SubContact() {
   return <section className="sub-contact"><div className="shell sub-contact-inner"><div><div className="eyebrow blue">Contact</div><h2>課題がまだ整理されていなくても、<br/>そこから一緒に考えます。</h2></div><Link to="/contact">無料相談 ↗</Link></div></section>;
 }
 
-function StructuredDetailPage({ eyebrow, title, parentPath, parentLabel, detail, imageKey }: { eyebrow:string; title:string; parentPath:string; parentLabel:string; detail:ServiceDetail; imageKey:string }) {
+function StructuredDetailPage({ eyebrow, title, parentPath, parentLabel, detail, imageKey, relatedGuides }: { eyebrow:string; title:string; parentPath:string; parentLabel:string; detail:ServiceDetail; imageKey:string; relatedGuides?: {to:string;label:string}[] }) {
   return <main className="subpage">
     <section className="subhero detail-hero"><div className="shell"><div className="breadcrumb"><Link to={parentPath}>{parentLabel}</Link><span>/</span><span>{title}</span></div><div className="eyebrow">{eyebrow}</div><h1>{title}</h1><p>{detail.intro}</p></div></section>
     <section className="detail-overview section"><div className="shell detail-visual-grid"><div className="detail-visual-copy"><div className="eyebrow">Why It Matters</div><h2>{(detail.perspectiveTitle ?? '技術の前に、\n目的と使い方を決める。').split('\n').map((line,i)=><span key={line}>{i>0&&<br/>}{line}</span>)}</h2><p className="lead">{detail.context}</p></div><div className="detail-visual-image"><img loading="lazy" decoding="async" src={siteImages[imageKey] ?? siteImages.challenges} alt={`${title}のサンプルイメージ`} /></div></div></section>
@@ -733,6 +752,7 @@ function StructuredDetailPage({ eyebrow, title, parentPath, parentLabel, detail,
     <section className="deliverables section"><div className="shell"><div className="sub-intro-grid"><div><div className="eyebrow">Deliverables</div><h2>プロジェクトに応じて、<br/>必要な形まで。</h2></div><div className="deliverable-list">{detail.deliverables.map(item=><p key={item}><span>→</span>{item}</p>)}</div></div></div></section>
     <ProcessSection />
     <RelatedCases slugs={detail.related}/>
+    {relatedGuides && <section className="service-guides section"><div className="shell"><div className="eyebrow">Further Reading</div><h2>関連するサービス・実務記事</h2><div className="service-guide-links">{relatedGuides.map(link=><Link key={link.to} to={link.to}>{link.label}<span>↗</span></Link>)}</div></div></section>}
     <SubContact />
   </main>;
 }

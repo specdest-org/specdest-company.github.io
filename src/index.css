@@ -139,3 +139,6 @@
 .legal-layout a{color:#197bb1;text-decoration:underline;text-underline-offset:3px}.inquiry-form small a{color:#197bb1;text-decoration:underline;text-underline-offset:2px}
 @media(max-width:980px){.legal-layout{grid-template-columns:1fr;gap:42px}.legal-layout aside{position:static}.legal-layout article{max-width:none}}
 @media(max-width:640px){.legal-hero{padding-bottom:54px}.legal-layout h2{font-size:26px}.legal-lead{font-size:17px}}
+
+/* Commercial service pages: minimal editorial links to existing guidance. */
+.service-guides{background:#fff}.service-guides h2{font-size:clamp(30px,3vw,44px);line-height:1.2;color:var(--navy);margin:0 0 30px}.service-guide-links{border-top:1px solid var(--line)}.service-guide-links a{display:flex;justify-content:space-between;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);color:var(--navy);font-weight:650}.service-guide-links a span{color:#176b99}
