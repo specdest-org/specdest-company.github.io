@@ -19,6 +19,11 @@ GitHub remains the source repository. CI/CD is intentionally not configured at t
 
 Firebase project `specdest-lp` is used for hosting. The new corporate website is now deployed to the live/default channel. The `demo` preview channel remains available for pre-production review when needed. Production deployment uses `firebase.json` with `dist` as the Hosting public directory. Confirm the active Firebase project (`specdest-lp`) and build output before deploying.
 
+## Contact form delivery (November 2026)
+- `/contact` submits name, email, company, topic, and message to `https://api.web3forms.com/submit` via a browser POST, using the Web3Forms public access key embedded in the client bundle. No private server-side secret or Firebase Function is required. Web3Forms processes the submitted data; the site itself does not persist form submissions.
+- The form has a honeypot field, disables duplicate clicks while submitting, and reports API success or failure. The visible email address remains a manual fallback only. A live user test confirmed email delivery.
+- Firebase Hosting sets `Cache-Control: no-cache, max-age=0, must-revalidate` for `/contact` so old HTML does not persist after deployment; fingerprinted JS/CSS remain cacheable.
+
 ## SEO
 Each public route is prerendered with real page content and unique metadata. Important routes must have unique title, description, canonical URL, and crawlable HTML.
 

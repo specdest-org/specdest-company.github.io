@@ -823,15 +823,42 @@ function TermsPage() {
 
 function ContactPage() {
   const [form, setForm] = useState({ company:'', name:'', email:'', topic:'構想段階', message:'' });
-  const update = (key:string, value:string) => setForm(current => ({ ...current, [key]: value }));
-  const submit = (event: React.FormEvent) => {
-    event.preventDefault();
-    trackEvent('contact_submit', { method: 'mailto' });
-    const subject = `Web相談: ${form.company || form.name}`;
-    const body = [`会社名: ${form.company}`, `お名前: ${form.name}`, `メール: ${form.email}`, `検討状況: ${form.topic}`, '', form.message].join('\n');
-    window.location.href = `mailto:info@specdest.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const [botcheck, setBotcheck] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const update = (key:string, value:string) => {
+    setForm(current => ({ ...current, [key]: value }));
+    setStatus('idle');
   };
-  return <main className="subpage"><section className="subhero"><div className="shell"><div className="eyebrow">Contact</div><h1>無料相談</h1><p>要件が固まっていない段階でも構いません。現在の課題、検討状況、実現したいことをお聞かせください。</p></div></section><section className="section contact-content"><div className="shell contact-form-layout"><div><div className="eyebrow">Project Inquiry</div><h2>相談内容を整理して、<br/>そのままメールへ。</h2><p className="lead">入力内容からメールを作成します。Webサイト上には入力内容を保存しません。</p><div className="contact-direct"><a href="mailto:info@specdest.com">info@specdest.com ↗</a><a href="tel:+815058965929">050-5896-5929</a></div></div><form className="inquiry-form" onSubmit={submit}><label>会社名<input value={form.company} onChange={e=>update('company',e.target.value)} autoComplete="organization" /></label><label>お名前 <span>必須</span><input required value={form.name} onChange={e=>update('name',e.target.value)} autoComplete="name" /></label><label>メールアドレス <span>必須</span><input required type="email" value={form.email} onChange={e=>update('email',e.target.value)} autoComplete="email" /></label><label>現在の検討状況<select value={form.topic} onChange={e=>update('topic',e.target.value)}><option>構想段階</option><option>要件を整理している</option><option>開発会社を探している</option><option>既存システムを改善したい</option><option>AI・自動化を検討している</option><option>その他</option></select></label><label>相談内容 <span>必須</span><textarea required rows={7} value={form.message} onChange={e=>update('message',e.target.value)} placeholder="現在の課題、実現したいこと、希望時期など"></textarea></label><button type="submit">メールで相談内容を送る ↗</button><small>送信ボタンを押すと、端末のメールアプリが開きます。送信前に<Link to="/privacy">プライバシーポリシー</Link>をご確認ください。</small></form></div></section></main>;
+  const submit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (status === 'sending' || botcheck) return;
+    setStatus('sending');
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '81cbe5cc-9d96-4cc1-824f-140802c16f9b',
+          subject: 'Specdest Webサイトからの無料相談',
+          from_name: 'Specdest Website',
+          name: form.name.trim(),
+          email: form.email.trim(),
+          company: form.company.trim(),
+          topic: form.topic,
+          message: form.message.trim(),
+          botcheck,
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error('Web3Forms rejected submission');
+      trackEvent('contact_submit', { method: 'web3forms' });
+      setStatus('success');
+      setForm({ company:'', name:'', email:'', topic:'構想段階', message:'' });
+    } catch {
+      setStatus('error');
+    }
+  };
+  return <main className="subpage"><section className="subhero"><div className="shell"><div className="eyebrow">Contact</div><h1>無料相談</h1><p>要件が固まっていない段階でも構いません。現在の課題、検討状況、実現したいことをお聞かせください。</p></div></section><section className="section contact-content"><div className="shell contact-form-layout"><div><div className="eyebrow">Project Inquiry</div><h2>お問い合わせ内容を、<br/>直接送信。</h2><p className="lead">フォームからお問い合わせを送信できます。メールアプリを開く必要はありません。</p><div className="contact-direct"><a href="mailto:info@specdest.com">info@specdest.com ↗</a><a href="tel:+815058965929">050-5896-5929</a></div></div><form className="inquiry-form" onSubmit={submit}><input className="form-botcheck" type="text" name="botcheck" value={botcheck} onChange={e=>setBotcheck(e.target.value)} tabIndex={-1} autoComplete="off" aria-hidden="true" /><label>会社名<input value={form.company} onChange={e=>update('company',e.target.value)} autoComplete="organization" /></label><label><span className="field-label">お名前 <span className="required-badge">必須</span></span><input required value={form.name} onChange={e=>update('name',e.target.value)} autoComplete="name" /></label><label><span className="field-label">メールアドレス <span className="required-badge">必須</span></span><input required type="email" value={form.email} onChange={e=>update('email',e.target.value)} autoComplete="email" /></label><label>現在の検討状況<select value={form.topic} onChange={e=>update('topic',e.target.value)}><option>構想段階</option><option>要件を整理している</option><option>開発会社を探している</option><option>既存システムを改善したい</option><option>AI・自動化を検討している</option><option>その他</option></select></label><label><span className="field-label">相談内容 <span className="required-badge">必須</span></span><textarea required rows={7} value={form.message} onChange={e=>update('message',e.target.value)} placeholder="現在の課題、実現したいこと、希望時期など"></textarea></label><button type="submit" disabled={status === 'sending'}>{status === 'sending' ? '送信中...' : '相談内容を送信する ↗'}</button><div className="form-feedback" role="status" aria-live="polite">{status === 'success' && 'お問い合わせを送信しました。ありがとうございます。'}{status === 'error' && <>送信できませんでした。時間をおいて再度お試しいただくか、<a href="mailto:info@specdest.com">メールでお問い合わせ</a>ください。</>}</div><small>送信前に<Link to="/privacy">プライバシーポリシー</Link>をご確認ください。</small></form></div></section></main>;
 }
 
 export function App() {

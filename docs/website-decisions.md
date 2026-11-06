@@ -400,7 +400,7 @@ They should not think: “This company sells engineers, offshore development, Re
 ## 35. Proof, conversion, and article usability - 2026-08-21
 - Homepage credibility is reinforced with factual proof already supported by company materials: long-term support since 2018, listed-company development experience, and coverage from AI/R&D through product/business systems.
 - Case-study detail pages may show engagement period and project structure when those facts are supported by source material. Do not invent outcome metrics.
-- Contact page now provides a structured inquiry form. Because no approved submission backend exists, the form creates a prefilled email in the visitor's mail client and explicitly states that input is not stored on the website.
+- Contact page provides a structured inquiry form. The November 2026 update replaced the previous `mailto:` submission with a direct Web3Forms POST using its public access key. Required labels remain inline with their badges, the submit button is centered, and the UI shows sending/success/error states. A user-initiated submission was confirmed delivered to the configured inbox. The direct email link remains as a manual fallback; do not restore the form `mailto:` handler.
 - Insight detail pages include a table of contents, section anchors, related internal pages, and an update date to improve reading/navigation and internal discovery.
 - Desktop mega-menu parent links must be usable by keyboard focus as well as mouse hover.
 
