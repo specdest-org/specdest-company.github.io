@@ -7,6 +7,7 @@ Use these documents as the source of truth for website work:
 - `website-direction.md` — brand, positioning, information architecture, visual direction, motion, content, and case-study principles.
 - `architecture.md` — React/Vite static-first architecture, prerendering, SEO, navigation behavior, and Firebase Hosting decisions.
 - `commercial-seo-keyword-map.md` — commercial keyword-to-URL ownership, GSC query signals, and measurement limitations.
+- `seo-authority-and-case-proof.md` — case-study evidence/approval gaps, vetted directory candidates, and off-site authority tracking.
 - `../public/images/README.md` — image folder map, replacement workflow, and size policy.
 - `../public/images/reference-sources.json` — provenance/source metadata for temporary reference images.
 

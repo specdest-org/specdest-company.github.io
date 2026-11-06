@@ -779,6 +779,22 @@ function StructuredDetailPage({ eyebrow, title, parentPath, parentLabel, detail,
   </main>;
 }
 
+// Connect demonstrated project work to the corresponding existing service pages.
+const caseServicePaths: Record<string, {path:string;label:string}[]> = {
+  'workflow-platform': [{path:'/services/business-system-development',label:'業務システム・プラットフォーム開発'}],
+  'dog-face-recognition-ai': [{path:'/services/ai-automation-development',label:'AIコンサルティング・AI開発'}],
+  'content-optimization': [{path:'/services/web-system-development',label:'Webシステム開発・改善'}],
+  'ai-chatbot': [{path:'/services/ai-automation-development',label:'生成AI導入・AI機能開発'}],
+  'ecommerce-platform': [{path:'/services/web-system-development',label:'Webシステム・EC開発'}],
+  'ios-search-ads-optimization': [{path:'/services/ai-automation-development',label:'AI活用・技術検証'}],
+  'advanced-rd-poc': [{path:'/services/ai-automation-development',label:'AI PoC・研究開発'}],
+  'shift-scheduling-system': [{path:'/services/business-system-development',label:'業務システム受託開発'}],
+  'line-chat-automation': [{path:'/services/ai-automation-development',label:'業務自動化・システム連携'}],
+  'video-cv-platform': [{path:'/services/mvp-development',label:'新規サービス・プロダクト開発'}],
+  'stroller-sharing': [{path:'/services/mvp-development',label:'新規サービス・プロダクト開発'}],
+  'medical-shift-management': [{path:'/services/business-system-development',label:'医療・シフト管理システム開発'}],
+};
+
 function CaseDetailPage({ item }: { item:{slug:string;title:string} }) {
   const detail=caseDetails[item.slug];
   return <main className="subpage case-detail">
@@ -787,6 +803,7 @@ function CaseDetailPage({ item }: { item:{slug:string;title:string} }) {
     <section className="case-story case-story-compact"><div className="shell case-visual"><div className="case-visual-image"><img loading="lazy" decoding="async" src={siteImages[item.slug] ?? siteImages.cases} alt={`${item.title}のサンプルイメージ`} /></div><div className="case-story-copy"><div className="story-label">01 / Background</div><h2>背景と課題</h2><p className="lead">{detail.background}</p><p>{detail.backgroundMore}</p><div className="story-divider"/><div className="story-label">02 / Approach</div><h2>取り組み</h2><p className="lead">{detail.approach}</p><p>{detail.approachMore}</p></div></div></section>
     <section className="case-development"><div className="shell case-development-grid"><div><div className="story-label">03 / Development</div><h2>開発内容</h2><p>プロジェクトの目的に合わせ、必要な技術・機能を組み合わせて実装しました。</p></div><div className="case-built-grid">{detail.built.map((x,index)=><article key={x}><span>{String(index+1).padStart(2,'0')}</span><strong>{x}</strong></article>)}</div></div></section>
     <section className="case-value"><div className="shell case-value-grid"><div><div className="eyebrow">What This Case Shows</div><h2>この事例が示すこと</h2></div><div><p className="lead">{detail.value}</p>{detail.team&&<div className="case-team"><span>Project Structure</span><strong>{detail.team}</strong></div>}</div></div></section>
+    <section className="case-service-paths section"><div className="shell"><div className="eyebrow">Related Services</div><h2>関連する開発・技術支援</h2><div className="service-guide-links">{caseServicePaths[item.slug].map(service=><Link key={service.path} to={service.path}>{service.label}<span>↗</span></Link>)}</div></div></section>
     <section className="related-cases section"><div className="shell"><div className="section-head"><div><div className="eyebrow">More Work</div><h2>その他の導入事例</h2></div><Link className="text-link" to="/cases">すべて見る ↗</Link></div><div className="related-grid">{caseItems.filter(x=>x.slug!==item.slug).slice(0,2).map(x=><Link key={x.slug} to={`/cases/${x.slug}`}><span>Case Study</span><h3>{x.title}</h3><p>{collectionDescriptions[x.slug]}</p><b>↗</b></Link>)}</div></div></section>
     <SubContact />
   </main>;
