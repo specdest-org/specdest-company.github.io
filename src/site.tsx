@@ -170,11 +170,19 @@ const companySeoDescriptions: Record<string,string> = {
   profile: 'Specdest株式会社の会社概要です。所在地、連絡先、Webサイト、事業内容など、業務システム開発・AI活用支援を行う会社の基本情報を掲載しています。',
 };
 
+// GSC-informed snippets for existing articles with meaningful search impressions.
+const insightSeoDescriptions: Record<string,string> = {
+  'how-to-choose-system-development-company': 'システム開発会社の選び方を企業の発注担当者向けに解説。要件が未確定でも相談できるか、SaaSとの比較、見積もりの前提、開発後の保守・改善体制など、依頼前に確認すべきポイントを整理します。',
+  'excel-to-business-system': 'Excel業務をシステム化するタイミングとは。複数人での更新、集計・転記、権限管理、データの一元化など、Excelを残す範囲と業務システムに移す範囲を考える判断基準を紹介します。',
+  'generative-ai-business-introduction': '企業の生成AI導入を、対象業務の選定からPoC、精度評価、データ管理、既存システム連携まで解説。ツール導入だけで終わらず、実際の業務で活用するための進め方を整理します。',
+  'ai-poc-before-development': 'AI PoCを本開発につなげるために、評価指標、データ条件、利用者と運用フロー、導入判断の基準を整理。生成AIや画像認識などを小さく検証する際の考え方を解説します。',
+};
+
 const detailRoutes = [
   ...solutionItems.map((item) => ({ path: `/solutions/${item.slug}`, title: `${item.title} | Specdest`, description: solutionSeoDescriptions[item.slug] })),
   ...challengeItems.map((item) => ({ path: `/challenges/${item.slug}`, title: `${item.title} | Specdest`, description: challengeSeoDescriptions[item.slug] })),
   ...caseItems.map((item) => ({ path: `/cases/${item.slug}`, title: `${item.title} | 導入事例 | Specdest`, description: caseSeoDescriptions[item.slug] })),
-  ...insightItems.map((item) => ({ path: `/insights/${item.slug}`, title: `${item.title} | システム開発・AI活用記事 | Specdest`, description: `${item.title}。システム開発・AI活用・業務改善の発注前に確認すべき実務ポイントを日本企業向けに整理します。` })),
+  ...insightItems.map((item) => ({ path: `/insights/${item.slug}`, title: `${item.title} | システム開発・AI活用記事 | Specdest`, description: insightSeoDescriptions[item.slug] ?? `${item.title}。システム開発・AI活用・業務改善の発注前に確認すべき実務ポイントを日本企業向けに整理します。` })),
   ...companyItems.filter((item)=>item.slug).map((item) => ({ path: `/company/${item.slug}`, title: `${item.title} | Specdest`, description: companySeoDescriptions[item.slug] })),
 ];
 export const siteRoutes = [...baseRoutes, ...detailRoutes];
@@ -722,11 +730,25 @@ function InsightsPage() {
   </main>;
 }
 
+// Point high-intent readers to the matching service rather than generic index pages.
+const insightServiceLinks: Record<string,{to:string;label:string}[]> = {
+  'how-to-choose-system-development-company': [{ to:'/services/business-system-development', label:'業務システム開発・受託開発' },{ to:'/cases/medical-shift-management', label:'業務システムの開発事例' }],
+  'system-development-before-starting': [{ to:'/services/business-system-development', label:'業務システム開発・受託開発' }],
+  'business-system-failure-reasons': [{ to:'/services/business-system-development', label:'業務システム開発・受託開発' }],
+  'excel-to-business-system': [{ to:'/services/business-system-development', label:'業務システム開発・受託開発' },{ to:'/solutions/automation', label:'業務改善・自動化' }],
+  'generative-ai-business-introduction': [{ to:'/services/ai-automation-development', label:'AIコンサルティング・生成AI導入支援' }],
+  'ai-poc-before-development': [{ to:'/services/ai-automation-development', label:'AIコンサルティング・生成AI導入支援' }],
+  'business-automation-checklist': [{ to:'/services/ai-automation-development', label:'AIコンサルティング・業務自動化' }],
+  'legacy-system-modernization': [{ to:'/services/business-system-development', label:'既存システムの改善・開発' }],
+  'system-requirements-before-rfp': [{ to:'/services/business-system-development', label:'業務システム開発・受託開発' }],
+  'mvp-development-planning': [{ to:'/services/mvp-development', label:'MVP開発・新規サービス開発' }],
+};
+
 function InsightDetailPage({ item }: { item:{slug:string;title:string} }) {
   const detail = insightDetails[item.slug];
   return <main className="subpage insight-detail-page">
     <section className="subhero detail-hero"><div className="shell"><div className="breadcrumb"><Link to="/insights">お役立ち記事</Link><span>/</span><span>{item.title}</span></div><div className="eyebrow">実務ガイド</div><h1>{item.title}</h1><p>{detail.summary}</p><div className="case-facts"><span>{detail.target}</span><span>更新日 2026.08.21</span></div></div></section>
-    <section className="article-body section"><div className="shell article-layout"><aside><div className="eyebrow">Contents</div><nav className="article-toc" aria-label="この記事の目次">{detail.sections.map((section,index)=><a key={section.heading} href={`#section-${index+1}`}><span>{String(index+1).padStart(2,'0')}</span>{section.heading}</a>)}</nav><p>この記事は一般的な判断材料です。実際の進め方は、要件・業務内容・運用条件によって変わります。</p></aside><article>{detail.lead&&<p className="article-lead">{detail.lead}</p>}{detail.sections.map((section,index)=><section id={`section-${index+1}`} key={section.heading}><span>{String(index+1).padStart(2,'0')}</span><h2>{section.heading}</h2><p>{section.body}</p>{section.points && <ul>{section.points.map(point=><li key={point}>{point}</li>)}</ul>}</section>)}<div className="article-related"><strong>関連するページ</strong><div><Link to="/approach">ご支援の進め方 ↗</Link><Link to="/cases">導入事例 ↗</Link><Link to="/solutions">ソリューション ↗</Link></div></div><div className="article-cta"><h2>要件が固まっていなくても相談できます。</h2><p>現状の業務・課題を伺い、システム化すべき部分、SaaSで足りる部分、AIや自動化が使える部分を整理します。</p><Link to="/contact">{detail.cta} ↗</Link></div></article></div></section>
+    <section className="article-body section"><div className="shell article-layout"><aside><div className="eyebrow">Contents</div><nav className="article-toc" aria-label="この記事の目次">{detail.sections.map((section,index)=><a key={section.heading} href={`#section-${index+1}`}><span>{String(index+1).padStart(2,'0')}</span>{section.heading}</a>)}</nav><p>この記事は一般的な判断材料です。実際の進め方は、要件・業務内容・運用条件によって変わります。</p></aside><article>{detail.lead&&<p className="article-lead">{detail.lead}</p>}{detail.sections.map((section,index)=><section id={`section-${index+1}`} key={section.heading}><span>{String(index+1).padStart(2,'0')}</span><h2>{section.heading}</h2><p>{section.body}</p>{section.points && <ul>{section.points.map(point=><li key={point}>{point}</li>)}</ul>}</section>)}<div className="article-related"><strong>関連するページ</strong><div>{insightServiceLinks[item.slug]?.map(link=><Link key={link.to} to={link.to}>{link.label} ↗</Link>)}<Link to="/approach">ご支援の進め方 ↗</Link><Link to="/cases">導入事例 ↗</Link></div></div><div className="article-cta"><h2>要件が固まっていなくても相談できます。</h2><p>現状の業務・課題を伺い、システム化すべき部分、SaaSで足りる部分、AIや自動化が使える部分を整理します。</p><Link to="/contact">{detail.cta} ↗</Link></div></article></div></section>
   </main>;
 }
 

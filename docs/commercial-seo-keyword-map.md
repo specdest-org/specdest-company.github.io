@@ -1,6 +1,28 @@
 # Specdest commercial SEO — keyword-to-page map
 
-Updated: 2026-11-06. Inputs: user-provided Google Search Console **Queries** for the preceding period and the current repository's public routes. **Pages-level GSC data and ranking positions are not supplied**; page attribution and keyword opportunity are therefore hypotheses to verify, not observed rankings. Query counts are impressions, not search volume.
+Updated: 2026-11-06. Inputs: Google Search Console export `specdest.com-Performance-on-Search-2026-11-06` (Google Drive), **Pages**, **Queries** and **Filters** tabs; `Last 3 months`, Web search. These are separate aggregated dimensions, **not a query-by-page join**. Positions are averages across observed search impressions and are not rankings for a named keyword. Query counts are impressions, not search volume. The report largely predates the November 6 service-page edits, so it cannot measure their outcome.
+
+## Observed page-level baseline (GSC export, last three months)
+
+| URL | Clicks | Impressions | CTR | Avg. position | Interpretation |
+| --- | ---: | ---: | ---: | ---: | --- |
+| `/` | 21 | 60 | 35% | 2.63 | Strong for the queries actually shown; does not demonstrate non-brand category rankings |
+| `/company/profile` | 17 | 83 | 20.48% | 19.95 | Existing organic visits are concentrated on company information, not service inquiries |
+| `/services/ai-automation-development` | 1 | 67 | 1.49% | 61.63 | Highest-priority commercial page with measurable impressions but low visibility |
+| `/services/business-system-development` | 0 | 1 | 0% | 7 | Too little data for a credible position assessment; improve discovery and watch growth |
+| `/insights/how-to-choose-system-development-company` | 0 | 21 | 0% | 86.19 | Relevant procurement article with weak average ranking |
+| `/insights/excel-to-business-system` | 0 | 15 | 0% | 56.8 | Supporting article with modest visibility and clear service intent |
+| `/insights/system-development-cost-guide` (legacy URL) | 1 | 66 | 1.52% | 78.29 | Historical URL has a redirect to the current non-price article; wait for Google to consolidate before deciding further changes |
+
+Relevant query signals: `ai 導入 支援 業務自動化` (42 impressions; avg. position 63.02), `技術選定` (22; 29), `システム開発会社 選び方` (17; 85), `エクセル業務 システム化` (14; 58.64). Do not assume these query rows all appeared on the page listed alongside them above.
+
+## Prioritized work
+
+1. **P0 – AI service page:** strengthen navigational paths from existing AI guides and continue observing impressions, clicks, and position; do not manufacture AI case outcomes.
+2. **P0 – System development:** link procurement and Excel articles to the existing commercial service page; 1 impression is a discovery/data sufficiency problem, not evidence of good ranking.
+3. **P1 – Buyer-intent guide:** write a distinctive description and connect the guide directly to development services and verified cases.
+4. **P1 – Legacy URL consolidation:** keep the 301 redirect from `system-development-cost-guide` to the current non-price guide; check GSC indexing later. Do not recreate price-led content merely to chase historical impressions.
+5. **P2 – Authority:** obtain verifiable, relevant client mentions/case references and monitor independent links. Do not purchase spam backlinks or invent testimonials.
 
 ## Commercial landing-page ownership
 
@@ -21,6 +43,6 @@ Updated: 2026-11-06. Inputs: user-provided Google Search Console **Queries** for
 
 1. Use `/` for the overall category statement and the two service pages for commercial intent. Avoid cloning a new page for `AI導入支援会社` or `受託開発会社` solely for a keyword variant.
 2. Preserve the premium company brand, fixed hero, navigation, design and legitimate evidence. No invented outcome metrics, customer claims or guaranteed rankings.
-3. Measure **query × page** after indexing. Export GSC Performance → Search results → Queries **and Pages**, with clicks, impressions, CTR and average position for the same date range. The existing Queries data alone cannot prove which URLs Google displays for each query.
+3. Measure **query × page** after indexing using a GSC query filter and Pages breakdown (or Search Console API dimensions `query,page`) for the same date range; two separate tabs do not establish a join. This export is an aggregate baseline, not proof of which URL ranks for each query.
 4. Compare 28-day and 90-day windows for target commercial queries; prioritize growing impressions and improved average position and qualified contact conversions, rather than raw blog clicks.
 5. Next candidates only after page-level evidence: clarify internal links from buyer-intent articles and evaluate whether the development/AI pages need more proof (approved project screenshots, verified case outcomes, detailed engagement process). Do not publish speculative case metrics.
