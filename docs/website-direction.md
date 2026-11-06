@@ -214,3 +214,7 @@ Japanese SEO remains the priority for all service and article pages.
 - Check actual desktop/mobile rendering for headline wrapping, sticky-header clipping, image-message mismatch, and excessive whitespace.
 - Use internet/reference photography only when semantically appropriate; avoid irrelevant people and recognizable third-party product UI.
 - Replace/remove superseded local image assets instead of accumulating unused variants.
+
+## SEO and credibility workstream (current)
+
+Prioritize credible Japanese presence and truthful, anonymized project details over bulk link-building or manufactured customer testimonials. The authoritative completed/TODO status and optional future work checklist are in [`seo-status-and-todo.md`](seo-status-and-todo.md).

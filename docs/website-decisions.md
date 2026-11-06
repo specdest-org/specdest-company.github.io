@@ -413,3 +413,11 @@ They should not think: “This company sells engineers, offshore development, Re
 ## 2026-11-06 — Mobile performance and agent discovery
 - Keep the approved hero wording and presentation. The current hero uses optimized local responsive WebP instead of the unavailable third-party video; future motion assets require a functioning, approved source and performance verification.
 - Do not remove Google Analytics to optimize Lighthouse; retain valid `/llms.txt` and an honest empty ARD manifest until real agent resources exist.
+
+## 2026-11-07 — SEO evidence and external-presence privacy
+
+- Treat [`seo-status-and-todo.md`](seo-status-and-todo.md) as the current SEO completed/pending/blocked status; older narrative sections are historical. SEO and external directory activity is resumed occasionally upon request, **not on a background schedule**.
+- Anonymous case studies may use verified broad industry/project descriptions, without inventing customer size, identity, results, metrics or claims like `大手`. Client logos, names and screenshots require explicit authorization.
+- Do not publish or register CEO/representative names, private/home/old addresses, personal contact details or unapproved client identifiers on third-party listing sites. If a provider requires sensitive data, stop and record the constraint.
+- Japanese-first channels are preferred; Qiita Organization and Zenn Publication remain TODO until an authorized account exists. Public GitHub company metadata is already done. 比較ビズ corrections belong to the user and are out of scope unless requested.
+- The site already publishes a **corporate** address on `/company/profile` and in organization structured data; do not mistake it for a private address or alter it without verification.

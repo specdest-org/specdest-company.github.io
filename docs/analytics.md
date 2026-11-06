@@ -26,3 +26,7 @@ Tracked events:
 - Script loading is `async` and never blocks HTML parsing or rendering.
 - No Firebase JavaScript SDK is added just for analytics.
 - Analytics must not alter titles, descriptions, canonical URLs, JSON-LD, sitemap, robots, or crawlable page content.
+
+## SEO reporting cadence
+
+GA4 events are instrumentation, not evidence of ranking or conversion improvement by themselves. Compare Google Search Console query/page impressions, clicks and positions with qualified GA4 contact actions when reviewing SEO. See [`seo-status-and-todo.md`](seo-status-and-todo.md); reviews are ad hoc when the user resumes the workstream, not an automated recurring report.

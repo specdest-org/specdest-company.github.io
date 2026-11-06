@@ -42,3 +42,7 @@ Desktop mega menus close on any navigation click and also close automatically on
 
 Mobile navigation uses an accordion hierarchy rather than a flat list. Top-level sections with children expand/collapse one at a time, direct links remain direct, and choosing any destination closes and resets the mobile menu.
 
+
+## SEO operations status
+
+Technical SEO is baseline-complete (50 prerendered routes, sitemap and audit); current rankings, external listings and indexing requests are tracked separately in [`seo-status-and-todo.md`](seo-status-and-todo.md). Documentation-only updates do not require Firebase deployment.

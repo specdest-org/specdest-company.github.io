@@ -1,6 +1,6 @@
-# External authority and case-study evidence — work plan
+# External authority and case-study evidence — reference plan
 
-Updated: 2026-11-07. Commercial rankings and the baseline Search Console numbers are documented in `commercial-seo-keyword-map.md`.
+Updated: 2026-11-07. **Current TODO/status belongs in `seo-status-and-todo.md`**; this document records candidate/evidence reasoning. Commercial rankings and the baseline Search Console numbers are documented in `commercial-seo-keyword-map.md`.
 
 ## Changes completed in this pass
 
@@ -33,7 +33,7 @@ Keep client names, logos, screenshots, testimonials, costs, KPIs, patents, dates
 - Baseline: GSC export `specdest.com-Performance-on-Search-2026-11-06` with 67 impressions for `/services/ai-automation-development` and only 1 for `/services/business-system-development` over three months. Those aggregates are not rankings for specific queries.
 - Recheck Search Console over matched 28-day windows after indexing/re-crawling: service impressions, query-page positions, clicks and organic inquiry conversions. Link additions do not guarantee rank gains.
 
-## Unfinished / prerequisites
+## Prerequisites (check status in `seo-status-and-todo.md`)
 
 - No external profiles were created or submitted: business-owner login, verification and factual profile approval are required.
 - No client requests or public testimonials were sent/published: explicit permission and supporting evidence are required.
@@ -48,4 +48,4 @@ The current Japanese-first, no-personal-details submission eligibility, hard blo
 2026-11-07 update: The public GitHub website repository now has a Japanese corporate service description and `https://specdest.com` homepage link. A Japanese directory originally shortlisted for free listing was held after verifying that it publishes representatives and street addresses from public company records. See `seo-anonymous-cases-and-listings.md` §8 for evidence and submission state.
 
 
-2026-11-07 Japanese-first status: verified **Qiita Organization** (free; address optional, two authorized users required) and **Zenn Publication Free** (company brand/links without a required public street address; application and content required) as suitable privacy-first channels. Updated the public GitHub organization description and homepage. Neither Japanese channel was submitted because authorized member accounts were not established. See `seo-anonymous-cases-and-listings.md` §9.
+2026-11-07 Japanese-first status: verified **Qiita Organization** (free; address optional, two authorized users required) and **Zenn Publication Free** (company brand/links without a required public street address; application and content required) as suitable privacy-first channels. Updated the public GitHub organization description and homepage. Neither Japanese channel was submitted because authorized member accounts were not established. See `seo-anonymous-cases-and-listings.md` §9 and the active backlog in `seo-status-and-todo.md`.

@@ -1,6 +1,6 @@
 # Anonymous case studies and directory listings — privacy-first execution
 
-Updated: 2026-11-07. This is the operational plan for increasing Japanese presence without disclosing a representative's identity or personal address. Never use this document to infer authorization to disclose client details or register private identity data.
+Updated: 2026-11-07. **See `seo-status-and-todo.md` for active TODO and status; this is a historical research/operational reference.** This is the operational plan for increasing Japanese presence without disclosing a representative's identity or personal address. Never use this document to infer authorization to disclose client details or register private identity data.
 
 ## 1. Anonymous case-study precedents and copy rules
 
@@ -81,7 +81,7 @@ Other sites such as 比較ビズ and PRONI may charge providers: never treat an 
 
 As of this review, **zero new external profiles submitted, claimed, or verified live**. The company-safe copy above is ready for eligible providers. Some platform onboarding requires authenticated login and mandatory personal/address/price information; do not bypass these gates. A third-party removal or correction request is *not completed* until the platform confirms the change and the public profile is rechecked.
 
-Comparison-site correction is separately owned by the user; do not contact 比較ビズ again in this campaign. Do not submit identity information to other providers or create unverifiable listings.
+Comparison-site correction is separately owned by the user; do not contact 比較ビズ again in this campaign. It is not an assistant TODO. Do not submit identity information to other providers or create unverifiable listings.
 
 
 ## 7. November 7 platform requirement check and actionable outreach packet
@@ -160,3 +160,8 @@ The following are facts checked against providers' own current materials, not as
 **Browser check:** existing Controller/Devkit route was inspected (`./controller browser doctor specdest` and `specdest-company`); the gateway returned `repository not registered`. The site repository has no registered project identity for Devkit browser automation. Browser tool through an unrelated registered project would violate project ownership. No alternate browser/Playwright was used or added; registering new host commands/projects requires explicit user approval under controller `agents.md`. Public provider policies were reviewed using ordinary read-only web retrieval.
 
 **Actual external submissions:** 0 new Qiita, Zenn or directory applications. Their authorization/member prerequisites have not been met. GitHub organization profile updated and verified; no personal data or client identifiers supplied. GitHub descriptions are company facts, not a guarantee of ranking improvements.
+
+
+## Status ownership
+
+All future progress updates (including Qiita/Zenn account setup, new listings, and dated GSC comparisons) go to [`seo-status-and-todo.md`](seo-status-and-todo.md). Keep the source research here without repeatedly appending ambiguous “next action” claims. Workstream is resumed manually as needed, not continuously monitored.

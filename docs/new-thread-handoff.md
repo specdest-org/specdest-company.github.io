@@ -2,7 +2,7 @@
 
 Read `docs/website-decisions.md` first. It is the current implementation source of truth and later explicit decisions supersede older ones.
 
-For Specdest work, also read `website-direction.md`, `architecture.md`, `public/images/README.md`, and `public/images/reference-sources.json` before changing navigation, content structure, visuals, images, or deployment behavior.
+For SEO, external presence or case-study outreach, read `seo-status-and-todo.md` first; Qiita/Zenn are pending, 比較ビズ is user-owned, and public CEO/private address disclosures are prohibited. For Specdest work, also read `website-direction.md`, `architecture.md`, `public/images/README.md`, and `public/images/reference-sources.json` before changing navigation, content structure, visuals, images, or deployment behavior.
 
 Do not infer current production state from an old conversation. Inspect the repository and Firebase configuration before making or describing deployment changes.
 

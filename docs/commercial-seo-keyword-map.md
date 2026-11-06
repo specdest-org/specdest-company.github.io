@@ -1,6 +1,6 @@
 # Specdest commercial SEO — keyword-to-page map
 
-Updated: 2026-11-06. Inputs: Google Search Console export `specdest.com-Performance-on-Search-2026-11-06` (Google Drive), **Pages**, **Queries** and **Filters** tabs; `Last 3 months`, Web search. These are separate aggregated dimensions, **not a query-by-page join**. Positions are averages across observed search impressions and are not rankings for a named keyword. Query counts are impressions, not search volume. The report largely predates the November 6 service-page edits, so it cannot measure their outcome.
+Baseline: 2026-11-06. Active status/backlog: [`seo-status-and-todo.md`](seo-status-and-todo.md). Inputs: Google Search Console export `specdest.com-Performance-on-Search-2026-11-06` (Google Drive), **Pages**, **Queries** and **Filters** tabs; `Last 3 months`, Web search. These are separate aggregated dimensions, **not a query-by-page join**. Positions are averages across observed search impressions and are not rankings for a named keyword. Query counts are impressions, not search volume. The report largely predates the November 6 service-page edits, so it cannot measure their outcome.
 
 ## Observed page-level baseline (GSC export, last three months)
 
