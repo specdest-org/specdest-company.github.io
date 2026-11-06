@@ -26,3 +26,10 @@ No high advisories remain. The fixed development-only advisories do not imply th
 - `pnpm audit --json`: 0 critical, 0 high, 3 moderate, 0 low.
 
 No design, content, or Firebase configuration changes; no production deployment. Visual browser comparison was not performed for this dependency-only change.
+
+## Follow-up: zero-alert migration (2026-11-06)
+
+- Upgraded `react-router-dom` to 7.18.5 and `vite` to 7.3.7, clearing the remaining three moderate advisories. The v7 router requires importing `StaticRouter` from `react-router-dom` rather than the removed `react-router-dom/server` path.
+- Adjusted the Node engine constraint to `^20.19.0 || >=22.12.0` as required by Vite 7. This is a build-tool support change; Firebase Hosting still serves static files.
+- Repeated `pnpm install --frozen-lockfile`, `npm run build`, `npm run seo:audit`, and `pnpm audit --json`: all passed. Audit now reports **0 critical, 0 high, 0 moderate, 0 low**. Still verify GitHub Dependabot after pushing because dashboard alerts are calculated asynchronously against the remote default branch.
+- All 50 prerender routes and sitemap entries retained. No production backend or Node server introduced.
