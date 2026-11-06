@@ -75,7 +75,7 @@ function htmlFor(route) {
   const url = `${baseUrl}${route.path === '/' ? '/' : route.path}`;
   return template
     .replace('<!--app-html-->', render(route.path))
-    .replace('</head>', `${jsonLdFor(route)}\n</head>`)
+    .replace('</head>', `${route.path === '/' ? '<link rel="preload" as="image" href="/images/home/hero-poster-mobile.webp" media="(max-width: 640px)" fetchpriority="high" />\n<link rel="preload" as="image" href="/images/home/hero-poster.webp" media="(min-width: 641px)" fetchpriority="high" />\n' : ''}${jsonLdFor(route)}\n</head>`)
     .replace(/<title>.*?<\/title>/, `<title>${route.title}</title>`)
     .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${route.description}" />`)
     .replace(/<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${route.title}" />`)

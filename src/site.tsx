@@ -323,7 +323,7 @@ function Footer() {
 
 function Hero() {
   return <section className="hero">
-    <img className="hero-poster" src="/images/home/hero-poster.webp" alt="" aria-hidden="true" decoding="async" />
+    <picture className="hero-visual"><source media="(max-width: 640px)" srcSet="/images/home/hero-poster-mobile.webp" /><img className="hero-poster" src="/images/home/hero-poster.webp" alt="" aria-hidden="true" decoding="async" loading="eager" /></picture>
     <div className="hero-overlay" />
     <div className="hero-content shell"><h1>Better,<br/>through technology.</h1><p>可能性を広げ、より良い未来へ。</p></div>
   </section>;
