@@ -8,6 +8,7 @@ Use these documents as the source of truth for website work:
 - `architecture.md` — React/Vite static-first architecture, prerendering, SEO, navigation behavior, and Firebase Hosting decisions.
 - `commercial-seo-keyword-map.md` — commercial keyword-to-URL ownership, GSC query signals, and measurement limitations.
 - `seo-authority-and-case-proof.md` — case-study evidence/approval gaps, vetted directory candidates, and off-site authority tracking.
+- `seo-anonymous-cases-and-listings.md` — anonymous case-study precedents, Japanese and international directory shortlist, profile copy, and personal-information publication safeguards.
 - `../public/images/README.md` — image folder map, replacement workflow, and size policy.
 - `../public/images/reference-sources.json` — provenance/source metadata for temporary reference images.
 

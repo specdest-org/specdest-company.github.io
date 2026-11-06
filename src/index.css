@@ -145,3 +145,6 @@
 
 /* Case studies: concise paths from project evidence to relevant services. */
 .case-service-paths{background:#fff}.case-service-paths h2{font-size:clamp(30px,3vw,44px);line-height:1.2;color:var(--navy);margin:0 0 30px}
+
+/* Set confidentiality expectations without presenting anonymous cases as named endorsements. */
+.cases-hero .case-privacy-note{font-size:13px;line-height:1.7;opacity:.75;margin-top:16px}
