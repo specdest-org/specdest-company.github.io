@@ -46,3 +46,6 @@ The current Japanese-first, no-personal-details submission eligibility, hard blo
 
 
 2026-11-07 update: The public GitHub website repository now has a Japanese corporate service description and `https://specdest.com` homepage link. A Japanese directory originally shortlisted for free listing was held after verifying that it publishes representatives and street addresses from public company records. See `seo-anonymous-cases-and-listings.md` §8 for evidence and submission state.
+
+
+2026-11-07 Japanese-first status: verified **Qiita Organization** (free; address optional, two authorized users required) and **Zenn Publication Free** (company brand/links without a required public street address; application and content required) as suitable privacy-first channels. Updated the public GitHub organization description and homepage. Neither Japanese channel was submitted because authorized member accounts were not established. See `seo-anonymous-cases-and-listings.md` §9.

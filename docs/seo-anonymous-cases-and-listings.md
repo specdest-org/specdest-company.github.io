@@ -134,3 +134,29 @@ The following are facts checked against providers' own current materials, not as
 - **Sending capability check:** the repo is not registered with the controller's host-browser project gateway (`./controller browser doctor specdest` returned `repository not registered`). A connected outbound company email sender was not available. Do not bypass this by posting unauthenticated form requests or using another company's login. No inquiry, registration or external listing has been submitted.
 - **Completed company-only external presence improvement:** the public GitHub repo `https://github.com/specdest-org/specdest-company.github.io` now contains a Japanese business/service description and its `homepage` points to `https://specdest.com`. Updated and read back through the GitHub API on 2026-11-07. No representative name, address, phone number, or private client information was transmitted by this change.
 - **Next permissible action:** find a directory whose terms and verified public result **exclude** personal/representative data; submit only its minimal corporate profile using an authorized sender. Otherwise request a provider's written suppression guarantees first, via a company-controlled communication channel.
+
+
+## 9. November 7 continuation — Japan-first profiles with optional public address
+
+**Best options:** a company technical-publication presence (credible technical content, rather than generic SEO directory links). Provider-owned instructions and field requirements checked on 2026-11-07:
+
+| Platform | Official instructions | Public-private data rule | Status / requirements |
+| --- | --- | --- | --- |
+| **Qiita Organization** | https://help.qiita.com/ja/articles/qiita-org-create | Public address and public email **optional**. Operator-contact email **nonpublic**. Requires public organization name, icon/banner and description; **2 Qiita users (applicant + at least 1 invited member)**, confirmed login/email and approval | **Eligible in principle** without a public representative name/address; application cannot be sent without two authorized member accounts. Do not create personal/staff identities or invite unrelated people. |
+| **Zenn Publication Free** | https://zenn.dev/zenn/articles/how-to-use-publication | Public organization name, description, links, artwork. No mandatory public address/CEO in published instructions. Account-owned author profiles may appear alongside articles | **Eligible in principle** with a company-controlled account and moderation approval. Application not submitted; don't impersonate an employee or create an unapproved account. |
+| **GitHub Organization** | https://github.com/specdest-org | Public organization description and homepage can be set without public representative or address | **DONE 2026-11-07:** updated description (Japanese service keywords) and official homepage `https://specdest.com` using authenticated GitHub API and verified readback; no personal information added. |
+| **WEBシステム開発会社データベース** | https://grip-space.co.jp/websys-db/ | Uses public registry sources and displays representative and full street address in example profiles | **HOLD**; conflicts with no-public-personal-identity rule, regardless of free listing status. |
+
+**Qiita short organization bio (under 200 Japanese characters):**
+
+> Specdest株式会社は、業務システム開発、AI導入支援、業務自動化、Web・プロダクト開発、PoC・技術検証を支援する技術会社です。課題整理から技術選定、設計・実装、運用後の改善まで、事業の現場に合う方法を選び、形にします。
+
+**Zenn publication title:** Specdest Tech
+
+**Zenn publication description:** Specdest株式会社の技術ノート。業務システム開発、AI導入支援、PoC、業務自動化、Web開発での設計・技術選定・実装の考え方を、機密情報を除いて共有します。
+
+**First planned posts:** practical, original engineering stories based only on public/proprietary-owned know-how, without client names, confidential architectures, customer screenshots or personal authorship masquerading as an employee. Candidates: (1) business-system requirements before choosing technology, (2) production readiness checks for AI PoC, (3) safely migrating spreadsheet workflows into maintainable systems. Do not automatically duplicate full specdest.com articles or mass-post backlinks.
+
+**Browser check:** existing Controller/Devkit route was inspected (`./controller browser doctor specdest` and `specdest-company`); the gateway returned `repository not registered`. The site repository has no registered project identity for Devkit browser automation. Browser tool through an unrelated registered project would violate project ownership. No alternate browser/Playwright was used or added; registering new host commands/projects requires explicit user approval under controller `agents.md`. Public provider policies were reviewed using ordinary read-only web retrieval.
+
+**Actual external submissions:** 0 new Qiita, Zenn or directory applications. Their authorization/member prerequisites have not been met. GitHub organization profile updated and verified; no personal data or client identifiers supplied. GitHub descriptions are company facts, not a guarantee of ranking improvements.
