@@ -409,3 +409,7 @@ They should not think: “This company sells engineers, offshore development, Re
 - Preserve the fixed brand hero, problem-first navigation, corporate design, and technology-partner philosophy.
 - Link the homepage to existing relevant service pages rather than creating duplicate keyword-targeted pages.
 - Do not imply AI or custom development is always the correct solution.
+
+## 2026-11-06 — Mobile performance and agent discovery
+- Keep the approved hero wording and presentation. The current hero uses optimized local responsive WebP instead of the unavailable third-party video; future motion assets require a functioning, approved source and performance verification.
+- Do not remove Google Analytics to optimize Lighthouse; retain valid `/llms.txt` and an honest empty ARD manifest until real agent resources exist.
