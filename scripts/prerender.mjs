@@ -7,6 +7,12 @@ const dist = path.join(root, 'dist');
 const serverFile = path.join(root, 'dist-server', 'entry-server.js');
 const { render, siteRoutes } = await import(pathToFileURL(serverFile).href);
 const template = await fs.readFile(path.join(dist, 'index.html'), 'utf8');
+// Inline the existing stylesheet only on the homepage to eliminate its render-blocking request.
+const stylesheetLink = template.match(/<link rel="stylesheet"[^>]*href="(\/assets\/[^"]+\.css)"[^>]*>/)?.[0];
+if (!stylesheetLink) throw new Error('Unable to locate Vite stylesheet link');
+const stylesheetPath = stylesheetLink.match(/href="([^"]+)"/)?.[1];
+if (!stylesheetPath) throw new Error('Unable to locate Vite stylesheet path');
+const homeCss = await fs.readFile(path.join(dist, stylesheetPath.slice(1)), 'utf8');
 const baseUrl = 'https://specdest.com';
 
 function jsonLdFor(route) {
@@ -73,7 +79,8 @@ function jsonLdFor(route) {
 
 function htmlFor(route) {
   const url = `${baseUrl}${route.path === '/' ? '/' : route.path}`;
-  return template
+  const pageTemplate = route.path === '/' ? template.replace(stylesheetLink, `<style>${homeCss}</style>`) : template;
+  return pageTemplate
     .replace('<!--app-html-->', render(route.path))
     .replace('</head>', `${route.path === '/' ? '<link rel="preload" as="image" href="/images/home/hero-poster-mobile.webp" media="(max-width: 640px)" fetchpriority="high" />\n<link rel="preload" as="image" href="/images/home/hero-poster.webp" media="(min-width: 641px)" fetchpriority="high" />\n' : ''}${jsonLdFor(route)}\n</head>`)
     .replace(/<title>.*?<\/title>/, `<title>${route.title}</title>`)

@@ -11,6 +11,14 @@
         "headers": [{ "key": "Cache-Control", "value": "public,max-age=31536000,immutable" }]
       },
       {
+        "source": "/images/home/hero-poster-mobile.webp",
+        "headers": [{ "key": "Cache-Control", "value": "public,max-age=2592000" }]
+      },
+      {
+        "source": "/images/home/philosophy-working-session.jpg",
+        "headers": [{ "key": "Cache-Control", "value": "public,max-age=2592000" }]
+      },
+      {
         "source": "**/*.@(png|jpg|jpeg|webp|svg|woff|woff2)",
         "headers": [{ "key": "Cache-Control", "value": "public,max-age=86400" }]
       }

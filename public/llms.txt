@@ -1,0 +1,15 @@
+# Specdest株式会社
+
+> Specdest is a Japanese system development and AI consulting company. The company supports business system development, generative AI adoption, process automation, technical evaluation, and implementation.
+
+## Company and services
+- [Home](https://specdest.com/): Company overview and philosophy.
+- [System development](https://specdest.com/services/business-system-development): Business software development and operational systems.
+- [AI consulting and implementation](https://specdest.com/services/ai-automation-development): AI strategy, PoC, generative AI adoption, automation and implementation.
+- [Web system development](https://specdest.com/services/web-system-development): Custom web platforms and integrations.
+- [Case studies](https://specdest.com/cases): Selected development and AI project examples.
+- [Company profile](https://specdest.com/company): Company information.
+- [Contact](https://specdest.com/contact): Business inquiries.
+
+## Articles
+- [Insights](https://specdest.com/insights): Practical articles about system development and AI adoption.
