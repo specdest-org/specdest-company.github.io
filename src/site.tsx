@@ -323,9 +323,7 @@ function Footer() {
 
 function Hero() {
   return <section className="hero">
-    <video aria-hidden="true" tabIndex={-1} autoPlay muted loop playsInline poster="/images/home/hero-poster.jpg">
-      <source src="https://cdn.coverr.co/videos/coverr-a-server-room-with-blue-lights-1575/1080p.mp4" type="video/mp4" />
-    </video>
+    <img className="hero-poster" src="/images/home/hero-poster.webp" alt="" aria-hidden="true" decoding="async" />
     <div className="hero-overlay" />
     <div className="hero-content shell"><h1>Better,<br/>through technology.</h1><p>可能性を広げ、より良い未来へ。</p></div>
   </section>;
