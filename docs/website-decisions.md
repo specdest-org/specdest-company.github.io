@@ -403,3 +403,9 @@ They should not think: “This company sells engineers, offshore development, Re
 - Contact page now provides a structured inquiry form. Because no approved submission backend exists, the form creates a prefilled email in the visitor's mail client and explicitly states that input is not stored on the website.
 - Insight detail pages include a table of contents, section anchors, related internal pages, and an update date to improve reading/navigation and internal discovery.
 - Desktop mega-menu parent links must be usable by keyboard focus as well as mouse hover.
+
+## 16. SEO positioning clarification (November 2026)
+- Explicitly identify Specdest as a system development and AI consulting company in homepage metadata and supporting copy.
+- Preserve the fixed brand hero, problem-first navigation, corporate design, and technology-partner philosophy.
+- Link the homepage to existing relevant service pages rather than creating duplicate keyword-targeted pages.
+- Do not imply AI or custom development is always the correct solution.

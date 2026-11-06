@@ -116,7 +116,7 @@ const solutions = solutionItems.map((item) => item.title);
 const challenges = challengeItems.map((item) => item.title);
 
 const baseRoutes = [
-  { path: '/', title: 'Specdest | Better, through technology.', description: 'Specdestは、業務システム開発、AI業務自動化、Webシステム開発、PoC・R&Dを通じて、日本企業の事業課題を整理し、技術選定から実装・改善まで一貫して支援するテクノロジーパートナーです。' },
+  { path: '/', title: 'システム開発・AIコンサルティング | Specdest株式会社', description: 'Specdest株式会社は、システム開発とAIコンサルティングを通じて企業の課題解決を支援します。業務システム開発、生成AI導入支援、業務自動化、PoCから設計・実装・継続改善まで一貫して対応します。' },
   { path: '/solutions', title: 'ソリューション | Specdest', description: 'Specdestのソリューション一覧です。AI活用、業務改善・自動化、業務システム開発、Webシステム開発、MVP開発、PoC・R&D、既存システム改善を、課題整理から実装・継続改善まで支援します。' },
   { path: '/challenges', title: '課題から探す | Specdest', description: 'AIを業務に活用したい、手作業を減らしたい、新規サービスを立ち上げたい、既存システムを改善したいなど、日本企業の課題から必要な技術、開発方法、進め方を整理します。' },
   { path: '/cases', title: '導入事例 | Specdest', description: 'AI開発、業務プラットフォーム、Webシステム、アプリ、EC、R&Dなど、Specdestが支援した開発・技術支援事例を紹介します。課題、取り組み、開発内容を整理しています。' },
@@ -127,7 +127,7 @@ const baseRoutes = [
   { path: '/privacy', title: 'プライバシーポリシー | Specdest', description: 'Specdest株式会社のプライバシーポリシーです。個人情報の取得、利用目的、安全管理、Google Analytics等についてご案内します。' },
   { path: '/terms', title: 'サイト利用規約 | Specdest', description: 'Specdest株式会社が運営するWebサイトの利用条件、知的財産権、免責事項等について定めたサイト利用規約です。' },
   { path: '/services/business-system-development', title: '業務システム開発会社 | Specdest', description: '業務システム開発、管理システム、予約・在庫・CRM・ワークフローなど、現場業務に合わせたシステム開発を支援します。業務整理、要件定義、設計、開発、運用改善まで対応します。' },
-  { path: '/services/ai-automation-development', title: 'AI業務自動化・生成AI導入支援 | Specdest', description: 'AI業務自動化、生成AI導入、社内業務へのAI活用、PoC、AI機能開発を、課題整理から設計・実装・継続改善まで支援します。既存システムや業務フローへのAI組み込みも相談できます。' },
+  { path: '/services/ai-automation-development', title: 'AIコンサルティング・生成AI導入支援 | Specdest', description: 'AIコンサルティング、生成AI導入支援、AI業務自動化、PoC・効果検証、AI機能開発を、業務課題の整理から設計・実装・継続改善まで支援します。' },
   { path: '/services/web-system-development', title: 'Webシステム開発会社 | Specdest', description: 'Webシステム開発、業務Webアプリ、管理画面、外部サービス連携、運用改善まで、日本企業の業務と事業課題に合わせて支援します。構想整理から継続改善まで一貫して対応します。' },
   { path: '/services/mvp-development', title: 'MVP開発・新規サービス開発 | Specdest', description: 'MVP開発、新規サービス開発、デジタルプロダクト開発を、構想整理、要件整理、技術選定、本番開発、継続改善まで支援します。小さく検証しながら事業化を進めます。' },
   ];
@@ -314,7 +314,7 @@ function Footer() {
       <div className="footer-brand"><strong>Specdest</strong><p>Better, through technology.<br/>可能性を広げ、より良い未来へ。</p></div>
       <div><strong className="footer-heading">ソリューション</strong><Link to="/solutions/ai-technology">AI・テクノロジー活用</Link><Link to="/solutions/automation">業務改善・自動化</Link><Link to="/solutions/product-development">デジタルプロダクト開発</Link><Link to="/solutions/business-systems">業務システム開発</Link></div>
       <div><strong className="footer-heading">見る</strong><Link to="/approach">ご支援の進め方</Link><Link to="/cases">導入事例</Link><Link to="/insights">お役立ち記事</Link><Link to="/insights/system-development-before-starting">開発前の整理</Link></div>
-      <div><strong className="footer-heading">開発サービス</strong><Link to="/services/business-system-development">業務システム開発</Link><Link to="/services/ai-automation-development">AI業務自動化</Link><Link to="/services/web-system-development">Webシステム開発</Link><Link to="/services/mvp-development">MVP開発</Link></div>
+      <div><strong className="footer-heading">開発サービス</strong><Link to="/services/business-system-development">業務システム開発</Link><Link to="/services/ai-automation-development">AIコンサルティング・導入支援</Link><Link to="/services/web-system-development">Webシステム開発</Link><Link to="/services/mvp-development">MVP開発</Link></div>
       <div><strong className="footer-heading">会社情報</strong><Link to="/company">Specdestについて</Link><Link to="/company/philosophy">Philosophy / Vision</Link><Link to="/company/profile">会社概要</Link></div>
     </div>
     <div className="footer-bottom shell"><span>© Specdest Inc.</span><div><a href="/sitemap.xml">サイトマップ</a><Link to="/privacy">プライバシーポリシー</Link><Link to="/terms">サイト利用規約</Link><Link to="/contact">お問い合わせ</Link></div></div>
@@ -339,7 +339,7 @@ function TrustStrip() {
 function HomePage() {
   return <>
     <Hero />
-    <section className="intro section"><div className="shell intro-grid"><Reveal><div className="eyebrow">Our Role</div><h2>技術をつくる前に、<br/>何を変えるべきかを考える。</h2></Reveal><Reveal><p className="lead">Specdestは、事業や業務の課題を起点に、何を変えるべきかを整理します。必要な技術を見極め、設計・実装・改善まで一貫して担います。</p><p className="statement">AI、SaaS、業務自動化、システム連携、プロダクト開発。手段を限定せず、課題に対して合理的な方法を選ぶ。</p></Reveal></div></section>
+    <section className="intro section"><div className="shell intro-grid"><Reveal><div className="eyebrow">Our Role</div><h2>技術をつくる前に、<br/>何を変えるべきかを考える。</h2></Reveal><Reveal><p className="lead">Specdestは、システム開発とAIコンサルティングを軸に、事業や業務の課題を整理し、技術選定から設計・実装・改善まで一貫して担います。</p><p className="statement">AI、SaaS、業務自動化、システム連携、プロダクト開発。手段を限定せず、課題に対して合理的な方法を選ぶ。</p><div className="intro-service-links"><Link className="text-link" to="/services/business-system-development">業務システム開発 ↗</Link><Link className="text-link" to="/services/ai-automation-development">AIコンサルティング・導入支援 ↗</Link></div></Reveal></div></section>
     <TrustStrip />
     <HomeProof />
     <Outcomes />
@@ -660,11 +660,11 @@ const seoServicePages: Record<string, { title: string; eyebrow: string; detail: 
     detail: solutionDetails['business-systems'],
   },
   'ai-automation-development': {
-    title: 'AI業務自動化・生成AI導入支援',
+    title: 'AIコンサルティング・生成AI導入支援',
     eyebrow: 'Service',
     imageKey: 'ai-technology',
     detail: {
-      intro: 'AI導入、生成AI活用、業務自動化を、課題整理からPoC・実装・改善まで支援します。',
+      intro: 'AIコンサルティングから生成AI導入、業務自動化まで、課題整理・技術選定・PoC・実装・改善を一貫して支援します。',
       context: 'AIを入れること自体を目的にせず、どの業務で効果が出るか、既存サービスで足りるか、独自機能が必要かを整理します。',
       points: ['AI活用候補の整理', 'PoC・効果検証', '業務システムへのAI機能組み込み'],
       deliverables: ['AI活用テーマ整理', '生成AI / AI機能のPoC', '業務自動化・システム連携'],
