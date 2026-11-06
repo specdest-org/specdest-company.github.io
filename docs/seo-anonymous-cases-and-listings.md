@@ -126,3 +126,11 @@ The following are facts checked against providers' own current materials, not as
 | 事例URL | https://specdest.com/cases/medical-shift-management ; https://specdest.com/cases/ai-chatbot |
 
 **Do not fill** any other fields with inferred representative name, street address, number of staff, revenue, contract minimum, hourly rate or private client data. A provider requesting any of those details is **on hold**, not submitted.
+
+
+## 8. 2026-11-07 outreach execution — confirmed status
+
+- **Risk discovered:** the candidate WEBシステム開発会社データベース publishes a representative name and street address on at least one current company detail page (example: https://grip-space.co.jp/websys-db/company/4922096). The directory states it gathers corporate registry information. Therefore **do not submit or claim Specdest** unless the operator explicitly confirms the company listing can suppress the representative name and full address and prevent auto-enrichment. Existing preflight inquiry in §7 remains **unsent**.
+- **Sending capability check:** the repo is not registered with the controller's host-browser project gateway (`./controller browser doctor specdest` returned `repository not registered`). A connected outbound company email sender was not available. Do not bypass this by posting unauthenticated form requests or using another company's login. No inquiry, registration or external listing has been submitted.
+- **Completed company-only external presence improvement:** the public GitHub repo `https://github.com/specdest-org/specdest-company.github.io` now contains a Japanese business/service description and its `homepage` points to `https://specdest.com`. Updated and read back through the GitHub API on 2026-11-07. No representative name, address, phone number, or private client information was transmitted by this change.
+- **Next permissible action:** find a directory whose terms and verified public result **exclude** personal/representative data; submit only its minimal corporate profile using an authorized sender. Otherwise request a provider's written suppression guarantees first, via a company-controlled communication channel.

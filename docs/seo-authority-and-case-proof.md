@@ -43,3 +43,6 @@ Keep client names, logos, screenshots, testimonials, costs, KPIs, patents, dates
 ## 2026-11-07 listing workflow update
 
 The current Japanese-first, no-personal-details submission eligibility, hard blockers and the company-only profile copy live in [`seo-anonymous-cases-and-listings.md`](seo-anonymous-cases-and-listings.md). Do not interpret the directory shortlist above as approved registrations. The user is handling the existing 比較ビズ listing independently.
+
+
+2026-11-07 update: The public GitHub website repository now has a Japanese corporate service description and `https://specdest.com` homepage link. A Japanese directory originally shortlisted for free listing was held after verifying that it publishes representatives and street addresses from public company records. See `seo-anonymous-cases-and-listings.md` §8 for evidence and submission state.
