@@ -23,6 +23,20 @@ Examples reviewed on 2026-11-07:
 
 **External listing privacy gate:** Public fields may contain only company name, brand summary, official website, general business mailbox, approved services, and approved non-identifying case references. Do not use CEO/representative name, personal emails, private/mobile numbers, personal/home/former addresses, DOB, or client identifiers. If a provider requires personal ID, name, street address, employee count, project minimum or hourly price: **stop** rather than guessing or substituting false values. Confirm the provider's public vs private data treatment and corporate information suitability before submission. Keep credentials, platform sessions, personal documents, and approval records outside the public repository.
 
+### Draft for the existing 比較ビズ listing correction
+
+To send through the account dashboard or official operator support **only after account ownership is verified**. This text does not repeat private information and is not itself a submitted request:
+
+> 件名：掲載中の企業情報の修正・非公開依頼（Specdest株式会社）
+>
+> 比較ビズ運営ご担当者様
+>
+> 弊社の掲載情報（https://www.biz.ne.jp/company/specdest/）について、代表者氏名および旧所在地の公開を停止し、該当項目の非表示または掲載ページの取り下げを希望します。必要な本人確認や管理権限の確認手順をご案内ください。なお、確認に必要な個人情報の送付方法は、公開ページではない安全な経路をご指定ください。
+>
+> Specdest株式会社 / info@specdest.com
+
+Do not include the old address or a personal name in the initial email. Do not falsely claim a correction has been accepted before it is observable publicly.
+
 ## 3. Japanese presence — ranked opportunities
 
 | Platform | Official starting point | Assessment | Next step / limitation |
